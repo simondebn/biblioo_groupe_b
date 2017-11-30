@@ -13,7 +13,7 @@
     <!-- Material Design Bootstrap -->
     <link href="/public/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="style.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
 
 <div class="header">
-    <img src="img/logo_cefim.png" alt = "Logo Cefim" class="brand">
+    <img src="/public/img/logo_cefim.png" alt = "Logo Cefim" class="brand">
     <ul class="nav">
         <li><a  class="liens_externe" href="/">CAMPUS</a></li>
         <li><a class="liens_externe" href="/">PROGRAMMES</a></li>

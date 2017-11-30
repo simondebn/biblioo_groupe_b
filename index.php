@@ -11,8 +11,10 @@ include 'helpers/functions.php';
 include 'app/config/routes.php';
 include 'app/config/db.php';
 include 'app/model/adminModelDb.php';
+include 'app/model/empruntModelDb.php';
 
 $adminModelDb = new adminModelDb($db);
+$empruntModelDb = new empruntModelDb($db);
 
 $page = DEFAULT_PAGE;
 

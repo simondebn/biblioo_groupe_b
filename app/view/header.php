@@ -24,7 +24,7 @@
 <div class="header">
     <img src="public/img/logo_cefim.png" alt = "Logo Cefim" class="brand">
     <ul class="nav">
-        <li><a  class="liens_externe" href="/">CAMPUS</a></li>
+        <li><a class="liens_externe" href="/">CAMPUS</a></li>
         <li><a class="liens_externe" href="/">PROGRAMMES</a></li>
         <li><a class="liens_externe" href="/">ETUDIANTS</a></li>
         <li><a class="liens_externe" href="/">PROFESSIONNELS</a></li>
@@ -32,7 +32,7 @@
     </ul>
 </div>
 <div class="page-header">
-    <h1>Biblioo : la bilbiothèque du futur</h1>
+    <h1>Biblioo : la bibliothèque du futur</h1>
 </div>
 
 

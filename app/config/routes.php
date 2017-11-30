@@ -5,3 +5,9 @@
  * Date: 30/11/2017
  * Time: 09:31
  */
+
+define('DEFAULT_PAGE', 'accueil');
+
+$site_pages = [
+    'accueil' => 'home',
+];

@@ -8,9 +8,11 @@
 
 session_start();
 include 'helpers/functions.php';
-include 'app/Config/routes.php';
-//include 'app/Config/db.php';
+include 'app/config/routes.php';
+include 'app/config/db.php';
+include 'app/model/adminModelDb.php';
 
+$adminModelDb = new adminModelDb($db);
 
 $page = DEFAULT_PAGE;
 

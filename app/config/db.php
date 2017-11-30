@@ -6,10 +6,10 @@
  * Time: 09:31
  */
 
-$host ='localhost';
+$host ='54.36.182.179';
 $dbname ='groupe_B';
-$username = 'root';
-$password = 'dadfba16';
+$username = 'cdi';
+$password = 'cdi2017';
 $charset = "utf8";
 
 $db = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $username, $password, [

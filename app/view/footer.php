@@ -25,6 +25,8 @@
 <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="public/js/mdb.min.js"></script>
+<!-- List.js -->
+<script type="text/javascript" src="public/js/list.js"></script>
 </body>
 
 </html>

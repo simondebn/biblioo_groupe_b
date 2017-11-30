@@ -12,9 +12,11 @@ include 'app/config/routes.php';
 include 'app/config/db.php';
 include 'app/model/adminModelDb.php';
 include 'app/model/empruntModelDb.php';
+include 'app/model/ressourceModelDb.php';
 
 $adminModelDb = new adminModelDb($db);
 $empruntModelDb = new empruntModelDb($db);
+$ressourcesModelDb = new ressourceModelDb($db);
 
 $page = DEFAULT_PAGE;
 

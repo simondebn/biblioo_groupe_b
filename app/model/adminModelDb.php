@@ -26,4 +26,37 @@ class adminModelDb
         ]);
         return $stmt->fetch();
     }
+
+    public function getAll() {
+        $stmt = $this->db->prepare("SELECT * FROM compte WHERE type = 1");
+        $stmt->execute();
+
+        $admins = [];
+        foreach ($stmt as $a) {
+            $admins[$a['id']] = $a;
+        }
+        return $admins;
+    }
+
+    public function add($newAdmin) {
+        $request = ("INSERT INTO compte (type, login, email, password)  VALUES (:t, :login, :email, :password)");
+        $stmt = $this->db->prepare($request);
+        $stmt->execute($newAdmin);
+    }
+
+    public function delete($id) {
+        $stmt = $this->db->prepare("DELETE FROM compte WHERE id = :id");
+        $stmt->execute([
+            'id' => $id
+        ]);
+        if ($this->getOne($id))
+            return false;
+        return true;
+    }
+
+    public function modify($modif) {
+        $request = ("UPDATE compte SET type= :t, login= :login, email = :email, password = :password WHERE id = :id ");
+        $stmt = $this->db->prepare($request);
+        $stmt->execute($modif);
+    }
 }

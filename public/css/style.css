@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Roboto Light";
-  src : url("fonts/Roboto-light.ttf");
+  src : url("/public/font/roboto/Roboto-light.ttf");
 }
 @font-face {
   font-family : "Signika Bold";
-  src : url("fonts/Signika-Bold.ttf");
+  src : url("/public/font/Signika-Bold.ttf");
 }
 @font-face {
   font-family : "Signika Regular";
-  src : url("/fonts/Signika-Regular.ttf");
+  src : url("/public/font/Signika-Regular.ttf");
 }
 
 html
@@ -18,7 +18,7 @@ html
 }
 .header
 {
-  background: url("img/header_bg.jpg") repeat-x;
+  background: url("/public/img/header_bg.jpg") repeat-x;
   display: flex;
   text-align: center;
 }
@@ -54,7 +54,7 @@ html
 .page-header
 {
   padding : 5vh;
-  background: url("img/page-header_bg.jpg") repeat-x;
+  background: url("/public/img/page-header_bg.jpg") repeat-x;
 }
 .page-header h1
 {

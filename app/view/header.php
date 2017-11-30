@@ -1,7 +1,39 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: cdi
- * Date: 30/11/2017
- * Time: 13:57
- */
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/public/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Start your project here-->
+<div style="height: 100vh">
+
+
+<div class="header">
+    <img src="img/logo_cefim.png" alt = "Logo Cefim" class="brand">
+    <ul class="nav">
+        <li><a  class="liens_externe" href="/">CAMPUS</a></li>
+        <li><a class="liens_externe" href="/">PROGRAMMES</a></li>
+        <li><a class="liens_externe" href="/">ETUDIANTS</a></li>
+        <li><a class="liens_externe" href="/">PROFESSIONNELS</a></li>
+        <li><a style="color :orange" href="/">BIBLIOO</a></li>
+    </ul>
+</div>
+<div class="page-header">
+    <h1>Biblioo : la bilbiothèque du futur</h1>
+</div>
+
+
+

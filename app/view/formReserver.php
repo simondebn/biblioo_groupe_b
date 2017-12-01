@@ -12,6 +12,7 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
     </div>
     <div class="modal-body" style="padding:0 20%">
+        <input type="hidden" id="id_ressource" class="form-control" value="">
         <div class="md-form">
             <input type="text" id="nom" class="form-control"><label for="form1" class="">Nom</label>
         </div>
@@ -24,7 +25,7 @@
     </div>
     <div class="modal-footer">
                 <div class="col-md-12 text-center">
-                    <input type="button" name="envoyer" class="btn btn-success" value="Envoyer">
+                    <input type="button" name="envoyer" id="submitReserver" class="btn btn-success" value="Envoyer">
                 </div>
     </div>
 </div>

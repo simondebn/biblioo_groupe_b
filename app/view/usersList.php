@@ -21,13 +21,13 @@
     <tbody class="list">
       <?php
         foreach ($books as $book){
-            echo '<tr date-id="5">';
+            echo '<tr>';
             echo '<td><img height="200px" width="200px" src="data:image/jpeg;base64,'.base64_encode( $book['couverture'] ).'"/></td>';
             echo '<td class="titre">'.$book['titre'].'</td>';
             echo '<td class="auteur">'.$book['auteur'].'</td>';
             echo '<td class="domaine">'.$book['domaine'].'</td>';
             echo '<td class="date">'.$book['date'].'</td>';
-
+            echo '<td><input type="button" data-id="'.$book['id'].'" id="reserver" value="Réserver"></td>';
             echo '</tr>';
         }
 

@@ -10,8 +10,6 @@
 
 $ressources = $ressourcesModelDb->getAll();
 
-
-
 $books = [];
 $revues = [];
 
@@ -23,7 +21,16 @@ foreach ($ressources as $ressource){
     }
 }
 
+function addEmprunt($params, $emprunt){
+    return $emprunt->add($params['params']);
+}
+
+if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addEmprunt') {
+    addEmprunt($_POST['myParams'], $empruntModelDb);
+}
+
 render('usersList', [
     'title' => 'Liste',
-    'books' => $books
+    'books' => $books,
+    'revues' => $revues
 ]);

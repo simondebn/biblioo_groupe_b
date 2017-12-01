@@ -12,7 +12,7 @@
     <div id="bookList" class="row">
         <div>
             <table class="table" id="books">
-                <thead class="mdb-color lighten-4">
+                <thead class="mdb-color grey lighten-5">
                 <tr>
                     <th></th>
                     <th class="sort" data-sort="titre">Titre</th>
@@ -30,12 +30,12 @@
                     <tr>
                         <td class="cover_book"><img
                                     src="data:image/jpeg;base64, <?= base64_encode($book['couverture']) ?>" alt=""></td>
-                        <td class="titre"><?= $book['titre'] ?></td>
-                        <td class="auteur"><?= $book['auteur'] ?></td>
-                        <td class="date"><?= $book['date'] ?></td>
-                        <td class="domaine"><?= $book['domaine'] ?></td>
-                        <td class="note"><?= $book['note'] ?></td>
-                        <td><a target="_blank" href="<?= $book['link'] ?>"><img class="lien_infos" src="public/img/svg/infos.svg"></a></td>
+                        <td class="titre align-middle"><?= $book['titre'] ?></td>
+                        <td class="auteur align-middle"><?= $book['auteur'] ?></td>
+                        <td class="date align-middle"><?= $book['date'] ?></td>
+                        <td class="domaine align-middle"><?= $book['domaine'] ?></td>
+                        <td class="note align-middle"><?= $book['note'] ?></td>
+                        <td class="align-middle><a target="_blank" href="<?= $book['link'] ?>"><img class="lien_infos" src="public/img/svg/infos.svg"></a></td>
                         <td>
                             <?php if ($book['disponibility']): ?>
                                 <button id="reserver" data-id="<?= $book['id'] ?>" class="btn btn-primary btn-green btn-md">Réserver</button>
@@ -54,7 +54,7 @@
     <div id="revuesList" class="row">
         <div>
             <table class="table" id="revues">
-                <thead class="mdb-color lighten-4">
+                <thead class="mdb-color grey lighten-5>
                 <tr>
                     <th></th>
                     <th class="sort" data-sort="titre">Titre</th>
@@ -71,11 +71,11 @@
                     <tr>
                         <td class="cover_book"><img
                                     src="data:image/jpeg;base64, <?= base64_encode($revue['couverture']) ?>" alt=""></td>
-                        <td class="titre"><?= $revue['titre'] ?></td>
-                        <td class="date"><?= $revue['date'] ?></td>
-                        <td class="description"><?= $revue['description'] ?></td>
-                        <td class="note"><?= $revue['note'] ?></td>
-                        <td><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos" src="public/img/svg/infos.svg"></a></td>
+                        <td class="titre align-middle"><?= $revue['titre'] ?></td>
+                        <td class="date align-middle"><?= $revue['date'] ?></td>
+                        <td class="description align-middle"><?= $revue['description'] ?></td>
+                        <td class="note align-middle"><?= $revue['note'] ?></td>
+                        <td class="align-middle"><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos" src="public/img/svg/infos.svg"></a></td>
                         <td>
                             <button id="reserver" data-id="<?= $book['id'] ?>" class="btn btn-primary btn-green btn-md">Réserver</button>
                         </td>

@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Roboto Light";
-  src : url("../font/roboto/Roboto-light.ttf");
+  src : url("../fonts/Roboto-light.ttf");
 }
 @font-face {
   font-family : "Signika Bold";
-  src : url("../font/Signika/Signika-Bold.ttf");
+  src : url("../fonts/Signika-Bold.ttf");
 }
 @font-face {
   font-family : "Signika Regular";
-  src : url("../font/Signika/Signika-Regular.ttf");
+  src : url("../fonts/Signika-Regular.ttf");
 }
 
 html
@@ -81,12 +81,38 @@ footer img
   width : 32px;
   height : 32px;
 }
+.add_res
+{
+  width : 32px;
+  height : 32px;
+  user-select : none;
+}
+.logout
+{
+  width : 32px;
+  height : 32px;
+  user-select : none;
+}
 .table
 {
   margin-top: 2vh;
 }
+td th
+{
+  text-align: center;
+
+}
 .table thead th
 {
   font-weight: bold;
-    user-select : none;
+  user-select : none;
+}
+.button_admin
+{
+  display :flex;
+  line-height: 100%;
+}
+.btn-admin
+{
+  vertical-align: middle;
 }

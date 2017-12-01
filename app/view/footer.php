@@ -27,6 +27,17 @@
 <script type="text/javascript" src="public/js/mdb.min.js"></script>
 <!-- List.js -->
 <script type="text/javascript" src="public/js/list.js"></script>
+<!-- Script pour les modals -->
+<script type="text/javascript" src="public/js/modal.js"></script>
+
+
+<script type="text/javascript">
+    var options = {
+        valueNames: [ 'titre', 'auteur', 'domaine', 'date' ]
+    };
+
+    var userList = new List('books', options);
+</script>
 </body>
 
 </html>

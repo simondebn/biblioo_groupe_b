@@ -20,10 +20,9 @@
 <!-- Start your project here-->
 <div style="height: 100vh">
 
-
-<div class="header">
-    <img src="public/img/logo_cefim.png" alt = "Logo Cefim" class="brand">
-    <ul class="nav">
+<div class="header row">
+    <img src="public/img/logo_cefim.png" alt = "Logo Cefim" class="col-sm-4 brand">
+    <ul class="col-sm-8 nav">
         <li><a class="liens_externe" href="/">CAMPUS</a></li>
         <li><a class="liens_externe" href="/">PROGRAMMES</a></li>
         <li><a class="liens_externe" href="/">ETUDIANTS</a></li>
@@ -31,8 +30,8 @@
         <li><a style="color :orange" href="/">BIBLIOO</a></li>
     </ul>
 </div>
-<div class="page-header">
-    <h1>Biblioo : la bibliothèque du futur</h1>
+<div class="page-header row">
+    <h1 class="col-sm">Biblioo : la bibliothèque du futur</h1>
 </div>
 
 

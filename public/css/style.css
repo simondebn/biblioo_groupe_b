@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Roboto Light";
-  src : url("../font/roboto/Roboto-light.ttf");
+  src : url("fonts/Roboto-light.ttf");
 }
 @font-face {
   font-family : "Signika Bold";
-  src : url("../font/Signika-Bold.ttf");
+  src : url("fonts/Signika-Bold.ttf");
 }
 @font-face {
   font-family : "Signika Regular";
-  src : url("../font/Signika-Regular.ttf");
+  src : url("/fonts/Signika-Regular.ttf");
 }
 
 html
@@ -18,7 +18,7 @@ html
 }
 .header
 {
-  background: url("../img/header_bg.jpg") repeat-x;
+  background: url("img/header_bg.jpg") repeat-x;
   display: flex;
   text-align: center;
 }
@@ -54,7 +54,7 @@ html
 .page-header
 {
   padding : 5vh;
-  background: url("../img/page-header_bg.jpg") repeat-x;
+  background: url("img/page-header_bg.jpg") repeat-x;
 }
 .page-header h1
 {
@@ -71,4 +71,22 @@ footer img
 {
   padding-left : 55vw;
 }
-
+.cover_book img
+{
+  width : 100px;
+  height : 150px;
+}
+.lien_infos
+{
+  width : 32px;
+  height : 32px;
+}
+.table
+{
+  margin-top: 2vh;
+}
+.table thead th
+{
+  font-weight: bold;
+    user-select : none;
+}

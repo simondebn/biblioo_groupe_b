@@ -1,13 +1,59 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: cdi
- * Date: 30/11/2017
- * Time: 15:32
- */
+<div class="container">
+    <div class="row">
+        <div class="btn-group">
+            <!-- btn-elegant = actif , btn-blue-gray = non-actif -->
+            <button class="btn btn-elegant btn-lg">Livres</button>
+            <button class="btn btn-blue-grey btn-lg">Revues</button>
 
-//Liste des livres
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <table class="table" id="books">
+                <thead class="mdb-color lighten-4">
+                <tr>
+                    <th></th>
+                    <th class="sort" data-sort="titre">Titre</th>
+                    <th class="sort" data-sort="auteur">Auteur</th>
+                    <th class="sort" data-sort="date">Date de parution</th>
+                    <th class="sort" data-sort="domaine">Thème</th>
+                    <th>Note</th>
+                    <th></th>
+                    <th><input class="search" placeholder="Search"/></th>
+                </tr>
+                </thead>
+                <tbody class="list">
 
-echo 'usersList';
-
-//liste des Revues
+                <?php foreach ($books as $books): ?>
+                    <tr>
+                        src="data:image.jpeg
+                        <td class="cover_book"><img
+                                    src="data:image/jpeg;base64, <?= base64_encode($book['couverture']) ?>" alt=""></td>
+                        <td class="titre"><?= $book['titre'] ?></td>
+                        <td class="auteur"><?= $book['auteur'] ?></td>
+                        <td class="date"><?= $book['date'] ?></td>
+                        <td class="domaine"><?= $book['domaine'] ?></td>
+                        <td>NOOOOTE</td>
+                        <td><img class="lien_infos" src="img/svg/infos.svg" alt="" href="http://google.com"></td>
+                        <td>
+                            <button class="btn btn-primary btn-green btn-md">Réserver</button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                <tr>
+                    <td class="cover_book"><img src="img/cover.jpg" alt=""></td>
+                    <td class="titre">Alivre</td>
+                    <td class="auteur">Ageorges</td>
+                    <td class="date">2000</td>
+                    <td class="domaine">Roman dystopique</td>
+                    <td>NOOOOTE</td>
+                    <td><img class="lien_infos" src="img/svg/infos.svg" alt=""></td>
+                    <td>
+                        <button class="btn  btn-red btn-md disabled">Non-disponible</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

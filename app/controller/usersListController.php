@@ -10,8 +10,6 @@
 
 $ressources = $ressourcesModelDb->getAll();
 
-
-
 $books = [];
 $revues = [];
 

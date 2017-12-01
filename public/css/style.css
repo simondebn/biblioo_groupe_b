@@ -90,3 +90,8 @@ footer img
   font-weight: bold;
     user-select : none;
 }
+
+.pagination li {
+  padding:5px;
+}
+

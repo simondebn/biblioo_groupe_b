@@ -3,17 +3,39 @@
     //Users List
 
         //Book List
+let bookList;
+let revueList;
 
-var options = {
-    valueNames: [ 'titre', 'auteur', 'domaine', 'date' ]
+let booksOptions = {
+    valueNames: [ 'titre', 'auteur', 'domaine', 'date' ],
+    page: 2,
+    pagination: [{
+        outerWindow: 1
+    }],
 };
-var bookList = new List('books', options);
+bookList = new List('bookList', booksOptions);
 
 
-var options = {
-    valueNames: [ 'titre', 'auteur', 'domaine', 'description' ]
+if (bookList !== null) {
+    bookList.sort('titre', {
+        order: "desc"
+    });
+}
+
+
+let revuesOptions = {
+    valueNames: [ 'titre', 'auteur', 'domaine', 'description' ],
+    page: 2,
+    pagination: [{
+        outerWindow: 1
+    }],
 };
-var revueList = new List('revues', options);
+revueList = new List('revuesList', revuesOptions);
+if (revueList !== null) {
+    revueList.sort('titre', {
+        order: "desc"
+    });
+}
 
 $("#revuesList").hide();
 

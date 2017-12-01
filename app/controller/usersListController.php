@@ -16,10 +16,10 @@ $books = [];
 $revues = [];
 
 foreach ($ressources as $ressource){
-    if ($ressource['id_type'] === '1'){
+    if ($ressource['id_type'] == 1){
         $books[] = $ressource;
     }else{
-        $revues[] = $ressources;
+        $revues[] = $ressource;
     }
 }
 

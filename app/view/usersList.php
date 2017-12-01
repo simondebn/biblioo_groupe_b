@@ -6,7 +6,7 @@
             <button id="bookButton" class="btn btn-elegant btn-lg">Livres</button>
             <button id= "revuesButton" class="btn btn-blue-grey btn-lg">Revues</button>
         </div>
-        
+
     </div>
 
     <div id="bookList" class="row">
@@ -55,7 +55,6 @@
                     <th></th>
                     <th class="sort" data-sort="titre">Titre</th>
                     <th class="sort" data-sort="date">Date de parution</th>
-                    <th class="sort" data-sort="domaine">Thème</th>
                     <th cclass="sort" data-sort="description">Description</th>
                     <th>Note</th>
                     <th></th>
@@ -69,7 +68,6 @@
                         <td class="cover_book"><img
                                     src="data:image/jpeg;base64, <?= base64_encode($revue['couverture']) ?>" alt=""></td>
                         <td class="titre"><?= $revue['titre'] ?></td>
-                        <td class="auteur"><?= $revue['auteur'] ?></td>
                         <td class="date"><?= $revue['date'] ?></td>
                         <td class="description"><?= $revue['description'] ?></td>
                         <td class="note"><?= $revue['note'] ?></td>

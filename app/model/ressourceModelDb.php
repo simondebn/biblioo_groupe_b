@@ -35,6 +35,7 @@ class ressourceModelDb
         foreach ($stmt as $r) {
             $ressource[$r['id']] = $r;
             $ressource[$r['id']]['note'] = $this->getNoteAverage($r['id']);
+            $ressource[$r['id']]['disponibility'] = $this->getDisponibility($r['id']);
         }
 
         return $ressource;
@@ -88,6 +89,18 @@ class ressourceModelDb
     public function addNote($commentaire) {
         $stmt = $this->db->prepare("INSERT INTO `commentaire` (`id_ressource`, `note`, `avis`) VALUES (:id_ressource, :note, :avis)");
         return $stmt->execute($commentaire);
+    }
+
+    public function getDisponibility($id) {
+        $stmt = $this->db->prepare("SELECT * FROM emprunt WHERE id_ressource = :id AND retour = 0");
+        $stmt->execute([
+            'id' => $id
+        ]);
+        if ($stmt->rowCount()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

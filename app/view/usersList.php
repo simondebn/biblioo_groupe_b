@@ -10,7 +10,7 @@
     </div>
 
     <div id="bookList" class="row">
-        <div>
+        <div class="col-md-12">
             <table class="table" id="books">
                 <thead class="mdb-color grey lighten-5">
                 <tr>
@@ -59,7 +59,7 @@
                     <th></th>
                     <th class="sort" data-sort="titre">Titre</th>
                     <th class="sort" data-sort="date">Date de parution</th>
-                    <th cclass="sort" data-sort="description">Description</th>
+                    <th class="sort" data-sort="description">Description</th>
                     <th>Note</th>
                     <th></th>
                     <th><input class="search" placeholder="Search"/></th>
@@ -76,7 +76,7 @@
                         <td class="description align-middle"><?= $revue['description'] ?></td>
                         <td class="note align-middle"><?= $revue['note'] ?></td>
                         <td class="align-middle"><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos" src="public/img/svg/infos.svg"></a></td>
-                        <td>
+                        <td class="align-middle">
                             <button id="reserver" data-id="<?= $book['id'] ?>" class="btn btn-primary btn-green btn-md">Réserver</button>
                         </td>
                     </tr>

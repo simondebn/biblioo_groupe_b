@@ -14,7 +14,7 @@
             <table class="table" id="books">
                 <thead class="mdb-color grey lighten-5 ">
                 <tr>
-                    <th><img class="add_res" src="plus.svg" alt="ajouter"></th>
+                    <th><img class="add_res" src="public/css/img/svg/plus.svg" alt="ajouter"></th>
                     <th class="sort" data-sort="titre col-md-1">Titre</th>
                     <th class="sort" data-sort="auteur col-md-3">Auteur</th>
                     <th class="sort" data-sort="date col-md-3">Date de parution</th>

@@ -42,10 +42,9 @@ $(function() {
                         params : params
                     }
                 },
-            success: function(data) {
-
-                    console.log(data);
-            },
+            success:function(){
+                $('.modal.dvd').modal('hide');
+            }
         })
 
     });

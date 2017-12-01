@@ -54,7 +54,10 @@ $(function() {
                 }
             }
         })
-
     });
+
+    /** Ajouter les modales pour ajout/suppression/modification des ressources et admins en mode administrateur ainsi que le retour des emprunts
+     * Controllers déjà créés (possiblement à revoir)
+     */
 
 });

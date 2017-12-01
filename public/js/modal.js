@@ -47,6 +47,11 @@ $(function() {
                 if(msg.type == 'success'){
                     $('.modal.form').modal('hide');
                     bootstrapNotify(msg.msg, msg.type);
+
+                    $btn = $('[data-id='+ params['id_ressource'] +']');
+                    $btn.attr('id', 'unavailable');
+                    $btn.html('Non Disponible');
+                    $btn.removeClass('btn-green').addClass('btn-red');
                 }
                 else{
                     bootstrapNotify(msg.msg, msg.type);
@@ -54,6 +59,10 @@ $(function() {
             }
         })
 
+    });
+
+    $('body').on('submit', '#formReserver', function(e) {
+        e.preventDefault();
     });
 
 });

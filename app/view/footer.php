@@ -27,6 +27,8 @@
 <script type="text/javascript" src="public/js/mdb.min.js"></script>
 <!-- List.js -->
 <script type="text/javascript" src="public/js/list.js"></script>
+
+<script type="text/javascript" src="public/js/script.js"></script>
 </body>
 
 </html>

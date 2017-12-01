@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Roboto Light";
-  src : url("../fonts/Roboto-light.ttf");
+  src : url("../font/roboto/Roboto-light.ttf");
 }
 @font-face {
   font-family : "Signika Bold";
-  src : url("../fonts/Signika-Bold.ttf");
+  src : url("../font/Signika/Signika-Bold.ttf");
 }
 @font-face {
   font-family : "Signika Regular";
-  src : url("../fonts/Signika-Regular.ttf");
+  src : url("../font/Signika/Signika-Regular.ttf");
 }
 
 html

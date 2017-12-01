@@ -42,8 +42,15 @@ $(function() {
                         params : params
                     }
                 },
-            success:function(){
-                $('.modal.form').modal('hide');
+            success:function(data){
+                msg = JSON.parse(data);
+                if(msg.type == 'success'){
+                    $('.modal.form').modal('hide');
+                    console.log(msg.msg);
+                }
+                else{
+
+                }
             }
         })
 

@@ -12,4 +12,5 @@ $site_pages = [
     'accueil' => 'home',
     'liste' => 'usersList',
     'admin' => 'adminList',
+    'emprunt' => 'emprunt'
 ];

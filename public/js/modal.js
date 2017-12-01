@@ -14,7 +14,7 @@ $(function() {
             }
         })
             .done(function(html) {
-                $('.modal.dvd .modal-dialog').html(html);
+                $('.modal.form .modal-dialog').html(html);
                 $('#id_ressource').attr('value', ticketID);
             })
             .fail(function() {
@@ -22,7 +22,7 @@ $(function() {
             });
 
 
-        $('.modal.dvd').modal('show');
+        $('.modal.form').modal('show');
     });
 
     $('body').on('click', '#submitReserver', function(){
@@ -33,7 +33,7 @@ $(function() {
             'promo': $('#promo')[0].value
         };
         $.ajax({
-            url: "liste",
+            url: "emprunt",
             type:'POST',
             data:
                 {
@@ -43,7 +43,7 @@ $(function() {
                     }
                 },
             success:function(){
-                $('.modal.dvd').modal('hide');
+                $('.modal.form').modal('hide');
             }
         })
 

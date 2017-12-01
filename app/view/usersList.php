@@ -77,7 +77,7 @@
                         <td class="note"><?= $revue['note'] ?></td>
                         <td><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos" src="public/img/svg/infos.svg"></a></td>
                         <td>
-                            <button id="reserver" class="btn btn-primary btn-green btn-md">Réserver</button>
+                            <button id="reserver" data-id="<?= $book['id'] ?>" class="btn btn-primary btn-green btn-md">Réserver</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

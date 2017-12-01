@@ -11,7 +11,7 @@
         <h4 class="modal-title">Réserver un document</h4>
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
     </div>
-    <div class="modal-body" style="padding:0 20%">
+    <div class="modal-body" style="padding:0 20%; padding-top:20px">
         <input type="hidden" id="id_ressource" class="form-control" value="">
         <div class="md-form">
             <input type="text" id="nom" class="form-control"><label for="form1" class="">Nom</label>

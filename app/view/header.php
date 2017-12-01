@@ -14,6 +14,8 @@
     <link href="public/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="public/css/style.css" rel="stylesheet">
+    <!-- Bootstrap notify (optional) -->
+    <link href="public/css/animate.css" rel="stylesheet">
 </head>
 
 <body>

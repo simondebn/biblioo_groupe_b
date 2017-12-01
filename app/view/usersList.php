@@ -1,11 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="btn-group">
+
+        <div>
             <!-- btn-elegant = actif , btn-blue-gray = non-actif -->
             <button id="bookButton" class="btn btn-elegant btn-lg">Livres</button>
             <button id= "revuesButton" class="btn btn-blue-grey btn-lg">Revues</button>
-
         </div>
+        
     </div>
 
     <div id="bookList" class="row">

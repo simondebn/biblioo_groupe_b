@@ -32,6 +32,8 @@
 
 <script type="text/javascript" src="public/js/modal.js"></script>
 
+<script type="text/javascript" src="public/js/bootstrap-notify.js"></script>
+
 </body>
 
 </html>

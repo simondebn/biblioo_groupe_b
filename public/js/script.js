@@ -31,3 +31,21 @@ $('#revuesButton').on('click', function() {
     $("#revuesList").show();
 });
 
+// Template pour les notifications (bootstrap-notify)
+function bootstrapNotify(msg, type) {
+    $.notify({
+        message: msg
+    }, {
+        //settings
+        type: type,
+        animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+        },
+        placement: {
+            from: 'top',
+            align: 'right'
+        }
+
+    });
+}

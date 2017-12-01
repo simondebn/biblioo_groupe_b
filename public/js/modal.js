@@ -47,6 +47,7 @@ $(function() {
                 if(msg.type == 'success'){
                     $('.modal.form').modal('hide');
                     console.log(msg.msg);
+                    bootstrapNotify(msg.msg, msg.type);
                 }
                 else{
 

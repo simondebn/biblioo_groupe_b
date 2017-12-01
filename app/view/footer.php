@@ -29,6 +29,9 @@
 <script type="text/javascript" src="public/js/list.js"></script>
 
 <script type="text/javascript" src="public/js/script.js"></script>
+
+<script type="text/javascript" src="public/js/modal.js"></script>
+
 </body>
 
 </html>

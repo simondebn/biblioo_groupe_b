@@ -8,7 +8,7 @@
 
 // Créer deux tableaux : un pour les livres et l'autre pour les revues.
 
-//$ressources = ressourceModelDb->getAll();
+$ressources = $ressourcesModelDb->getAll();
 
 
 
@@ -25,4 +25,6 @@ foreach ($ressources as $ressource){
 
 render('usersList', [
     'title'   => 'Liste',
+    'books'   => $books,
+    'revues'  => $revues,
 ]);

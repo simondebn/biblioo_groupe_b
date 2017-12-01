@@ -37,7 +37,11 @@
                         <td class="note"><?= $book['note'] ?></td>
                         <td><a target="_blank" href="<?= $book['link'] ?>"><img class="lien_infos" src="public/img/svg/infos.svg"></a></td>
                         <td>
-                            <button id="reserver" data-id="<?= $book['id'] ?>" class="btn btn-primary btn-green btn-md">Réserver</button>
+                            <?php if ($book['disponibility']): ?>
+                                <button id="reserver" data-id="<?= $book['id'] ?>" class="btn btn-primary btn-green btn-md">Réserver</button>
+                            <?php else: ?>
+                                <button id="unavailable" data-id="<?= $book['id'] ?>" class="btn btn-primary btn-red btn-md">Non Disponible</button>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

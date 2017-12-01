@@ -8,4 +8,23 @@ var options = {
     valueNames: [ 'titre', 'auteur', 'domaine', 'date' ]
 };
 
-var userList = new List('books', options);
+var bookList = new List('books', options);
+
+
+var options = {
+    valueNames: [ 'titre', 'auteur', 'domaine', 'description' ]
+};
+
+var revueList = new List('revues', options);
+
+$("#revuesList").hide();
+
+$('#bookButton').on('click', function() {
+    $("#bookList").show();
+    $("#revuesList").hide();
+});
+
+$('#revuesButton').on('click', function() {
+    $("#bookList").hide();
+    $("#revuesList").show();
+});

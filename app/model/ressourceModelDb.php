@@ -34,6 +34,7 @@ class ressourceModelDb
         $ressource = [];
         foreach ($stmt as $r) {
             $ressource[$r['id']] = $r;
+            $ressource[$r['id']]['note'] = $this->getNoteAverage($r['id']);
         }
 
         return $ressource;
@@ -68,7 +69,7 @@ class ressourceModelDb
         $stmt->execute([
             'id' => $id
         ]);
-        return $stmt->fetch()['AVG(note)'];
+        return round($stmt->fetch()['AVG(note)'],0);
     }
 
     public function getAllNoteAverage() {
@@ -78,6 +79,7 @@ class ressourceModelDb
         $ressource = [];
         foreach ($stmt as $r) {
             $ressource[$r['id']] = $r;
+            $ressource[$r['id']]['average'] = round($ressource[$r['id']]['average'],0);
         }
 
         return $ressource;

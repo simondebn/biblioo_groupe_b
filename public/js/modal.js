@@ -46,14 +46,18 @@ $(function() {
                 msg = JSON.parse(data);
                 if(msg.type == 'success'){
                     $('.modal.form').modal('hide');
+                    console.log(msg.msg);
                     bootstrapNotify(msg.msg, msg.type);
                 }
                 else{
-                    bootstrapNotify(msg.msg, msg.type);
+
                 }
             }
         })
-
     });
+
+    /** Ajouter les modales pour ajout/suppression/modification des ressources et admins en mode administrateur ainsi que le retour des emprunts
+     * Controllers déjà créés (possiblement à revoir)
+     */
 
 });

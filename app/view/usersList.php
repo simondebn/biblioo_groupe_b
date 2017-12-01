@@ -74,26 +74,29 @@
             </thead>
             <tbody class="list">
 
-            <?php foreach ($revues as $revue): ?>
-                <tr>
-                    <td class="cover_book"><img
-                                src="data:image/jpeg;base64, <?= base64_encode($revue['couverture']) ?>" alt=""></td>
-                    <td class="titre"><?= $revue['titre'] ?></td>
-                    <td class="date"><?= $revue['date'] ?></td>
-                    <td class="description"><?= $revue['description'] ?></td>
-                    <td class="note"><?= $revue['note'] ?></td>
-                    <td><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos"
-                                                                             src="public/img/svg/infos.svg"></a></td>
-                    <td>
-                        <button id="reserver" data-id="<?= $book['id'] ?>" class="btn btn-primary btn-green btn-md">
-                            Réserver
-                        </button>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
+
+                <?php foreach ($revues as $revue): ?>
+                    <tr>
+                        <td class="cover_book"><img
+                                    src="data:image/jpeg;base64, <?= base64_encode($revue['couverture']) ?>" alt=""></td>
+                        <td class="titre"><?= $revue['titre'] ?></td>
+                        <td class="date"><?= $revue['date'] ?></td>
+                        <td class="description"><?= $revue['description'] ?></td>
+                        <td class="note"><?= $revue['note'] ?></td>
+                        <td><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos" src="public/img/svg/infos.svg"></a></td>
+                        <td>
+                            <?php if ($revue['disponibility']): ?>
+                                <button id="reserver" data-id="<?= $revue['id'] ?>" class="btn btn-primary btn-green btn-md">Réserver</button>
+                            <?php else: ?>
+                                <button id="unavailable" data-id="<?= $revue['id'] ?>" class="btn btn-primary btn-red btn-md">Non Disponible</button>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
 
             </tbody>
         </table>
+
 
         <div class="row">
             <nav class="text-center">

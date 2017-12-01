@@ -24,9 +24,8 @@
                 </thead>
                 <tbody class="list">
 
-                <?php foreach ($books as $books): ?>
+                <?php foreach ($books as $book): ?>
                     <tr>
-                        src="data:image.jpeg
                         <td class="cover_book"><img
                                     src="data:image/jpeg;base64, <?= base64_encode($book['couverture']) ?>" alt=""></td>
                         <td class="titre"><?= $book['titre'] ?></td>
@@ -40,18 +39,7 @@
                         </td>
                     </tr>
                 <?php endforeach; ?>
-                <tr>
-                    <td class="cover_book"><img src="img/cover.jpg" alt=""></td>
-                    <td class="titre">Alivre</td>
-                    <td class="auteur">Ageorges</td>
-                    <td class="date">2000</td>
-                    <td class="domaine">Roman dystopique</td>
-                    <td>NOOOOTE</td>
-                    <td><img class="lien_infos" src="img/svg/infos.svg" alt=""></td>
-                    <td>
-                        <button class="btn  btn-red btn-md disabled">Non-disponible</button>
-                    </td>
-                </tr>
+
                 </tbody>
             </table>
         </div>

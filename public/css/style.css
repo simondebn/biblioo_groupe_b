@@ -95,3 +95,7 @@ footer img
   padding:5px;
 }
 
+.containerPagination {
+  position: relative;
+  left: 50%;
+}

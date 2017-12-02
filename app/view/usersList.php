@@ -52,7 +52,7 @@
                 </tbody>
             </table>
 
-            <div class="row">
+            <div class="row containerPagination">
                 <nav class="text-center">
                     <ul class="pagination"></ul>
                 </nav>
@@ -98,7 +98,7 @@
         </table>
 
 
-        <div class="row">
+        <div class="row containerPagination">
             <nav class="text-center">
                 <ul class="pagination"></ul>
             </nav>

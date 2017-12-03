@@ -10,10 +10,26 @@
 /** Gestion liste des comptes */
 
 $comptes = $adminModelDb->getAll();
+$ressources = $ressourcesModelDb->getAll();
+
+$books = [];
+$revues = [];
+
+
+foreach ($ressources as $ressource){
+    if ($ressource['id_type'] == 1){
+        $books[] = $ressource;
+    }else{
+        $revues[] = $ressource;
+    }
+}
 
 render('adminList', [
     'title'   => 'Liste',
     'comptes'   => $comptes,
+    'books'   => $books,
+    'revues'  => $revues,
+
 ]);
 
 /** GESTION ADMINS */

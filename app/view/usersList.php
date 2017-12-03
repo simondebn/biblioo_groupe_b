@@ -9,7 +9,7 @@
 
     </div>
 
-    <div id="bookList" class="row">
+    <div id="usersBookList" class="row">
             <table class="table" id="books">
                 <thead class="mdb-color lighten-4">
                 <tr>
@@ -52,14 +52,14 @@
                 </tbody>
             </table>
 
-            <div class="row">
+            <div class="row my-4">
                 <nav class="text-center">
-                    <ul class="pagination"></ul>
+                    <ul class="pagination pagination-circle pg-amber mb-0"></ul>
                 </nav>
             </div>
     </div>
 
-    <div id="revuesList" class="row">
+    <div id="usersRevuesList" class="row">
         <table class="table" id="revues">
             <thead class="mdb-color lighten-4">
             <tr>
@@ -100,7 +100,7 @@
 
         <div class="row">
             <nav class="text-center">
-                <ul class="pagination"></ul>
+                <ul class="pagination pg-blue"></ul>
             </nav>
         </div>
 

@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="row ">
+    <div class="row listButtonBar">
             <!-- btn-elegant = actif , btn-blue-gray = non-actif -->
             <button class="btn btn-elegant  col-lg-2">Livres</button>
             <button class="btn btn-blue-grey  col-lg-2">Revues</button>
             <button class="btn btn-blue-grey  col-lg-3">Administrateurs</button>
             <button class="btn btn-blue-grey  col-lg-2">Prêts/Retour</button>
             <div class="col-lg-1 offset-lg-1">
-            <button class="btn btn-primary "><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+            <button class="btn btn-primary"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
             </div>
     </div>
     <div id ="adminBookList" class="row">
@@ -45,9 +45,21 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
+
+            <div class="row containerPagination">
+                <nav class="text-center">
+                    <ul class="pagination pagination-circle pg-amber mb-0"></ul>
+                </nav>
+            </div>
+
         </div>
     </div>
-    <div id="userRevuesList" class="row">
+
+
+
+
+
+    <div id="adminRevuesList" class="row">
         <div class="col-md-12">
             <table class="table" id="revues">
                 <thead class="mdb-color lighten-4">
@@ -82,6 +94,13 @@
 
                 </tbody>
             </table>
+
+            <div class="row containerPagination">
+                <nav class="text-center">
+                    <ul class="pagination pagination-circle pg-amber mb-0"></ul>
+                </nav>
+            </div>
+
         </div>
     </div>
 

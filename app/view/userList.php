@@ -10,7 +10,7 @@
     </div>
 
     <div id="userBookList" class="row">
-            <table class="table" id="books">
+            <table class="table">
                 <thead class="mdb-color lighten-4">
                 <tr>
                     <th></th>
@@ -60,7 +60,7 @@
     </div>
 
     <div id="userRevuesList" class="row">
-        <table class="table" id="revues">
+        <table class="table">
             <thead class="mdb-color lighten-4">
             <tr>
                 <th></th>

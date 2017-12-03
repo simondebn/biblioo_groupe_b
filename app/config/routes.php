@@ -10,7 +10,7 @@ define('DEFAULT_PAGE', 'accueil');
 
 $site_pages = [
     'accueil' => 'home',
-    'liste' => 'usersList',
+    'liste' => 'userList',
     'admin' => 'adminList',
     'emprunt' => 'emprunt'
 ];

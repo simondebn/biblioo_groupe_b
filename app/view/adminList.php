@@ -9,7 +9,7 @@
             <button class="btn btn-primary "><i class="fa fa-sign-out" aria-hidden="true"></i></button>
             </div>
     </div>
-    <div id ="usersBookList" class="row">
+    <div id ="adminBookList" class="row">
         <div class="col-md-12">
             <table class="table" id="books">
                 <thead class="mdb-color grey lighten-5 ">
@@ -47,7 +47,7 @@
             </table>
         </div>
     </div>
-    <div id="usersRevuesList" class="row">
+    <div id="userRevuesList" class="row">
         <div class="col-md-12">
             <table class="table" id="revues">
                 <thead class="mdb-color lighten-4">

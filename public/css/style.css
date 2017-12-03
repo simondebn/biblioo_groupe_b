@@ -91,11 +91,12 @@ footer img
     user-select : none;
 }
 
-.pagination li {
-  padding:5px;
-}
-
 .containerPagination {
   position: relative;
   left: 50%;
+  /*display: block;
+  margin: auto;*/
 }
+
+
+

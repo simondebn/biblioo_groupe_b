@@ -21,7 +21,7 @@ foreach ($ressources as $ressource){
     }
 }
 
-render('usersList', [
+render('userList', [
     'title'   => 'Liste',
     'books'   => $books,
     'revues'  => $revues,

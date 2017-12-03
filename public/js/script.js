@@ -1,59 +1,59 @@
 
 
 
-let usersBookList;
-let usersRevuesList;
+let userBookList;
+let userRevuesList;
 
     /*** Liste des livres ***/
 
 
 let booksOptions = {
     valueNames: [ 'titre', 'auteur', 'domaine', 'date' ],
-    page: 1,
+    page: 3,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
     }],
 };
 
-usersBookList = new List('usersBookList', booksOptions);
+userBookList = new List('userBookList', booksOptions);
 
 
-if (usersBookList !== null) {
-    usersBookList.sort('titre', {
+if (userBookList !== null) {
+    userBookList.sort('titre', {
         order: "desc"
     });
 }
     /*** Liste des revues ***/
 
 let revuesOptions = {
-    valueNames: [ 'titre', 'auteur', 'domaine', 'description' ],
-    page: 5,
+    valueNames: [ 'titre', 'auteur', 'domaine', 'description', 'date' ],
+    page: 3,
     pagination: [{
         outerWindow: 1
     }],
 };
-usersRevuesList = new List('usersRevuesList', revuesOptions);
-if (usersRevuesList !== null) {
-    usersRevuesList.sort('titre', {
+userRevuesList = new List('userRevuesList', revuesOptions);
+if (userRevuesList !== null) {
+    userRevuesList.sort('titre', {
         order: "desc"
     });
 }
 
-$("#usersRevuesList").hide();
+$("#userRevuesList").hide();
 
 $('#bookButton').on('click', function() {
     $(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
     $('#revuesButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
-    $("#usersBookList").show();
-    $("#usersRevuesList").hide();
+    $("#userBookList").show();
+    $("#userRevuesList").hide();
 });
 
 $('#revuesButton').on('click', function() {
     $(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
     $('#bookButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
-    $("#usersBookList").hide();
-    $("#usersRevuesList").show();
+    $("#userBookList").hide();
+    $("#userRevuesList").show();
 });
 
 
@@ -83,15 +83,24 @@ function bootstrapNotify(msg, type) {
  * Ajoute les classes de MDBootstrap aux éléments de la pagination générée par List.js
  */
 
-$(document).ready(function () {
+function modifyPaginationClasses() {
     $('.pagination li').addClass('page-item');
     $('.pagination a').addClass('page-link');
     $('.page-item:not(.active) a').css('color','black')
+}
 
+$(document).ready(function () {
+    modifyPaginationClasses()
 });
 
 $('nav').on('click', function () {
-    $('.pagination li').addClass('page-item');
-    $('.pagination a').addClass('page-link');
-    $('.page-item:not(.active) a').css('color','black')
+    modifyPaginationClasses()
+});
+
+$('input').on ('change paste keyup', function () {
+    modifyPaginationClasses()
+});
+
+$('th').on('click', function () {
+    modifyPaginationClasses()
 });

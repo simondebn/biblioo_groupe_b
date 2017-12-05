@@ -41,6 +41,20 @@ class ressourceModelDb
         return $ressource;
     }
 
+    public function getFiveMostRented() {
+        $stmt = $this->db->prepare("SELECT ressource.* FROM ressource JOIN (SELECT id_ressource, COUNT(id) AS nb FROM emprunt GROUP BY id_ressource ORDER BY nb DESC LIMIT 5) AS fiveMostRented ON ressource.id = fiveMostRented.id_ressource");
+        $stmt->execute();
+
+        $ressource = [];
+        foreach ($stmt as $r) {
+            $ressource[$r['id']] = $r;
+            $ressource[$r['id']]['note'] = $this->getNoteAverage($r['id']);
+            $ressource[$r['id']]['disponibility'] = $this->getDisponibility($r['id']);
+        }
+
+        return $ressource;
+    }
+
     public function add($ressource) {
         $stmt = $this->db->prepare("INSERT INTO `ressource` (`id_type`, `titre`, `auteur`, `date`, `couverture`, `domaine`, `link`, `description`) VALUES (:id_type, :titre, :auteur, :date, :couverture, :domaine, :link, :description)");
         return $stmt->execute($ressource);

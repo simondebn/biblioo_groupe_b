@@ -108,8 +108,23 @@ footer img
   margin: auto;
 }
 
+
 .add_res{
   width: 40%;
   height: auto;
 }
+
+.sort:hover {
+  color:#EF5A00;
+}
+
+.sort.asc{
+  color:#EF5A00;
+}
+
+.sort.desc{
+  color:#EF5A00;
+}
+
+
 

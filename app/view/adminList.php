@@ -15,11 +15,11 @@
         <table class="table">
             <thead class="mdb-color grey lighten-5 ">
             <tr>
-                <th><img class="add_res" src="public/css/img/svg/plus.svg" alt="ajouter"></th>
-                <th class="sort" data-sort="titre col-md-1">Titre</th>
-                <th class="sort" data-sort="auteur col-md-3">Auteur</th>
-                <th class="sort" data-sort="date col-md-3">Date de parution</th>
-                <th class="sort" data-sort="domaine col-md-3">Thème</th>
+                <th><img class="add_res" src="public/img/svg/plus.svg" alt="ajouter"></th>
+                <th class="sort col-md-1" data-sort="titre">Titre</th>
+                <th class="sort col-md-3" data-sort="auteur">Auteur</th>
+                <th class="sort col-md-3" data-sort="date">Date de parution</th>
+                <th class="sort col-md-3" data-sort="domaine ">Thème</th>
                 <th>Note</th>
                 <th></th>
                 <th><input class="search" placeholder="Search"/></th>
@@ -30,7 +30,7 @@
             <?php foreach ($books as $book): ?>
 
                 <tr>
-                    <td class="cover_book"><img
+                    <td class="vignette"><img
                                 src="data:image/jpeg;base64, <?= base64_encode($book['couverture']) ?>" alt=""></td>
                     <td class="titre align-middle"><?= $book['titre'] ?></td>
                     <td class="auteur align-middle"><?= $book['auteur'] ?></td>
@@ -61,7 +61,7 @@
 
     <div id="adminRevuesList" class="row">
         <table class="table">
-            <thead class="mdb-color lighten-4">
+            <thead class="mdb-color grey lighten-5 ">
             <tr>
                 <th></th>
                 <th class="sort" data-sort="titre">Titre</th>
@@ -76,7 +76,7 @@
 
             <?php foreach ($revues as $revue): ?>
                 <tr>
-                    <td class="cover_book "><img
+                    <td class="vignette "><img
                                 src="data:image/jpeg;base64, <?= base64_encode($revue['couverture']) ?>" alt=""></td>
                     <td class="titre align-middle"><?= $revue['titre'] ?></td>
                     <td class="date align-middle"><?= $revue['date'] ?></td>
@@ -103,5 +103,87 @@
             </nav>
         </div>
     </div>
+
+    <div id="adminList" class="row">
+        <table class="table">
+            <thead class="mdb-color grey lighten-5 ">
+            <tr>
+                <th>Photo</th>
+                <th class="sort" data-sort="login">Login</th>
+                <th class="sort" data-sort="email">Email</th>
+                <th><input class="search" placeholder="Search"/></th>
+            </tr>
+            </thead>
+            <tbody class="list">
+
+            <?php foreach ($admins as $admin): ?>
+                <tr>
+                    <td class="vignette"><img
+                                src="data:image/jpeg;base64, <?= base64_encode($admin['photo']) ?>" alt=""></td>
+                    <td class="login align-middle"><?= $admin['login'] ?></td>
+                    <td class="email align-middle"><?= $admin['email'] ?></td>
+                    <td class="align-middle">
+                        <div class="button_admin">
+                            <button class="btn btn-orange btn-md btn-admin">Modifier</button>
+                            <button class="btn btn-red btn-md btn-admin">Supprimer</button>
+                        </div>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+
+            </tbody>
+        </table>
+
+        <div class="row containerPagination">
+            <nav class="text-center">
+                <ul class="pagination pagination-circle pg-amber mb-0"></ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="empruntList" class="row">
+        <table class="table">
+            <thead class="mdb-color grey lighten-5 ">
+            <tr>
+
+                <th class="sort" data-sort="titre">Titre</th>
+                <th class="sort" data-sort="nom">Nom</th>
+                <th class="sort" data-sort="prenom">Prénom</th>
+                <th class="sort" data-sort="promo">Promotion</th>
+                <th class="sort" data-sort="date_debut">Date d'emprunt</th>
+                <th class="sort" data-sort="delai">Date de retour</th>
+                <th></th>
+                <th><input class="search" placeholder="Search"/></th>
+            </tr>
+            </thead>
+            <tbody class="list">
+
+            <?php foreach ( $emprunts as $emprunt): ?>
+                <tr>
+                    <td class="titre align-middle"><?= $emprunt['titre'] ?></td>
+                    <td class="nom align-middle"><?= $emprunt['nom'] ?></td>
+                    <td class="prenom align-middle"><?= $emprunt['prenom'] ?></td>
+                    <td class="promo align-middle"><?= $emprunt['promo'] ?></td>
+                    <td class="date_debut align-middle"><?= $emprunt['date_debut'] ?></td>
+                    <td class="delai align-middle"><?= $emprunt['delai'] ?></td>
+
+                    <td class="align-middle">
+                        <div class="button_admin">
+                            <button class="btn btn-green btn-md btn-admin">Retour</button>
+                        </div>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+
+            </tbody>
+        </table>
+
+        <div class="row containerPagination">
+            <nav class="text-center">
+                <ul class="pagination pagination-circle pg-amber mb-0"></ul>
+            </nav>
+        </div>
+    </div>
+
 
 </div>

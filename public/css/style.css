@@ -16,16 +16,19 @@ html
   margin : 0;
   padding : 0;
 }
+
 .header
 {
   background: url("../img/header_bg.jpg") repeat-x;
   display: flex;
   text-align: center;
 }
+
 .header a
 {
   text-decoration : none;
 }
+
 .header .liens_externe
 {
   color : black;
@@ -37,6 +40,7 @@ html
   padding-top : 4vh;
   padding-bottom: 6vh;
 }
+
 .nav
 {
   font-size : 20px;
@@ -46,6 +50,7 @@ html
   list-style: none;
   padding-top : 5vh;
 }
+
 .nav li
 {
   padding : 1vw;
@@ -56,35 +61,42 @@ html
   padding : 5vh;
   background: url("../img/page-header_bg.jpg") repeat-x;
 }
+
 .page-header h1
 {
   padding-left : 15vw;
   color : white;
   font-family: "Roboto Light";
 }
+
 footer
 {
   font-size : 12px;
   text-align: center;
 }
+
 footer img
 {
   padding-left : 55vw;
 }
-.cover_book img
+
+.vignette img
 {
-  width : 100px;
-  height : 150px;
+  width : auto;
+  height : 100px;
 }
+
 .lien_infos
 {
   width : 32px;
   height : 32px;
 }
+
 .table
 {
   margin-top: 2vh;
 }
+
 .table thead th
 {
   font-weight: bold;
@@ -92,10 +104,34 @@ footer img
 }
 
 .containerPagination {
-  position: relative;
-  left: 50%;
-  /*display: block;
-  margin: auto;*/
+  display: block;
+  margin: auto;
+}
+
+
+.add_res{
+  width: 40%;
+  height: auto;
+}
+
+.sort:hover {
+  color:#EF5A00;
+}
+
+.sort.asc{
+  color:#EF5A00;
+}
+
+.sort.desc{
+  color:#EF5A00;
+}
+
+.btn-menu{
+    margin:15px 0;
+}
+
+tbody tr:hover{
+    background-color:#fffdfc;
 }
 
 .vignetteCouverture {

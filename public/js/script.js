@@ -15,7 +15,26 @@ let revuesOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
     page: 3,
     pagination: [{
-        outerWindow: 1
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let adminsOptions = {
+    valueNames: ['login', 'email'],
+    page: 3,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let empruntsOptions = {
+    valueNames: ['titre', 'nom', 'prenom', 'promo', 'date_debut', 'delai'],
+    page: 3,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
     }],
 };
 
@@ -48,6 +67,18 @@ if ($('#userRevuesList').length > 0) {
     }
 }
 
+/*** Liste des Emprunts ***/
+if ($('#empruntList').length > 0) {
+
+    let empruntList = new List('empruntList', empruntsOptions);
+
+    if (empruntList !== null) {
+        empruntList.sort('titre', {
+            order: "desc"
+        });
+    }
+}
+
 $("#userRevuesList").hide();
 
 $('#bookButton').on('click', function () {
@@ -72,11 +103,12 @@ $('.listButtonBar button').on('click', function () {
 /**
  * ADMIN
  **/
+
 /*** Liste des livres ***/
 
 if ($('#adminBookList').length > 0) {
 
-    adminBookList = new List('adminBookList', booksOptions);
+    let adminBookList = new List('adminBookList', booksOptions);
 
     if (adminBookList !== null) {
         adminBookList.sort('titre', {
@@ -88,10 +120,22 @@ if ($('#adminBookList').length > 0) {
 /*** Liste des revues ***/
 
 if ($('#adminRevuesList').length > 0) {
-    adminRevuesList = new List('adminRevuesList', revuesOptions);
+    let adminRevuesList = new List('adminRevuesList', revuesOptions);
 
     if (adminRevuesList !== null) {
         adminRevuesList.sort('titre', {
+            order: "desc"
+        });
+    }
+}
+
+/*** Liste des admins ***/
+
+if ($('#adminList').length > 0) {
+    let adminList = new List('adminList', adminsOptions);
+
+    if (adminList !== null) {
+        adminList.sort('titre', {
             order: "desc"
         });
     }
@@ -144,6 +188,5 @@ function bootstrapNotify(msg, type) {
             from: 'top',
             align: 'right'
         }
-
     });
 }

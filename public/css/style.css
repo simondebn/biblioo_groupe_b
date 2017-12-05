@@ -144,3 +144,11 @@ tbody tr:hover{
   padding: 5px;
   background-color: #FEFEFE;
 }
+
+.note {
+  min-width: 115px;
+}
+
+.hidden {
+  display: none;
+}

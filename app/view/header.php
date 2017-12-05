@@ -16,6 +16,8 @@
     <link href="public/css/style.css" rel="stylesheet">
     <!-- Bootstrap notify (optional) -->
     <link href="public/css/animate.css" rel="stylesheet">
+    <!-- Starability (optional) -->
+    <link href="public/css/starability-all.min.css" rel="stylesheet">
 </head>
 
 <body>

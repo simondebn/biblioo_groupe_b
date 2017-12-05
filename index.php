@@ -13,10 +13,12 @@ include 'app/config/db.php';
 include 'app/model/adminModelDb.php';
 include 'app/model/empruntModelDb.php';
 include 'app/model/ressourceModelDb.php';
+include 'app/model/commentaireModelDb.php';
 
 $adminModelDb = new adminModelDb($db);
 $empruntModelDb = new empruntModelDb($db);
 $ressourcesModelDb = new ressourceModelDb($db);
+$commentaireModelDb = new commentaireModelDb($db);
 
 $page = DEFAULT_PAGE;
 

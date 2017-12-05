@@ -190,19 +190,17 @@ $('.listButtonBar a').on('click', function () {
             break;
 
         case 'userBookButton':
-            currentList = userBookList;
             $("#userBookList").show();
             $("#userRevueList").hide();
             break;
 
         case 'userRevueButton':
-            currentList = userRevueList;
             $("#userBookList").hide();
             $("#userRevueList").show();
             break;
     }
 
-
+    currentList = userRevueList;
 
 });
 

@@ -19,6 +19,14 @@ let revuesOptions = {
         outerWindow: 1,
     }],
 };
+let adminsOptions = {
+    valueNames: ['login', 'email'],
+    page: 3,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
 
 
 /**
@@ -99,6 +107,18 @@ if ($('#adminRevuesList').length > 0) {
     }
 }
 
+/*** Liste des admins ***/
+
+if ($('#adminList').length > 0) {
+    let adminList = new List('adminList', adminsOptions);
+
+    if (adminList !== null) {
+        adminList.sort('titre', {
+            order: "desc"
+        });
+    }
+}
+
 
 
 /**
@@ -146,6 +166,5 @@ function bootstrapNotify(msg, type) {
             from: 'top',
             align: 'right'
         }
-
     });
 }

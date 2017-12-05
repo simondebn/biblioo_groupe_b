@@ -4,6 +4,7 @@
         <div class="btn-group btn-menu">
             <button id="bookButton" class="btn btn-elegant btn-lg">Livres</button>
             <button id="revuesButton" class="btn btn-blue-grey btn-lg">Revues</button>
+
         </div>
 
     </div>-->
@@ -79,7 +80,7 @@
             </div>
     </div>
 
-    <div id="userRevuesList" class="row" style="margin:0">
+    <div id="userRevueList" class="row" style="margin:0">
         <table class="table">
             <thead>
             <tr>

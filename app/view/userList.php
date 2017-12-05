@@ -12,7 +12,7 @@
     <nav style="margin-top:20px;background-color: #ff7500" class="navbar navbar-expand-lg navbar-dark">
 
         <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse listButtonBar" id="navbarSupportedContent">
 
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
@@ -20,7 +20,7 @@
                     <a id="userBookButton" class="buttonNavBar nav-link" href="#">Livres</a>
                 </li>
                 <li id="revuesNavBar" class="nav-item">
-                    <a id="userRevuesButton" class="nav-link buttonNavBar"href="#">Revues</a>
+                    <a id="userRevueButton" class="nav-link buttonNavBar"href="#">Revues</a>
                 </li>
             </ul>
             <!-- Links -->

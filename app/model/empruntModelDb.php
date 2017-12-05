@@ -69,4 +69,17 @@ class empruntModelDb
         ]);
     }
 
+
+    public function getLoan(){
+        $stmt = $this->db->prepare("SELECT * FROM emprunt, ressource, type_ressource WHERE emprunt.retour = 0 AND emprunt.id_ressource = ressource.id AND type_ressource.id = ressource.id_type");
+        $stmt->execute();
+
+        $retour = [];
+        foreach ($stmt as $m) {
+            $retour[$m['id_ressource']] = $m;
+        }
+        return $retour;
+    }
+
+
 }

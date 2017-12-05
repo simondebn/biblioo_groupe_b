@@ -42,6 +42,23 @@
                     <th class="sort" data-sort="domaine">Thème</th>
                     <th>Note</th>
                     <th></th>
+
+                    <th>
+                        <!--Dropdown primary-->
+                        <div class="dropdown">
+                            <!--Trigger-->
+                            <button class="btn btn-warning dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nb/page</button>
+                            <!--Menu-->
+                            <div class="dropdown-menu dropdown-primary">
+                                <a class="dropdown-item" href="#">1</a>
+                                <a class="dropdown-item" href="#">2</a>
+                                <a class="dropdown-item" href="#">5</a>
+                                <a class="dropdown-item" href="#">Tout</a>
+                            </div>
+                        </div>
+                        <!--/Dropdown primary-->
+                    </th>
+
                 </tr>
                 </thead>
 
@@ -91,7 +108,23 @@
                 <th class="sort" data-sort="description">Description</th>
                 <th>Note</th>
                 <th></th>
-                </tr>
+
+                <th><!--Dropdown primary-->
+                    <div class="dropdown">
+                        <!--Trigger-->
+                        <button class="btn btn-warning dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nb/page</button>
+                        <!--Menu-->
+                        <div class="dropdown-menu dropdown-primary">
+                            <a class="dropdown-item" href="#">1</a>
+                            <a class="dropdown-item" href="#">2</a>
+                            <a class="dropdown-item" href="#">5</a>
+                            <a class="dropdown-item" href="#">Tout</a>
+                        </div>
+                    </div>
+                    <!--/Dropdown primary-->
+                </th>
+            </tr>
+
             </thead>
             <tbody class="list">
 

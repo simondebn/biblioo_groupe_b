@@ -66,8 +66,7 @@
             <?php foreach ($_GET['comments'] as $comment): ?>
                 <tr>
                     <td class="align-middle"><?= $comment['nom'] ?></td>
-                    <td class="note align-middle" title="voir les notes / noter le livre"
-                        data-id="< ?= $book['id'] ?>">
+                    <td class="note align-middle" title="voir les notes / noter le livre">
                         <?php
                         for ($i = 1; $i <= $comment['note']; $i++) {
                             echo '<img src="public/img/svg/stars/full_jaune.svg"/>';

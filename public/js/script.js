@@ -67,17 +67,6 @@ if ($('#userRevuesList').length > 0) {
     }
 }
 
-/*** Liste des Emprunts ***/
-if ($('#empruntList').length > 0) {
-
-    let empruntList = new List('empruntList', empruntsOptions);
-
-    if (empruntList !== null) {
-        empruntList.sort('titre', {
-            order: "desc"
-        });
-    }
-}
 
 $("#userRevuesList").hide();
 
@@ -142,6 +131,59 @@ if ($('#adminList').length > 0) {
 }
 
 
+/*** Liste des Emprunts ***/
+if ($('#empruntList').length > 0) {
+
+    let empruntList = new List('empruntList', empruntsOptions);
+
+    if (empruntList !== null) {
+        empruntList.sort('titre', {
+            order: "desc"
+        });
+    }
+}
+
+$("#adminBookList").hide();
+$("#adminRevuesList").hide();
+$("#adminList").hide();
+
+
+$('.listButtonBar button').on('click', function () {
+
+    let list =  $(this).attr('id');
+    console.log($(this).attr('id'));
+
+    switch (list) {
+        case 'loanButton':
+            $("#adminBookList").hide();
+            $("#adminRevuesList").hide();
+            $("#adminList").hide();
+            $("#empruntList").show();
+            break;
+
+        case 'bookButton':
+            $("#adminBookList").show();
+            $("#adminRevuesList").hide();
+            $("#adminList").hide();
+            $("#empruntList").hide();
+            break;
+
+        case 'revueButton':
+            $("#adminBookList").hide();
+            $("#adminRevuesList").show();
+            $("#adminList").hide();
+            $("#empruntList").hide();
+            break;
+
+        case 'adminButton':
+            $("#adminBookList").hide();
+            $("#adminRevuesList").hide();
+            $("#adminList").show();
+            $("#empruntList").hide();
+            break;
+
+    }
+})
 
 /**
  * Ajoute les classes de MDBootstrap aux éléments de la pagination générée par List.js

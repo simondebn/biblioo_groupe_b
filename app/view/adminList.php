@@ -21,6 +21,7 @@
                 <th>Note</th>
                 <th></th>
                 <th><input class="search" placeholder="Rechercher"/></th>
+                <th></th>
             </tr>
             </thead>
 

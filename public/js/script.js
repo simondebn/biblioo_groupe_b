@@ -1,10 +1,16 @@
+let userBookList;
+let userRevueList;
+
+let currentList;
+let itemPerPage;
+
 /**
  * OPTIONS LIST.JS
  */
 
 let booksOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'date'],
-    page: 3,
+    page: localStorage.getItem("itemPerPage"),
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -13,7 +19,7 @@ let booksOptions = {
 
 let revuesOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
-    page: 3,
+    page: localStorage.getItem("itemPerPage"),
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -38,6 +44,23 @@ let empruntsOptions = {
     }],
 };
 
+/*** Message par page ***/
+
+if ((localStorage.getItem("itemPerPage")) === null) {
+    itemPerPage = 10;
+} else {
+    itemPerPage = localStorage.getItem("itemPerPage");
+}
+
+$('.dropdown-menu').find('a').click(function(e) {
+    e.preventDefault();
+    itemPerPage = $(this).text();
+    if (itemPerPage === "Tout") {
+        itemPerPage = (currentList.items).length;
+    }
+    localStorage.setItem("itemPerPage", itemPerPage);
+    currentList.show(1, itemPerPage);
+});
 
 /**
  * LISTES USER
@@ -46,18 +69,19 @@ let empruntsOptions = {
 /*** Liste des livres ***/
 if ($('#userBookList').length > 0) {
 
-    let userBookList = new List('userBookList', booksOptions);
-
+    userBookList = new List('userBookList', booksOptions);
+    currentList = userBookList;
     if (userBookList !== null) {
         userBookList.sort('titre', {
             order: "desc"
         });
     }
 }
+
 /*** Liste des revues ***/
 if ($('#userRevueList').length > 0) {
 
-    let userRevueList = new List('userRevueList', revuesOptions);
+    userRevueList = new List('userRevueList', revuesOptions);
 
     if (userRevueList !== null) {
         userRevueList.sort('titre', {
@@ -65,6 +89,7 @@ if ($('#userRevueList').length > 0) {
         });
     }
 }
+
 
 /**
  * LISTES ADMIN
@@ -137,7 +162,6 @@ $('.listButtonBar button').on('click', function () {
 $('.listButtonBar button').on('click', function () {
 
     let list =  $(this).attr('id');
-    console.log($(this).attr('id'));
 
     switch (list) {
         case 'loanButton':
@@ -169,15 +193,20 @@ $('.listButtonBar button').on('click', function () {
             break;
 
         case 'userBookButton':
+            currentList = userBookList;
             $("#userBookList").show();
             $("#userRevueList").hide();
+            currentList.show(1, itemPerPage);
             break;
 
         case 'userRevueButton':
+            currentList = userRevueList;
             $("#userBookList").hide();
             $("#userRevueList").show();
+            currentList.show(1, itemPerPage);
             break;
     }
+
 });
 
 /**
@@ -228,3 +257,5 @@ function bootstrapNotify(msg, type) {
         }
     });
 }
+
+

@@ -30,7 +30,7 @@
         <li><a class="liens_externe" href="/">PROGRAMMES</a></li>
         <li><a class="liens_externe" href="/">ETUDIANTS</a></li>
         <li><a class="liens_externe" href="/">PROFESSIONNELS</a></li>
-        <li><a style="color :orange" href="/">BIBLIOO</a></li>
+        <li><a style="color :orange" href="home">BIBLIOO</a></li>
     </ul>
 </div>
 <div class="page-header">

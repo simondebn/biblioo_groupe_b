@@ -98,5 +98,13 @@ footer img
   margin: auto;*/
 }
 
+.vignetteCouverture {
+  max-height: 100px;
+  padding-right: 5px;
+}
 
-
+.containerBlockVignette {
+  margin: 5px;
+  padding: 5px;
+  background-color: #FEFEFE;
+}

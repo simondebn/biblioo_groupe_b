@@ -155,6 +155,11 @@ $("#userRevueList").hide();
 /*** Affichage de la liste en fonction du bouton cliqué ***/
 $('.listButtonBar a').on('click', function () {
 
+    $('.listButtonBar li').on('click', function () {
+        $('.nav-item').removeClass("active")
+        $(this).addClass("active");
+    });
+
     let list =  $(this).attr('id');
 
     switch (list) {
@@ -190,26 +195,16 @@ $('.listButtonBar a').on('click', function () {
             currentList = userBookList;
             $("#userBookList").show();
             $("#userRevueList").hide();
-
-            $("#bookNavBar").addClass("active");
-            $("#revuesNavBar").removeClass("active");
-
-            currentList.show(1, itemPerPage);
-
             break;
 
         case 'userRevueButton':
             currentList = userRevueList;
             $("#userBookList").hide();
             $("#userRevueList").show();
-
-            $("#bookNavBar").removeClass("active");
-            $("#revuesNavBar").addClass("active");
-
-            currentList.show(1, itemPerPage);
-
             break;
     }
+
+
 
 });
 

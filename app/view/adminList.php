@@ -2,10 +2,10 @@
 
     <div class="row listButtonBar btn-group btn-menu">
         <!-- btn-elegant = actif , btn-blue-gray = non-actif -->
-        <button id="bookButton" class="btn btn-elegant btn-lg">Livres</button>
+        <button id="bookButton" class="btn btn-blue-grey btn-lg">Livres</button>
         <button id="revueButton" class="btn btn-blue-grey btn-lg">Revues</button>
         <button id="adminButton" class="btn btn-blue-grey btn-lg">Administrateurs</button>
-        <button id="loanButton" class="btn btn-blue-grey btn-lg">Prêts/Retour</button>
+        <button id="loanButton" class="btn btn-elegant btn-lg">Prêts/Retour</button>
     </div>
         <button class="btn btn-primary"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
 

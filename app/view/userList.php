@@ -11,7 +11,7 @@
 
     <div id="userBookList" class="row">
             <table class="table">
-                <thead class="mdb-color grey lighten-5 ">
+                <thead class="mdb-color grey lighten-5">
                 <tr>
                     <th></th>
                     <th class="sort" data-sort="titre">Titre</th>
@@ -61,7 +61,7 @@
 
     <div id="userRevuesList" class="row">
         <table class="table">
-            <thead class="mdb-color lighten-4">
+            <thead class="mdb-color grey lighten-5">
             <tr>
                 <th></th>
                 <th class="sort" data-sort="titre">Titre</th>

@@ -15,11 +15,11 @@
         <table class="table">
             <thead class="mdb-color grey lighten-5 ">
             <tr>
-                <th><img class="add_res" src="public/css/img/svg/plus.svg" alt="ajouter"></th>
-                <th class="sort" data-sort="titre col-md-1">Titre</th>
-                <th class="sort" data-sort="auteur col-md-3">Auteur</th>
-                <th class="sort" data-sort="date col-md-3">Date de parution</th>
-                <th class="sort" data-sort="domaine col-md-3">Thème</th>
+                <th><img class="add_res" src="public/img/svg/plus.svg" alt="ajouter"></th>
+                <th class="sort col-md-1" data-sort="titre">Titre</th>
+                <th class="sort col-md-3" data-sort="auteur">Auteur</th>
+                <th class="sort col-md-3" data-sort="date">Date de parution</th>
+                <th class="sort col-md-3" data-sort="domaine ">Thème</th>
                 <th>Note</th>
                 <th></th>
                 <th><input class="search" placeholder="Search"/></th>
@@ -61,7 +61,7 @@
 
     <div id="adminRevuesList" class="row">
         <table class="table">
-            <thead class="mdb-color lighten-4">
+            <thead class="mdb-color grey lighten-5 ">
             <tr>
                 <th></th>
                 <th class="sort" data-sort="titre">Titre</th>

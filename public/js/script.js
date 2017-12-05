@@ -15,7 +15,8 @@ let revuesOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
     page: 3,
     pagination: [{
-        outerWindow: 1
+        innerWindow: 1,
+        outerWindow: 1,
     }],
 };
 
@@ -72,11 +73,12 @@ $('.listButtonBar button').on('click', function () {
 /**
  * ADMIN
  **/
+
 /*** Liste des livres ***/
 
 if ($('#adminBookList').length > 0) {
 
-    adminBookList = new List('adminBookList', booksOptions);
+    let adminBookList = new List('adminBookList', booksOptions);
 
     if (adminBookList !== null) {
         adminBookList.sort('titre', {
@@ -88,7 +90,7 @@ if ($('#adminBookList').length > 0) {
 /*** Liste des revues ***/
 
 if ($('#adminRevuesList').length > 0) {
-    adminRevuesList = new List('adminRevuesList', revuesOptions);
+    let adminRevuesList = new List('adminRevuesList', revuesOptions);
 
     if (adminRevuesList !== null) {
         adminRevuesList.sort('titre', {

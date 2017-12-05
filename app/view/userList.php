@@ -16,11 +16,11 @@
 
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
-                <li id="bookNavBar" class="nav-itemnav-item active">
+                <li class="nav-item active">
                     <a id="userBookButton" class="buttonNavBar nav-link" href="#">Livres</a>
                 </li>
-                <li id="revuesNavBar" class="nav-item">
-                    <a id="userRevueButton" class="nav-link buttonNavBar"href="#">Revues</a>
+                <li class="nav-item">
+                    <a id="userRevueButton" class="buttonNavBar nav-link"href="#">Revues</a>
                 </li>
             </ul>
             <!-- Links -->
@@ -179,7 +179,7 @@
                     <td class="align-middle"><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos"
                                                                                                   src="public/img/svg/infos.svg"></a>
                     </td>
-                    <td tyle="min-width: 180px;" class="align-middle">
+                    <td style="min-width: 180px;" class="align-middle">
                         <?php if ($revue['disponibility']): ?>
                             <button id="reserver" data-id="<?= $revue['id'] ?>"
                                     class="btn btn-primary btn-green btn-md">Réserver

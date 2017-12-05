@@ -4,46 +4,6 @@ let userRevueList;
 let currentList;
 let itemPerPage;
 
-/**
- * OPTIONS LIST.JS
- */
-
-let booksOptions = {
-    valueNames: ['titre', 'auteur', 'domaine', 'date'],
-    page: 5,
-    pagination: [{
-        innerWindow: 1,
-        outerWindow: 1,
-    }],
-};
-
-let revuesOptions = {
-    valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
-    page: 5,
-    pagination: [{
-        innerWindow: 1,
-        outerWindow: 1,
-    }],
-};
-
-let adminsOptions = {
-    valueNames: ['login', 'email'],
-    page: 3,
-    pagination: [{
-        innerWindow: 1,
-        outerWindow: 1,
-    }],
-};
-
-let empruntsOptions = {
-    valueNames: ['titre', 'nom', 'prenom', 'promo', 'date_debut', 'delai'],
-    page: 3,
-    pagination: [{
-        innerWindow: 1,
-        outerWindow: 1,
-    }],
-};
-
 /*** Message par page ***/
 
 if ((localStorage.getItem("itemPerPage")) === null) {
@@ -61,6 +21,46 @@ $('.dropdown-menu').find('a').click(function(e) {
     localStorage.setItem("itemPerPage", itemPerPage);
     currentList.show(1, itemPerPage);
 });
+
+/*** Options List.js ***/
+
+let booksOptions = {
+    valueNames: ['titre', 'auteur', 'domaine', 'date'],
+    page: itemPerPage,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let revuesOptions = {
+    valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
+    page: itemPerPage,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let adminsOptions = {
+    valueNames: ['login', 'email'],
+    page: 5,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let empruntsOptions = {
+    valueNames: ['titre', 'nom', 'prenom', 'promo', 'date_debut', 'delai'],
+    page: 5,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+
 
 /**
  * LISTES USER
@@ -121,7 +121,6 @@ if ($('#adminRevueList').length > 0) {
 /*** Liste des admins ***/
 if ($('#adminList').length > 0) {
     let adminList = new List('adminList', adminsOptions);
-
     if (adminList !== null) {
         adminList.sort('titre', {
             order: "desc"
@@ -129,18 +128,16 @@ if ($('#adminList').length > 0) {
     }
 }
 
-
 /*** Liste des Emprunts ***/
 if ($('#empruntList').length > 0) {
-
     let empruntList = new List('empruntList', empruntsOptions);
-
     if (empruntList !== null) {
         empruntList.sort('titre', {
             order: "desc"
         });
     }
 }
+
 /**
  * Affichage Listes et Boutons
  */
@@ -155,12 +152,13 @@ $("#userRevueList").hide();
 /*** Affichage de la liste en fonction du bouton cliqué ***/
 $('.listButtonBar a').on('click', function () {
 
-    $('.listButtonBar li').on('click', function () {
-        $('.nav-item').removeClass("active")
-        $(this).addClass("active");
-    });
+    $('.nav-item').removeClass("active");
+    $(this).parent('li').addClass('active')
+
 
     let list =  $(this).attr('id');
+    console.log($(this).attr('id'))
+
 
     switch (list) {
         case 'loanButton':

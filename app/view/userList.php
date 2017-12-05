@@ -27,7 +27,7 @@
                 <tbody class="list">
                 <?php foreach ($books as $book): ?>
                     <tr>
-                        <td class="cover_book"><img
+                        <td class="vignette"><img
                                     src="data:image/jpeg;base64, <?= base64_encode($book['couverture']) ?>" alt=""></td>
                         <td class="titre"><?= $book['titre'] ?></td>
                         <td class="auteur"><?= $book['auteur'] ?></td>
@@ -77,7 +77,7 @@
 
                 <?php foreach ($revues as $revue): ?>
                     <tr>
-                        <td class="cover_book"><img
+                        <td class="vignette"><img
                                     src="data:image/jpeg;base64, <?= base64_encode($revue['couverture']) ?>" alt=""></td>
                         <td class="titre"><?= $revue['titre'] ?></td>
                         <td class="date"><?= $revue['date'] ?></td>

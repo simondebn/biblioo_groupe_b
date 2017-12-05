@@ -9,9 +9,10 @@
 
 /** Gestion liste des comptes */
 
-$comptes = $adminModelDb->getAll();
 $ressources = $ressourcesModelDb->getAll();
 $admins = $adminModelDb->getAll();
+$emprunts = $empruntModelDb->getLoan();
+
 
 $books = [];
 $revues = [];
@@ -26,12 +27,13 @@ foreach ($ressources as $ressource){
     }
 }
 
+
 render('adminList', [
     'title'   => 'Liste',
-    'comptes' => $comptes,
     'books'   => $books,
     'revues'  => $revues,
-    'admins'   => $admins,
+    'admins'  => $admins,
+    'emprunts'=> $emprunts,
 ]);
 
 /** GESTION ADMINS */

@@ -19,8 +19,18 @@ let revuesOptions = {
         outerWindow: 1,
     }],
 };
+
 let adminsOptions = {
     valueNames: ['login', 'email'],
+    page: 3,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let empruntsOptions = {
+    valueNames: ['titre', 'nom', 'prenom', 'promo', 'date_debut', 'delai'],
     page: 3,
     pagination: [{
         innerWindow: 1,
@@ -52,6 +62,18 @@ if ($('#userRevuesList').length > 0) {
 
     if (userRevuesList !== null) {
         userRevuesList.sort('titre', {
+            order: "desc"
+        });
+    }
+}
+
+/*** Liste des Emprunts ***/
+if ($('#empruntList').length > 0) {
+
+    let empruntList = new List('empruntList', empruntsOptions);
+
+    if (empruntList !== null) {
+        empruntList.sort('titre', {
             order: "desc"
         });
     }

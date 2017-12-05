@@ -144,3 +144,16 @@ tbody tr:hover{
   padding: 5px;
   background-color: #FEFEFE;
 }
+
+input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #F77000;
+  box-shadow: 0 1px 0 0 #F77000;
+}
+input[type=text]:focus:not([readonly]) + label {
+  color: #F77000;
+}
+
+.buttonNavBar{
+  padding-left:25px !important;
+  padding-right:25px !important;
+}

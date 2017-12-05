@@ -71,15 +71,21 @@ if ($('#userRevuesList').length > 0) {
 $("#userRevuesList").hide();
 
 $('#bookButton').on('click', function () {
-    $(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
-    $('#revuesButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
+    //$(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
+    //$('#revuesButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
+    $('#bookNavBar').addClass("active");
+    $('#revuesNavBar').removeClass("active");
+
     $("#userBookList").show();
     $("#userRevuesList").hide();
 });
 
 $('#revuesButton').on('click', function () {
-    $(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
-    $('#bookButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
+    //$(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
+    //$('#bookButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
+    $('#revuesNavBar').addClass("active");
+    $('#bookNavBar').removeClass("active");
+
     $("#userBookList").hide();
     $("#userRevuesList").show();
 });

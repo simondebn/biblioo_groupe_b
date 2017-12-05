@@ -1,10 +1,16 @@
+let userBookList;
+let userRevueList;
+
+let currentList;
+let itemPerPage;
+
 /**
- * List.js Options
+ * OPTIONS LIST.JS
  */
 
 let booksOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'date'],
-    page: 3,
+    page: localStorage.getItem("itemPerPage"),
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -13,7 +19,7 @@ let booksOptions = {
 
 let revuesOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
-    page: 3,
+    page: localStorage.getItem("itemPerPage"),
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -38,74 +44,58 @@ let empruntsOptions = {
     }],
 };
 
+/*** Message par page ***/
+
+if ((localStorage.getItem("itemPerPage")) === null) {
+    itemPerPage = 10;
+} else {
+    itemPerPage = localStorage.getItem("itemPerPage");
+}
+
+$('.dropdown-menu').find('a').click(function(e) {
+    e.preventDefault();
+    itemPerPage = $(this).text();
+    if (itemPerPage === "Tout") {
+        itemPerPage = (currentList.items).length;
+    }
+    localStorage.setItem("itemPerPage", itemPerPage);
+    currentList.show(1, itemPerPage);
+});
 
 /**
- * USER
+ * LISTES USER
  **/
-
 
 /*** Liste des livres ***/
 if ($('#userBookList').length > 0) {
 
-    let userBookList = new List('userBookList', booksOptions);
-
+    userBookList = new List('userBookList', booksOptions);
+    currentList = userBookList;
     if (userBookList !== null) {
         userBookList.sort('titre', {
             order: "desc"
         });
     }
 }
+
 /*** Liste des revues ***/
-if ($('#userRevuesList').length > 0) {
+if ($('#userRevueList').length > 0) {
 
-    let userRevuesList = new List('userRevuesList', revuesOptions);
+    userRevueList = new List('userRevueList', revuesOptions);
 
-    if (userRevuesList !== null) {
-        userRevuesList.sort('titre', {
+    if (userRevueList !== null) {
+        userRevueList.sort('titre', {
             order: "desc"
         });
     }
 }
 
-/*** Liste des Emprunts ***/
-if ($('#empruntList').length > 0) {
-
-    let empruntList = new List('empruntList', empruntsOptions);
-
-    if (empruntList !== null) {
-        empruntList.sort('titre', {
-            order: "desc"
-        });
-    }
-}
-
-$("#userRevuesList").hide();
-
-$('#bookButton').on('click', function () {
-    $(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
-    $('#revuesButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
-    $("#userBookList").show();
-    $("#userRevuesList").hide();
-});
-
-$('#revuesButton').on('click', function () {
-    $(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
-    $('#bookButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
-    $("#userBookList").hide();
-    $("#userRevuesList").show();
-});
-
-$('.listButtonBar button').on('click', function () {
-    $('.listButtonBar button:not(.btn-primary)').removeClass("btn btn-elegant").addClass("btn btn-blue-grey");
-    $(this).removeClass("btn btn-blue-grey").addClass("btn btn-elegant");
-})
 
 /**
- * ADMIN
+ * LISTES ADMIN
  **/
 
 /*** Liste des livres ***/
-
 if ($('#adminBookList').length > 0) {
 
     let adminBookList = new List('adminBookList', booksOptions);
@@ -118,19 +108,17 @@ if ($('#adminBookList').length > 0) {
 }
 
 /*** Liste des revues ***/
+if ($('#adminRevueList').length > 0) {
+    let adminRevueList = new List('adminRevueList', revuesOptions);
 
-if ($('#adminRevuesList').length > 0) {
-    let adminRevuesList = new List('adminRevuesList', revuesOptions);
-
-    if (adminRevuesList !== null) {
-        adminRevuesList.sort('titre', {
+    if (adminRevueList !== null) {
+        adminRevueList.sort('titre', {
             order: "desc"
         });
     }
 }
 
 /*** Liste des admins ***/
-
 if ($('#adminList').length > 0) {
     let adminList = new List('adminList', adminsOptions);
 
@@ -142,10 +130,93 @@ if ($('#adminList').length > 0) {
 }
 
 
+/*** Liste des Emprunts ***/
+if ($('#empruntList').length > 0) {
+
+    let empruntList = new List('empruntList', empruntsOptions);
+
+    if (empruntList !== null) {
+        empruntList.sort('titre', {
+            order: "desc"
+        });
+    }
+}
+/**
+ * Affichage Listes et Boutons
+ */
+
+/*** Départ ***/
+$("#adminBookList").hide();
+$("#adminRevueList").hide();
+$("#adminList").hide();
+
+$("#userRevueList").hide();
+
+/*** Affichage de la liste en fonction du bouton cliqué ***/
+$('.listButtonBar a').on('click', function () {
+
+    let list =  $(this).attr('id');
+
+    switch (list) {
+        case 'loanButton':
+            $("#adminBookList").hide();
+            $("#adminRevueList").hide();
+            $("#adminList").hide();
+            $("#empruntList").show();
+            break;
+
+        case 'bookButton':
+            $("#adminBookList").show();
+            $("#adminRevueList").hide();
+            $("#adminList").hide();
+            $("#empruntList").hide();
+            break;
+
+        case 'revueButton':
+            $("#adminBookList").hide();
+            $("#adminRevueList").show();
+            $("#adminList").hide();
+            $("#empruntList").hide();
+            break;
+
+        case 'adminButton':
+            $("#adminBookList").hide();
+            $("#adminRevueList").hide();
+            $("#adminList").show();
+            $("#empruntList").hide();
+            break;
+
+        case 'userBookButton':
+            currentList = userBookList;
+            $("#userBookList").show();
+            $("#userRevueList").hide();
+
+            $("#bookNavBar").addClass("active");
+            $("#revuesNavBar").removeClass("active");
+
+            currentList.show(1, itemPerPage);
+
+            break;
+
+        case 'userRevueButton':
+            currentList = userRevueList;
+            $("#userBookList").hide();
+            $("#userRevueList").show();
+
+            $("#bookNavBar").removeClass("active");
+            $("#revuesNavBar").addClass("active");
+
+            currentList.show(1, itemPerPage);
+
+            break;
+    }
+
+});
 
 /**
  * Ajoute les classes de MDBootstrap aux éléments de la pagination générée par List.js
  */
+
 
 function modifyPaginationClasses() {
     $('.pagination li').addClass('page-item');
@@ -190,3 +261,5 @@ function bootstrapNotify(msg, type) {
         }
     });
 }
+
+

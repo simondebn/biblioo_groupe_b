@@ -1,28 +1,27 @@
 <div class="container">
 
-    <div class="row listButtonBar">
+    <div class="row listButtonBar btn-group btn-menu">
         <!-- btn-elegant = actif , btn-blue-gray = non-actif -->
-        <button class="btn btn-elegant  col-lg-2">Livres</button>
-        <button class="btn btn-blue-grey  col-lg-2">Revues</button>
-        <button class="btn btn-blue-grey  col-lg-3">Administrateurs</button>
-        <button class="btn btn-blue-grey  col-lg-2">Prêts/Retour</button>
-        <div class="col-lg-1 offset-lg-1">
-            <button class="btn btn-primary"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
-        </div>
+        <button id="bookButton" class="btn btn-blue-grey btn-lg">Livres</button>
+        <button id="revueButton" class="btn btn-blue-grey btn-lg">Revues</button>
+        <button id="adminButton" class="btn btn-blue-grey btn-lg">Administrateurs</button>
+        <button id="loanButton" class="btn btn-elegant btn-lg">Prêts/Retour</button>
     </div>
+        <button class="btn btn-primary"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
 
     <div id="adminBookList" class="row">
         <table class="table">
-            <thead class="mdb-color grey lighten-5 ">
+            <thead>
             <tr>
                 <th><img class="add_res" src="public/img/svg/plus.svg" alt="ajouter"></th>
                 <th class="sort col-md-1" data-sort="titre">Titre</th>
                 <th class="sort col-md-3" data-sort="auteur">Auteur</th>
-                <th class="sort col-md-3" data-sort="date">Date de parution</th>
+                <th class="sort col-md-3" data-sort="date" style="min-width: 100px">Parution</th>
                 <th class="sort col-md-3" data-sort="domaine ">Thème</th>
                 <th>Note</th>
                 <th></th>
-                <th><input class="search" placeholder="Search"/></th>
+                <th><input class="search" placeholder="Rechercher"/></th>
+                <th></th>
             </tr>
             </thead>
 
@@ -59,17 +58,17 @@
         </div>
     </div>
 
-    <div id="adminRevuesList" class="row">
+    <div id="adminRevueList" class="row">
         <table class="table">
-            <thead class="mdb-color grey lighten-5 ">
+            <thead>
             <tr>
                 <th></th>
                 <th class="sort" data-sort="titre">Titre</th>
-                <th class="sort" data-sort="date">Date de parution</th>
+                <th class="sort" data-sort="date" style="min-width: 100px">Parution</th>
                 <th class="sort" data-sort="description">Description</th>
                 <th>Note</th>
                 <th></th>
-                <th><input class="search" placeholder="Search"/></th>
+                <th><input class="search" placeholder="Rechercher"/></th>
             </tr>
             </thead>
             <tbody class="list">
@@ -106,12 +105,12 @@
 
     <div id="adminList" class="row">
         <table class="table">
-            <thead class="mdb-color grey lighten-5 ">
+            <thead>
             <tr>
                 <th>Photo</th>
                 <th class="sort" data-sort="login">Login</th>
                 <th class="sort" data-sort="email">Email</th>
-                <th><input class="search" placeholder="Search"/></th>
+                <th><input class="search" placeholder="Rechercher"/></th>
             </tr>
             </thead>
             <tbody class="list">
@@ -143,7 +142,7 @@
 
     <div id="empruntList" class="row">
         <table class="table">
-            <thead class="mdb-color grey lighten-5 ">
+            <thead>
             <tr>
 
                 <th class="sort" data-sort="titre">Titre</th>
@@ -153,7 +152,7 @@
                 <th class="sort" data-sort="date_debut">Date d'emprunt</th>
                 <th class="sort" data-sort="delai">Date de retour</th>
                 <th></th>
-                <th><input class="search" placeholder="Search"/></th>
+                <th><input class="search" placeholder="Rechercher"/></th>
             </tr>
             </thead>
             <tbody class="list">

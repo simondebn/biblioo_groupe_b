@@ -10,7 +10,7 @@ let itemPerPage;
 
 let booksOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'date'],
-    page: localStorage.getItem("itemPerPage"),
+    page: 5,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -19,7 +19,7 @@ let booksOptions = {
 
 let revuesOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
-    page: localStorage.getItem("itemPerPage"),
+    page: 5,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,

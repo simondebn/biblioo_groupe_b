@@ -127,12 +127,6 @@ $("#adminList").hide();
 
 $("#userRevueList").hide();
 
-/*** Changement de classe des bouton en fonction de la liste affichée ***/
-$('.listButtonBar a').on('click', function () {
-    $('.listButtonBar a:not(.btn-primary)').removeClass("btn btn-elegant").addClass("btn btn-blue-grey");
-    $(this).removeClass("btn btn-blue-grey").addClass("btn btn-elegant");
-});
-
 /*** Affichage de la liste en fonction du bouton cliqué ***/
 $('.listButtonBar a').on('click', function () {
 
@@ -171,11 +165,15 @@ $('.listButtonBar a').on('click', function () {
         case 'userBookButton':
             $("#userBookList").show();
             $("#userRevueList").hide();
+            $("#bookNavBar").addClass("active");
+            $("#revuesNavBar").removeClass("active");
             break;
 
         case 'userRevueButton':
             $("#userBookList").hide();
             $("#userRevueList").show();
+            $("#bookNavBar").removeClass("active");
+            $("#revuesNavBar").addClass("active");
             break;
     }
 });

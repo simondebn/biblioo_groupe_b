@@ -1,5 +1,5 @@
 /**
- * List.js Options
+ * OPTIONS LIST.JS
  */
 
 let booksOptions = {
@@ -40,9 +40,8 @@ let empruntsOptions = {
 
 
 /**
- * USER
+ * LISTES USER
  **/
-
 
 /*** Liste des livres ***/
 if ($('#userBookList').length > 0) {
@@ -56,45 +55,22 @@ if ($('#userBookList').length > 0) {
     }
 }
 /*** Liste des revues ***/
-if ($('#userRevuesList').length > 0) {
+if ($('#userRevueList').length > 0) {
 
-    let userRevuesList = new List('userRevuesList', revuesOptions);
+    let userRevueList = new List('userRevueList', revuesOptions);
 
-    if (userRevuesList !== null) {
-        userRevuesList.sort('titre', {
+    if (userRevueList !== null) {
+        userRevueList.sort('titre', {
             order: "desc"
         });
     }
 }
 
-
-$("#userRevuesList").hide();
-
-$('#bookButton').on('click', function () {
-    $(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
-    $('#revuesButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
-    $("#userBookList").show();
-    $("#userRevuesList").hide();
-});
-
-$('#revuesButton').on('click', function () {
-    $(this).removeClass("btn btn-blue-grey btn-lg").addClass("btn btn-elegant btn-lg");
-    $('#bookButton').removeClass("btn btn-elegant btn-lg").addClass("btn btn-blue-grey btn-lg");
-    $("#userBookList").hide();
-    $("#userRevuesList").show();
-});
-
-$('.listButtonBar button').on('click', function () {
-    $('.listButtonBar button:not(.btn-primary)').removeClass("btn btn-elegant").addClass("btn btn-blue-grey");
-    $(this).removeClass("btn btn-blue-grey").addClass("btn btn-elegant");
-})
-
 /**
- * ADMIN
+ * LISTES ADMIN
  **/
 
 /*** Liste des livres ***/
-
 if ($('#adminBookList').length > 0) {
 
     let adminBookList = new List('adminBookList', booksOptions);
@@ -107,19 +83,17 @@ if ($('#adminBookList').length > 0) {
 }
 
 /*** Liste des revues ***/
+if ($('#adminRevueList').length > 0) {
+    let adminRevueList = new List('adminRevueList', revuesOptions);
 
-if ($('#adminRevuesList').length > 0) {
-    let adminRevuesList = new List('adminRevuesList', revuesOptions);
-
-    if (adminRevuesList !== null) {
-        adminRevuesList.sort('titre', {
+    if (adminRevueList !== null) {
+        adminRevueList.sort('titre', {
             order: "desc"
         });
     }
 }
 
 /*** Liste des admins ***/
-
 if ($('#adminList').length > 0) {
     let adminList = new List('adminList', adminsOptions);
 
@@ -142,12 +116,24 @@ if ($('#empruntList').length > 0) {
         });
     }
 }
+/**
+ * Affichage Listes et Boutons
+ */
 
+/*** Départ ***/
 $("#adminBookList").hide();
-$("#adminRevuesList").hide();
+$("#adminRevueList").hide();
 $("#adminList").hide();
 
+$("#userRevueList").hide();
 
+/*** Changement de classe des bouton en fonction de la liste affichée ***/
+$('.listButtonBar button').on('click', function () {
+    $('.listButtonBar button:not(.btn-primary)').removeClass("btn btn-elegant").addClass("btn btn-blue-grey");
+    $(this).removeClass("btn btn-blue-grey").addClass("btn btn-elegant");
+});
+
+/*** Affichage de la liste en fonction du bouton cliqué ***/
 $('.listButtonBar button').on('click', function () {
 
     let list =  $(this).attr('id');
@@ -156,38 +142,48 @@ $('.listButtonBar button').on('click', function () {
     switch (list) {
         case 'loanButton':
             $("#adminBookList").hide();
-            $("#adminRevuesList").hide();
+            $("#adminRevueList").hide();
             $("#adminList").hide();
             $("#empruntList").show();
             break;
 
         case 'bookButton':
             $("#adminBookList").show();
-            $("#adminRevuesList").hide();
+            $("#adminRevueList").hide();
             $("#adminList").hide();
             $("#empruntList").hide();
             break;
 
         case 'revueButton':
             $("#adminBookList").hide();
-            $("#adminRevuesList").show();
+            $("#adminRevueList").show();
             $("#adminList").hide();
             $("#empruntList").hide();
             break;
 
         case 'adminButton':
             $("#adminBookList").hide();
-            $("#adminRevuesList").hide();
+            $("#adminRevueList").hide();
             $("#adminList").show();
             $("#empruntList").hide();
             break;
 
+        case 'userBookButton':
+            $("#userBookList").show();
+            $("#userRevueList").hide();
+            break;
+
+        case 'userRevueButton':
+            $("#userBookList").hide();
+            $("#userRevueList").show();
+            break;
     }
-})
+});
 
 /**
  * Ajoute les classes de MDBootstrap aux éléments de la pagination générée par List.js
  */
+
 
 function modifyPaginationClasses() {
     $('.pagination li').addClass('page-item');

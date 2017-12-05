@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
 
-        <div class="btn-group btn-menu">
+        <div class="btn-group btn-menu listButtonBar">
             <!-- btn-elegant = actif , btn-blue-gray = non-actif -->
-            <button id="bookButton" class="btn btn-elegant btn-lg">Livres</button>
-            <button id="revuesButton" class="btn btn-blue-grey btn-lg">Revues</button>
+            <button id="userBookButton" class="btn btn-elegant btn-lg">Livres</button>
+            <button id="userRevueButton" class="btn btn-blue-grey btn-lg">Revues</button>
         </div>
 
     </div>
@@ -59,7 +59,7 @@
             </div>
     </div>
 
-    <div id="userRevuesList" class="row">
+    <div id="userRevueList" class="row">
         <table class="table">
             <thead>
             <tr>

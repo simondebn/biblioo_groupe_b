@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <div id="adminRevuesList" class="row">
+    <div id="adminRevueList" class="row">
         <table class="table">
             <thead>
             <tr>

@@ -80,10 +80,10 @@ footer img
   padding-left : 55vw;
 }
 
-.cover_book img
+.vignette img
 {
-  width : 100px;
-  height : 150px;
+  width : auto;
+  height : 100px;
 }
 
 .lien_infos
@@ -124,6 +124,14 @@ footer img
 
 .sort.desc{
   color:#EF5A00;
+}
+
+.btn-menu{
+    margin:15px 0;
+}
+
+tbody tr:hover{
+    background-color:#fffdfc;
 }
 
 

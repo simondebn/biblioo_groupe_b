@@ -11,9 +11,11 @@
 
 $comptes = $adminModelDb->getAll();
 $ressources = $ressourcesModelDb->getAll();
+$admins = $adminModelDb->getAll();
 
 $books = [];
 $revues = [];
+
 
 
 foreach ($ressources as $ressource){
@@ -26,10 +28,10 @@ foreach ($ressources as $ressource){
 
 render('adminList', [
     'title'   => 'Liste',
-    'comptes'   => $comptes,
+    'comptes' => $comptes,
     'books'   => $books,
     'revues'  => $revues,
-
+    'admins'   => $admins,
 ]);
 
 /** GESTION ADMINS */

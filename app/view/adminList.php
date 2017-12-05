@@ -104,4 +104,41 @@
         </div>
     </div>
 
+    <div id="adminList" class="row">
+        <table class="table">
+            <thead class="mdb-color grey lighten-5 ">
+            <tr>
+                <th>Photo</th>
+                <th class="sort" data-sort="login">Login</th>
+                <th class="sort" data-sort="email">Email</th>
+                <th><input class="search" placeholder="Search"/></th>
+            </tr>
+            </thead>
+            <tbody class="list">
+
+            <?php foreach ($admins as $admin): ?>
+                <tr>
+                    <td class="cover_book"><img
+                                src="data:image/jpeg;base64, <?= base64_encode($admin['photo']) ?>" alt=""></td>
+                    <td class="login align-middle"><?= $admin['login'] ?></td>
+                    <td class="email align-middle"><?= $admin['email'] ?></td>
+                    <td class="align-middle">
+                        <div class="button_admin">
+                            <button class="btn btn-orange btn-md btn-admin">Modifier</button>
+                            <button class="btn btn-red btn-md btn-admin">Supprimer</button>
+                        </div>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+
+            </tbody>
+        </table>
+
+        <div class="row containerPagination">
+            <nav class="text-center">
+                <ul class="pagination pagination-circle pg-amber mb-0"></ul>
+            </nav>
+        </div>
+    </div>
+
 </div>

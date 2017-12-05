@@ -98,5 +98,15 @@ footer img
   margin: auto;*/
 }
 
+.sort:hover {
+  color:#EF5A00;
+}
+.sort.asc{
+  color:#EF5A00;
+}
+.sort.desc{
+  color:#EF5A00;
+}
+
 
 

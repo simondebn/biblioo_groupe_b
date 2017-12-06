@@ -12,12 +12,14 @@ let itemPerPage;
 /*** Message par page ***/
 
 if ((localStorage.getItem("itemPerPage")) === null) {
+    console.log(localStorage.getItem("itemPerPage"))
     itemPerPage = 10;
 } else {
     itemPerPage = localStorage.getItem("itemPerPage");
+    console.log(localStorage.getItem("itemPerPage"))
 }
 
-$('.dropdown-menu').find('a').click(function(e) {
+$('.dropdown-menu a').on('click', function(e) {
     e.preventDefault();
     itemPerPage = $(this).text();
     if (itemPerPage === "Tout") {
@@ -31,7 +33,7 @@ $('.dropdown-menu').find('a').click(function(e) {
 
 let booksOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'date'],
-    page: 10,
+    page: itemPerPage,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -40,7 +42,7 @@ let booksOptions = {
 
 let revuesOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
-    page: 10,
+    page: itemPerPage,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -49,7 +51,7 @@ let revuesOptions = {
 
 let adminsOptions = {
     valueNames: ['login', 'email'],
-    page: 10,
+    page: itemPerPage,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -58,7 +60,7 @@ let adminsOptions = {
 
 let empruntsOptions = {
     valueNames: ['titre', 'nom', 'prenom', 'promo', 'date_debut', 'delai'],
-    page: 10,
+    page: itemPerPage,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,

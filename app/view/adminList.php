@@ -30,19 +30,19 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-unique"
                          aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item waves-effect waves-light" href="">Livre</a>
-                        <a class="dropdown-item waves-effect waves-light" href="">Revue</a>
-                        <a class="dropdown-item waves-effect waves-light" href="">Administrateur</a>
+                        <a class="dropdown-item waves-effect waves-light">Livre</a>
+                        <a class="dropdown-item waves-effect waves-light">Revue</a>
+                        <a class="dropdown-item waves-effect waves-light">Administrateur</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nb/page</a>
                     <div class="dropdown-menu dropdown-primary">
-                        <a class="dropdown-item" href="#">1</a>
-                        <a class="dropdown-item" href="#">2</a>
-                        <a class="dropdown-item" href="#">5</a>
-                        <a class="dropdown-item" href="#">Tout</a>
+                        <a class="dropdown-item">1</a>
+                        <a class="dropdown-item">2</a>
+                        <a class="dropdown-item">5</a>
+                        <a class="dropdown-item">Tout</a>
                     </div>
                 </li>
             </ul>
@@ -197,7 +197,6 @@
                 <th class="sort" data-sort="promo">Promotion</th>
                 <th class="sort" data-sort="date_debut">Date d'emprunt</th>
                 <th class="sort" data-sort="delai">Date de retour</th>
-                <th></th>
                 <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
             </tr>
             </thead>

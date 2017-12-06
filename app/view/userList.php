@@ -19,10 +19,10 @@
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nb/page</a>
                     <div class="dropdown-menu dropdown-primary">
-                        <a class="dropdown-item" href="#">1</a>
-                        <a class="dropdown-item" href="#">2</a>
-                        <a class="dropdown-item" href="#">5</a>
-                        <a class="dropdown-item" href="#">Tout</a>
+                        <a class="dropdown-item">1</a>
+                        <a class="dropdown-item">2</a>
+                        <a class="dropdown-item">5</a>
+                        <a class="dropdown-item">Tout</a>
                     </div>
                 </li>
             </ul>

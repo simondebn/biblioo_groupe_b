@@ -1,6 +1,6 @@
 $(function() {
 
-    $('body').on('submit', '#formReserver, #formCommenter', function (e) {
+    $('body').on('submit', '#formReserver, #formCommenter, #formAdminConnexion', function (e) {
         e.preventDefault();
     });
 
@@ -81,5 +81,41 @@ $(function() {
         });
     });
 
+    $('body').on('click', '#btnConnexion', function (e) {
+        $('.modal.form').modal('show');
+    });
 
+    if (window.location.pathname === '/biblioo_groupe_b/connexion') {
+        $('.modal.form').modal('show');
+    }
+
+    $('body').on('click', '#submitAdminConnexion', function(e) {
+        var params = {};
+        $.each($('#formAdminConnexion').serializeArray(), function (index, value) {
+            params[value.name] = value.value;
+        });
+        $.ajax({
+            url: "connexion",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'checkConnexion',
+                    myParams: {
+                        params: params
+                    }
+                },
+            success: function (data) {
+                var msg = JSON.parse(data);
+                console.log(msg);
+                if (msg.type == 'success') {
+                    window.location.href = 'admin';
+                }
+                else {
+                    // $('.modal.form').modal('hide');
+                    // bootstrapNotify(msg.msg, msg.type);
+                }
+            }
+        });
+
+    });
 });

@@ -13,5 +13,6 @@ $site_pages = [
     'liste' => 'userList',
     'admin' => 'adminList',
     'emprunt' => 'emprunt',
-    'commentaire' => 'commentaire'
+    'commentaire' => 'commentaire',
+    'connexion' => 'connexion'
 ];

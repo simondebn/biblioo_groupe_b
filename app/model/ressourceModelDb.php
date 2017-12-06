@@ -69,10 +69,16 @@ class ressourceModelDb
         return $ressource;
     }
 
-    public function add($ressource) {
-        $stmt = $this->db->prepare("INSERT INTO `ressource` (`id_type`, `titre`, `auteur`, `date`, `couverture`, `domaine`, `link`, `description`) VALUES (:id_type, :titre, :auteur, :date, :couverture, :domaine, :link, :description)");
-        return $stmt->execute($ressource);
+    public function addBook($book){
+        $stmt = $this->db->prepare("INSERT INTO `ressource` (`id_type`, `titre`, `auteur`, `date`, `couverture`, `domaine`, `link`) VALUES (1, :titre, :auteur, :date, :couverture, :domaine, :link)");
+        return $stmt->execute($book);
     }
+
+    public function addRevue($revue){
+        $stmt = $this->db->prepare("INSERT INTO `ressource` (`id_type`, `titre`, `date`, `couverture`, `domaine`, `link`, `description`) VALUES (2, :titre, :date, :couverture, :domaine, :link, :description)");
+        return $stmt->execute($revue);
+    }
+
 
     public function modify($ressource){
         $stmt = $this->db->prepare("UPDATE ressource SET id_type = :id_type, titre = :titre, auteur = :auteur, date = :date, couverture = :couverture, domaine = :domaine, link = :link, description = :description WHERE id = :id");

@@ -200,7 +200,7 @@ $('body').on('click','#addRevueButton', function () {
 
 
     $.ajax({
-        url: 'app/view/modalAddBook.php'
+        url: 'app/view/modalAddRevue.php'
     })
         .done(function (html) {
             $('.modal.form .modal-dialog').html(html);

@@ -19,20 +19,20 @@
                 <label>Photo</label>
                 <div class="btn btn-primary btn-sm">
                     <span>Choose file</span>
-                    <input type="file">
+                    <input type="file" required>
                 </div>
             </div>
             <div class="md-form">
-                <input type="text" id="login" class="form-control"><label for="form1" class="">Login</label>
+                <input type="text" id="login" class="form-control" required><label for="form1" class="">Login</label>
             </div>
             <div class="md-form">
-                <input type="text" id="password" class="form-control"><label for="form1" class="">Mot de Passe</label>
+                <input type="text" id="password" class="form-control" required><label for="form1" class="">Mot de Passe</label>
             </div>
             <div class="md-form">
-                <input type="text" id="email" class="form-control"><label for="form1" class="">E-mail</label>
+                <input type="text" id="email" class="form-control" required><label for="form1" class="">E-mail</label>
             </div>
             <div class="md-form">
-                <input type="date" class="form-control">
+                <input type="date" class="form-control" required>
             </div>
         </div>
         <div class="modal-footer">

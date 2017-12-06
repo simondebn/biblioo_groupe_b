@@ -38,11 +38,7 @@ render('adminList', [
 
 /** GESTION ADMINS */
 
-// Ajout d'un admin
 
-function addAdmin($params, $addAdmin){
-    return $addAdmin->add($params['params']);
-}
 
 // Suppression d'un admin
 
@@ -71,20 +67,6 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
     }
 }
 
-if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
-    if(addAdmin($_POST['myParams'], $adminModelDb)){
-        echo json_encode(array(
-            'type' => 'success',
-            'msg' => 'Votre ajout a bien été enregistrée !'
-        ));
-    }
-    else{
-        echo json_encode(array(
-            'type' => 'error',
-            'msg' => 'Une erreur est survenue !'
-        ));
-    }
-}
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyAdmin') {
     if(modifyAdmin($_POST['myParams'], $adminModelDb)){

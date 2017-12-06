@@ -31,13 +31,10 @@
             <div class="md-form">
                 <input type="email" id="email" class="form-control" required><label for="form1" class="">E-mail</label>
             </div>
-            <div class="md-form">
-                <input type="date" class="form-control" required>
-            </div>
         </div>
         <div class="modal-footer">
             <div class="col-md-12 text-center">
-                <input type="submit" name="envoyer" id="submitReserver" class="btn btn-success" value="Envoyer">
+                <input type="submit" name="envoyer" id="submitAddAdmin" class="btn btn-success" value="Envoyer">
             </div>
         </div>
     </form>

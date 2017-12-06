@@ -61,3 +61,104 @@ $(function () {
      */
 
 });
+
+
+/***
+ * ADD ADMIN
+ */
+$('body').on('click','#addAdminButton', function () {
+
+    $.ajax({
+        url: 'app/view/modalAdministrateur.php'
+    })
+        .done(function (html) {
+            $('.modal.form .modal-dialog').html(html);
+        })
+        .fail(function () {
+            console.log('error : open dvd');
+        });
+
+    $('.modal.form').modal('show');
+});
+
+/*$('body').on('click', '#submitAddAdmin', function () {
+    let params = {
+        'login': $('#login')[0].value,
+        'password': $('#password')[0].value,
+        'email': $('#email')[0].value,
+    };
+    $.ajax({
+        url: "ajoutAdmin",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'addAdmin',
+                myParams: {
+                    params: params
+                }
+            },
+
+        success: function (data) {
+            msg = JSON.parse(data);
+            if (msg.type == 'success') {
+                $('.modal.form').modal('hide');
+                bootstrapNotify(msg.msg, msg.type);
+            }
+        }
+    })
+});*/
+
+
+
+
+
+/***
+ * MODIFY ADMIN
+ */
+
+
+/***
+ * DELETE ADMIN
+ */
+
+
+/**
+ * ADD BOOK
+ */
+$('body').on('click','#addBookButton', function () {
+
+
+    $.ajax({
+        url: 'app/view/modalAddBook.php'
+    })
+        .done(function (html) {
+            $('.modal.form .modal-dialog').html(html);
+        })
+        .fail(function () {
+            console.log('error : open dvd');
+        });
+
+
+    $('.modal.form').modal('show');
+});
+
+/**
+ * ADD REVUE
+ */
+
+$('body').on('click','#addRevueButton', function () {
+
+
+    $.ajax({
+        url: 'app/view/modalAddBook.php'
+    })
+        .done(function (html) {
+            $('.modal.form .modal-dialog').html(html);
+        })
+        .fail(function () {
+            console.log('error : open dvd');
+        });
+
+    $('.modal.form').modal('show');
+});
+

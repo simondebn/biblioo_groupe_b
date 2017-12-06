@@ -32,9 +32,9 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-unique"
                          aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item waves-effect waves-light">Livre</a>
-                        <a class="dropdown-item waves-effect waves-light">Revue</a>
-                        <a class="dropdown-item waves-effect waves-light">Administrateur</a>
+                        <a id="addBookButton" class="dropdown-item waves-effect waves-light">Livre</a>
+                        <a id='addRevueButton' class="dropdown-item waves-effect waves-light">Revue</a>
+                        <a id="addAdminButton" class="dropdown-item waves-effect waves-light">Administrateur</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -253,5 +253,9 @@
     </div>
 
     <?php endif; ?>
+
+    <div   class="modal fade form" role="dialog" aria-labelledby="test" aria-hidden="true">
+        <div  class="modal-dialog modal-mg"></div>
+    </div>
 
 </div>

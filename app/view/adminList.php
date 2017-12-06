@@ -10,16 +10,16 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a id="adminBookButton" class="buttonNavBar nav-link" href="#">Livres</a>
+                    <a id="adminBookButton" class="buttonNavBar nav-link">Livres</a>
                 </li>
                 <li class="nav-item">
-                    <a id="adminRevueButton" class="buttonNavBar nav-link" href="#">Revues</a>
+                    <a id="adminRevueButton" class="buttonNavBar nav-link">Revues</a>
                 </li>
                 <li class="nav-item">
-                    <a id="adminButton" class="buttonNavBar nav-link" href="#">Administrateurs</a>
+                    <a id="adminButton" class="buttonNavBar nav-link">Administrateurs</a>
                 </li>
                 <li class="nav-item active">
-                    <a id="loanButton" class="buttonNavBar nav-link" href="#">Prêts/Retour</a>
+                    <a id="loanButton" class="buttonNavBar nav-link">Prêts/Retour</a>
                 </li>
 
             </ul>

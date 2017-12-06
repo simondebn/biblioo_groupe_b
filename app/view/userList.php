@@ -8,10 +8,10 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a id="userBookButton" class="buttonNavBar nav-link" href="#">Livres</a>
+                    <a id="userBookButton" class="buttonNavBar nav-link" adminRevue">Livres</a>
                 </li>
                 <li class="nav-item">
-                    <a id="userRevueButton" class="buttonNavBar nav-link"href="#">Revues</a>
+                    <a id="userRevueButton" class="buttonNavBar nav-link"adminRevue">Revues</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

@@ -161,11 +161,10 @@ $("#userRevueList").hide();
 
 
 /*** Affichage de la liste en fonction du bouton cliqué ***/
-$('.listButtonBar a').on('click', function () {
+$('.listButtonBar .mr-auto a').on('click', function () {
 
     $('.nav-item').removeClass("active");
     $(this).parent('li').addClass('active')
-
 
     let list = $(this).attr('id');
 

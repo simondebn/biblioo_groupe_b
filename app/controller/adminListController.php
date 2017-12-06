@@ -39,32 +39,10 @@ render('adminList', [
 /** GESTION ADMINS */
 
 
-
-// Suppression d'un admin
-
-function deleteAdmin($params, $deleteAdmin){
-    return $deleteAdmin->delete($params['params']['id_admin']);
-}
-
 // Modification d'un admin
 
 function modifyAdmin($params, $modifyAdmin) {
     return $modifyAdmin->modify($params['params']);
-}
-
-if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
-    if(deleteAdmin($_POST['myParams'], $adminModelDb)){
-        echo json_encode(array(
-            'type' => 'success',
-            'msg' => 'Votre suppression a bien été enregistrée !'
-        ));
-    }
-    else{
-        echo json_encode(array(
-            'type' => 'error',
-            'msg' => 'Une erreur est survenue !'
-        ));
-    }
 }
 
 

@@ -65,7 +65,8 @@
                 <th class="sort col-md-3" data-sort="domaine ">Thème</th>
                 <th>Note</th>
                 <th></th>
-                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text"
+                           placeholder="Rechercher" aria-label="Search"></th>
                 <th></th>
             </tr>
             </thead>
@@ -113,7 +114,8 @@
                 <th class="sort" data-sort="description">Description</th>
                 <th>Note</th>
                 <th></th>
-                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text"
+                           placeholder="Rechercher" aria-label="Search"></th>
             </tr>
             </thead>
             <tbody class="list">
@@ -156,7 +158,8 @@
                 <th class="sort" data-sort="login">Login</th>
                 <th class="sort" data-sort="email">Email</th>
                 <th></th>
-                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text"
+                           placeholder="Rechercher" aria-label="Search"></th>
             </tr>
             </thead>
             <tbody class="list">
@@ -197,29 +200,39 @@
                 <th class="sort" data-sort="promo">Promotion</th>
                 <th class="sort" data-sort="date_debut">Date d'emprunt</th>
                 <th class="sort" data-sort="delai">Date de retour</th>
-                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text"
+                           placeholder="Rechercher" aria-label="Search"></th>
             </tr>
             </thead>
             <tbody class="list">
 
             <?php foreach ($emprunts as $emprunt): ?>
-                <tr>
-                    <td class="titre align-middle"><?= $emprunt['titre'] ?></td>
-                    <td class="nom align-middle"><?= $emprunt['nom'] ?></td>
-                    <td class="prenom align-middle"><?= $emprunt['prenom'] ?></td>
-                    <td class="promo align-middle"><?= $emprunt['promo'] ?></td>
-                    <td class="date_debut align-middle"><?= date('Y-m-d', strtotime($emprunt['date_debut'])) ?></td>
-                    <td class="delai align-middle"><?php
-                        $delai = '+' . $emprunt['delai'] . ' week';
-                        echo date('Y-m-d', strtotime($delai, strtotime($emprunt['date_debut'])));
-                        ?></td>
+                <?php
+                $delai = '+' . $emprunt['delai'] . ' week';
+                $date_retour = date('Y-m-d', strtotime($delai, strtotime($emprunt['date_debut'])));
+                if ($date_retour > date("Y-m-d")): ?>
+                    <tr>
+                <?php else: ?>
+                    <tr class="table-danger">
+                <?php endif; ?>
+                        <td class="titre align-middle"><?= $emprunt['titre'] ?></td>
+                        <td class="nom align-middle"><?= $emprunt['nom'] ?></td>
+                        <td class="prenom align-middle"><?= $emprunt['prenom'] ?></td>
+                        <td class="promo align-middle"><?= $emprunt['promo'] ?></td>
+                        <td class="date_debut align-middle"><?= date('Y-m-d', strtotime($emprunt['date_debut'])) ?></td>
+                        <td class="delai align-middle"><?php
+                            $delai = '+' . $emprunt['delai'] . ' week';
+                            echo date('Y-m-d', strtotime($delai, strtotime($emprunt['date_debut'])));
+                            ?></td>
 
-                    <td class="align-middle">
-                        <div class="button_admin">
-                            <button class="btn btn-green btn-md btn-admin">Retour</button>
-                        </div>
-                    </td>
-                </tr>
+                        <td class="align-middle">
+                            <div class="button_admin">
+                                <button class="btn btn-green btn-md btn-admin" data-id="<?= $emprunt['id'] ?>"
+                                        id="modifyEmprunt">Retour
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
             <?php endforeach; ?>
 
             </tbody>

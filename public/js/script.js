@@ -14,12 +14,15 @@ let itemPerPage;
 if ((localStorage.getItem("itemPerPage")) === null) {
     console.log(localStorage.getItem("itemPerPage"))
     itemPerPage = 10;
-} else {
+} else if((localStorage.getItem("itemPerPage")) === '0'){
+    console.log(localStorage.getItem("itemPerPage"))
+    itemPerPage = 10;
+}else{
     itemPerPage = localStorage.getItem("itemPerPage");
     console.log(localStorage.getItem("itemPerPage"))
 }
 
-$('.dropdown-primary a').on('click', function(e) {
+$('.dropdown-primary a').on('click', function (e) {
     e.preventDefault();
     itemPerPage = $(this).text();
     if (itemPerPage === "Tout") {
@@ -66,7 +69,6 @@ let empruntsOptions = {
         outerWindow: 1,
     }],
 };
-
 
 
 /**
@@ -165,7 +167,7 @@ $('.listButtonBar a').on('click', function () {
     $(this).parent('li').addClass('active')
 
 
-    let list =  $(this).attr('id');
+    let list = $(this).attr('id');
 
     switch (list) {
         case 'loanButton':
@@ -267,7 +269,7 @@ function bootstrapNotify(msg, type) {
 /*
 * Enregistrer le retour d'une ressource
 * */
-$('body').on('click', '#modifyEmprunt', function(e){
+$('body').on('click', '#modifyEmprunt', function (e) {
     var id_ressource = $(this).data('id');
     var lineEmprunt = $(this).parents('tr');
     console.log(lineEmprunt);
@@ -292,4 +294,64 @@ $('body').on('click', '#modifyEmprunt', function(e){
             }
         }
     });
+});
+
+/*
+* Connexion de l'admin
+* */
+$('body').on('click', '#submitAdminConnexion', function (e) {
+    var params = {};
+    $.each($('#formAdminConnexion').serializeArray(), function (index, value) {
+        params[value.name] = value.value;
+    });
+    $.ajax({
+        url: "connexion",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'checkConnexion',
+                myParams: {
+                    params: params
+                }
+            },
+        success: function (data) {
+            var msg = JSON.parse(data);
+            console.log(msg);
+            if (msg.type == 'success') {
+                window.location.href = 'admin';
+            }
+            else {
+                // bootstrapNotify(msg.msg, msg.type);
+            }
+        }
+    });
+
+});
+
+/*
+* Deconnexion de l'admin
+* */
+$('body').on('click', '#deconnexion', function (e) {
+    $.ajax({
+        url: "connexion",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'deconnexion'
+            },
+        success: function (data) {
+            window.location.href = 'home';
+            /*
+                        var msg = JSON.parse(data);
+                        console.log(msg);
+                        if (msg.type == 'success') {
+                            window.location.href = 'admin';
+                        }
+                        else {
+                            // bootstrapNotify(msg.msg, msg.type);
+                        }
+            */
+        }
+    });
+
 });

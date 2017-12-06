@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cdi
- * Date: 06/12/2017
- * Time: 13:13
- */
 
-// Ajout d'un admin
 
 function addAdmin($params, $addAdmin)
 {

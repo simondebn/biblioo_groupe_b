@@ -85,7 +85,7 @@ $(function() {
         $('.modal.form').modal('show');
     });
 
-    if (window.location.pathname === '/biblioo_groupe_b/connexion') {
+    if (window.location.pathname === 'connexion') {
         $('.modal.form').modal('show');
     }
 

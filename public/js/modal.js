@@ -144,7 +144,8 @@ $('body').on('click', '#submitAddAdmin', function (e) {
 
 $('body').on('click', '#deleteAdminButton', function () {
 
-    if (confirm("Voulez vous vraiment supprimer l'administrateur !")) {
+    if (confirm("Voulez vous vraiment supprimer l'administrateur !"))
+    {
 
         var adminID = $(this).data("id");
         var lineAdmin = $(this).parents('tr');
@@ -157,7 +158,7 @@ $('body').on('click', '#deleteAdminButton', function () {
                     myFunction: 'deleteAdmin',
                     id: adminID
                 },
-            done: function (data) {
+            success: function (data) {
                 console.log(data);
                 msg = JSON.parse(data);
                 console.log(msg);

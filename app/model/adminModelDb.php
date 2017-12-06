@@ -59,4 +59,14 @@ class adminModelDb
         $stmt = $this->db->prepare($request);
         $stmt->execute($modif);
     }
+
+    public function checkPassword($login, $password) {
+        $stmt = $this->db->prepare("SELECT password FROM compte WHERE login = :login");
+        $stmt->execute([
+            'login' => $login,
+        ]);
+        $hash = $stmt->fetch()['password'];
+        return $hash == sha1($password);
+    }
+
 }

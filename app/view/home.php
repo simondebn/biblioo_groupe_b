@@ -33,7 +33,7 @@
         </div>
         <div class="col-6">
             <div class="jumbotron">
-                <h2 class="h2-responsive">Les 5 livres les plus empruntés</h2>
+                <h2 class="h2-responsive">Les 5 livres les mieux notés</h2>
                 <ul class="list-group">
                     <?php foreach ($booksNoted as $book): ?>
                         <div class="row containerBlockVignette list-group-item">

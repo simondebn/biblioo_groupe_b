@@ -1,14 +1,5 @@
 <div class="container">
-    <!--<div class="row">
 
-        <div class="btn-group btn-menu">
-            <button id="bookButton" class="btn btn-elegant btn-lg">Livres</button>
-            <button id="revuesButton" class="btn btn-blue-grey btn-lg">Revues</button>
-
-        </div>
-
-    </div>-->
-    <!--Navbar-->
     <nav style="margin-top:20px;background-color: #ff7500" class="navbar navbar-expand-lg navbar-dark">
 
         <!-- Collapsible content -->
@@ -16,49 +7,41 @@
 
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
-                <li id="bookNavBar" class="nav-item active">
+                <li class="nav-item active">
                     <a id="userBookButton" class="buttonNavBar nav-link" href="#">Livres</a>
                 </li>
-                <li id="revuesNavBar" class="nav-item">
-                    <a id="userRevueButton" class="nav-link buttonNavBar"href="#">Revues</a>
+                <li class="nav-item">
+                    <a id="userRevueButton" class="buttonNavBar nav-link"href="#">Revues</a>
                 </li>
             </ul>
-            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nb/page</a>
+                    <div class="dropdown-menu dropdown-primary">
+                        <a class="dropdown-item">1</a>
+                        <a class="dropdown-item">2</a>
+                        <a class="dropdown-item">5</a>
+                        <a class="dropdown-item">Tout</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <!-- Collapsible content -->
-
     </nav>
-    <!--/.Navbar-->
 
-    <div id="userBookList" class="row" style="margin:0">
+    <div id="userBookList" class="row" sty le="margin:0">
             <table class="table">
                 <thead>
                 <tr>
-                    <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search">
-                    </th>
+                    <th></th>
                     <th class="sort" data-sort="titre">Titre</th>
                     <th class="sort" data-sort="auteur">Auteur</th>
                     <th class="sort" data-sort="date" style="min-width: 100px">Parution</th>
                     <th class="sort" data-sort="domaine">Thème</th>
                     <th>Note</th>
                     <th></th>
-
-                    <th>
-                        <!--Dropdown primary-->
-                        <div class="dropdown">
-                            <!--Trigger-->
-                            <button class="btn btn-warning dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nb/page</button>
-                            <!--Menu-->
-                            <div class="dropdown-menu dropdown-primary">
-                                <a class="dropdown-item" href="#">1</a>
-                                <a class="dropdown-item" href="#">2</a>
-                                <a class="dropdown-item" href="#">5</a>
-                                <a class="dropdown-item" href="#">Tout</a>
-                            </div>
-                        </div>
-                        <!--/Dropdown primary-->
+                    <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search">
                     </th>
-
                 </tr>
                 </thead>
 
@@ -94,7 +77,7 @@
                     <td class="align-middle"><a target="_blank" href="<?= $book['link'] ?>"><img class="lien_infos"
                                                                                                  src="public/img/svg/infos.svg"></a>
                     </td>
-                    <td class="align-middle">
+                    <td style="min-width: 180px;" class="align-middle">
                         <?php if ($book['disponibility']): ?>
                             <button id="reserver" data-id="<?= $book['id'] ?>"
                                     class="btn btn-primary btn-green btn-md">Réserver
@@ -121,27 +104,13 @@
         <table class="table">
             <thead>
             <tr>
-                <th ><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search">
-                </th>
                 <th class="sort" data-sort="titre">Titre</th>
                 <th class="sort" data-sort="date">Parution</th>
                 <th class="sort" data-sort="description">Description</th>
                 <th>Note</th>
                 <th></th>
-
-                <th><!--Dropdown primary-->
-                    <div class="dropdown">
-                        <!--Trigger-->
-                        <button class="btn btn-warning dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nb/page</button>
-                        <!--Menu-->
-                        <div class="dropdown-menu dropdown-primary">
-                            <a class="dropdown-item" href="#">1</a>
-                            <a class="dropdown-item" href="#">2</a>
-                            <a class="dropdown-item" href="#">5</a>
-                            <a class="dropdown-item" href="#">Tout</a>
-                        </div>
-                    </div>
-                    <!--/Dropdown primary-->
+                <th></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search">
                 </th>
             </tr>
 
@@ -179,7 +148,7 @@
                     <td class="align-middle"><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos"
                                                                                                   src="public/img/svg/infos.svg"></a>
                     </td>
-                    <td class="align-middle">
+                    <td style="min-width: 180px;" class="align-middle">
                         <?php if ($revue['disponibility']): ?>
                             <button id="reserver" data-id="<?= $revue['id'] ?>"
                                     class="btn btn-primary btn-green btn-md">Réserver

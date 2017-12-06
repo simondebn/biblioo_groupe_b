@@ -1,58 +1,25 @@
 let userBookList;
 let userRevueList;
+let empruntList;
+let adminList;
+let adminBookList;
+let adminRevueList;
+
 
 let currentList;
 let itemPerPage;
 
-/**
- * OPTIONS LIST.JS
- */
-
-let booksOptions = {
-    valueNames: ['titre', 'auteur', 'domaine', 'date'],
-    page: 5,
-    pagination: [{
-        innerWindow: 1,
-        outerWindow: 1,
-    }],
-};
-
-let revuesOptions = {
-    valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
-    page: 5,
-    pagination: [{
-        innerWindow: 1,
-        outerWindow: 1,
-    }],
-};
-
-let adminsOptions = {
-    valueNames: ['login', 'email'],
-    page: 3,
-    pagination: [{
-        innerWindow: 1,
-        outerWindow: 1,
-    }],
-};
-
-let empruntsOptions = {
-    valueNames: ['titre', 'nom', 'prenom', 'promo', 'date_debut', 'delai'],
-    page: 3,
-    pagination: [{
-        innerWindow: 1,
-        outerWindow: 1,
-    }],
-};
-
 /*** Message par page ***/
 
 if ((localStorage.getItem("itemPerPage")) === null) {
+    console.log(localStorage.getItem("itemPerPage"))
     itemPerPage = 10;
 } else {
     itemPerPage = localStorage.getItem("itemPerPage");
+    console.log(localStorage.getItem("itemPerPage"))
 }
 
-$('.dropdown-menu').find('a').click(function(e) {
+$('.dropdown-menu a').on('click', function(e) {
     e.preventDefault();
     itemPerPage = $(this).text();
     if (itemPerPage === "Tout") {
@@ -61,6 +28,46 @@ $('.dropdown-menu').find('a').click(function(e) {
     localStorage.setItem("itemPerPage", itemPerPage);
     currentList.show(1, itemPerPage);
 });
+
+/*** Options List.js ***/
+
+let booksOptions = {
+    valueNames: ['titre', 'auteur', 'domaine', 'date'],
+    page: itemPerPage,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let revuesOptions = {
+    valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
+    page: itemPerPage,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let adminsOptions = {
+    valueNames: ['login', 'email'],
+    page: itemPerPage,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+let empruntsOptions = {
+    valueNames: ['titre', 'nom', 'prenom', 'promo', 'date_debut', 'delai'],
+    page: itemPerPage,
+    pagination: [{
+        innerWindow: 1,
+        outerWindow: 1,
+    }],
+};
+
+
 
 /**
  * LISTES USER
@@ -98,7 +105,7 @@ if ($('#userRevueList').length > 0) {
 /*** Liste des livres ***/
 if ($('#adminBookList').length > 0) {
 
-    let adminBookList = new List('adminBookList', booksOptions);
+    adminBookList = new List('adminBookList', booksOptions);
 
     if (adminBookList !== null) {
         adminBookList.sort('titre', {
@@ -109,7 +116,7 @@ if ($('#adminBookList').length > 0) {
 
 /*** Liste des revues ***/
 if ($('#adminRevueList').length > 0) {
-    let adminRevueList = new List('adminRevueList', revuesOptions);
+    adminRevueList = new List('adminRevueList', revuesOptions);
 
     if (adminRevueList !== null) {
         adminRevueList.sort('titre', {
@@ -120,8 +127,7 @@ if ($('#adminRevueList').length > 0) {
 
 /*** Liste des admins ***/
 if ($('#adminList').length > 0) {
-    let adminList = new List('adminList', adminsOptions);
-
+    adminList = new List('adminList', adminsOptions);
     if (adminList !== null) {
         adminList.sort('titre', {
             order: "desc"
@@ -129,18 +135,17 @@ if ($('#adminList').length > 0) {
     }
 }
 
-
 /*** Liste des Emprunts ***/
 if ($('#empruntList').length > 0) {
-
-    let empruntList = new List('empruntList', empruntsOptions);
-
+    empruntList = new List('empruntList', empruntsOptions);
+    currentList = empruntList;
     if (empruntList !== null) {
         empruntList.sort('titre', {
             order: "desc"
         });
     }
 }
+
 /**
  * Affichage Listes et Boutons
  */
@@ -152,8 +157,13 @@ $("#adminList").hide();
 
 $("#userRevueList").hide();
 
+
 /*** Affichage de la liste en fonction du bouton cliqué ***/
 $('.listButtonBar a').on('click', function () {
+
+    $('.nav-item').removeClass("active");
+    $(this).parent('li').addClass('active')
+
 
     let list =  $(this).attr('id');
 
@@ -163,20 +173,23 @@ $('.listButtonBar a').on('click', function () {
             $("#adminRevueList").hide();
             $("#adminList").hide();
             $("#empruntList").show();
+            currentList = empruntList;
             break;
 
-        case 'bookButton':
+        case 'adminBookButton':
             $("#adminBookList").show();
             $("#adminRevueList").hide();
             $("#adminList").hide();
             $("#empruntList").hide();
+            currentList = adminBookList;
             break;
 
-        case 'revueButton':
+        case 'adminRevueButton':
             $("#adminBookList").hide();
             $("#adminRevueList").show();
             $("#adminList").hide();
             $("#empruntList").hide();
+            currentList = adminRevueList;
             break;
 
         case 'adminButton':
@@ -184,30 +197,19 @@ $('.listButtonBar a').on('click', function () {
             $("#adminRevueList").hide();
             $("#adminList").show();
             $("#empruntList").hide();
+            currentList = adminList;
             break;
 
         case 'userBookButton':
-            currentList = userBookList;
             $("#userBookList").show();
             $("#userRevueList").hide();
-
-            $("#bookNavBar").addClass("active");
-            $("#revuesNavBar").removeClass("active");
-
-            currentList.show(1, itemPerPage);
-
+            currentList = userBookList;
             break;
 
         case 'userRevueButton':
-            currentList = userRevueList;
             $("#userBookList").hide();
             $("#userRevueList").show();
-
-            $("#bookNavBar").removeClass("active");
-            $("#revuesNavBar").addClass("active");
-
-            currentList.show(1, itemPerPage);
-
+            currentList = userRevueList;
             break;
     }
 

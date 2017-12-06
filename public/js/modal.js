@@ -25,44 +25,6 @@ $(function() {
         $('.modal.form').modal('show');
     });
 
-    /*$('.datepicker').pickadate({
-
-        weekdaysShort: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
-        showMonthsShort: true,
-        today: '',
-        clear: 'Clear selection',
-        close: 'Cancel',
-        editable: true,
-        dateFormat: "dd/mm/yy",
-        formatSubmit: 'yyyy/mm/dd'
-        /*$.extend($.fn.pickadate.defaults, {
-        monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-        today: 'aujourd\'hui',
-        clear: 'effacer',
-        formatSubmit: 'yyyy/mm/dd'
-        })*/
-    /*});*/
-
-    $('.datepicker').pickadate({
-
-        weekdaysShort: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
-        showMonthsShort: true,
-        today: '',
-        clear: 'Clear selection',
-        close: 'Cancel',
-        editable: true,
-        dateFormat: "dd/mm/yy",
-        formatSubmit: 'yyyy/mm/dd'
-        /*$.extend($.fn.pickadate.defaults, {
-        monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-        today: 'aujourd\'hui',
-        clear: 'effacer',
-        formatSubmit: 'yyyy/mm/dd'
-        })*/
-        });
-
         $('body').on('click', '#submitReserver', function(){
             var params = {
                 'id_ressource': $('#id_ressource')[0].value,

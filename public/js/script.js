@@ -49,7 +49,7 @@ let revuesOptions = {
 
 let adminsOptions = {
     valueNames: ['login', 'email'],
-    page: 5,
+    page: 10,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -58,7 +58,7 @@ let adminsOptions = {
 
 let empruntsOptions = {
     valueNames: ['titre', 'nom', 'prenom', 'promo', 'date_debut', 'delai'],
-    page: 5,
+    page: 10,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -136,6 +136,7 @@ if ($('#adminList').length > 0) {
 /*** Liste des Emprunts ***/
 if ($('#empruntList').length > 0) {
     empruntList = new List('empruntList', empruntsOptions);
+    currentList = empruntList;
     if (empruntList !== null) {
         empruntList.sort('titre', {
             order: "desc"
@@ -163,7 +164,6 @@ $('.listButtonBar a').on('click', function () {
 
 
     let list =  $(this).attr('id');
-    console.log(list);
 
     switch (list) {
         case 'loanButton':

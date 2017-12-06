@@ -1,14 +1,4 @@
 <div class="container">
-    <!--
-    <div class="row listButtonBar btn-group btn-menu">
-        <button id="bookButton" class="btn btn-blue-grey btn-lg">Livres</button>
-        <button id="revueButton" class="btn btn-blue-grey btn-lg">Revues</button>
-        <button id="adminButton" class="btn btn-blue-grey btn-lg">Administrateurs</button>
-        <button id="loanButton" class="btn btn-elegant btn-lg">Prêts/Retour</button>
-    </div>
-        <button class="btn btn-primary"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
-    -->
-    <!--Navbar-->
 
     <nav style="margin-top:20px;background-color: #ff7500" class="navbar navbar-expand-lg navbar-dark">
 
@@ -21,25 +11,38 @@
                     <a id="adminBookButton" class="buttonNavBar nav-link" href="#">Livres</a>
                 </li>
                 <li class="nav-item">
-                    <a id="adminRevueButton" class="buttonNavBar nav-link"href="#">Revues</a>
+                    <a id="adminRevueButton" class="buttonNavBar nav-link" href="#">Revues</a>
                 </li>
                 <li class="nav-item">
-                    <a id="adminButton" class="buttonNavBar nav-link"href="#">Administrateurs</a>
+                    <a id="adminButton" class="buttonNavBar nav-link" href="#">Administrateurs</a>
                 </li>
                 <li class="nav-item active">
-                    <a id="loanButton" class="buttonNavBar nav-link"href="#">Prêts/Retour</a>
+                    <a id="loanButton" class="buttonNavBar nav-link" href="#">Prêts/Retour</a>
                 </li>
 
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus-circle"
+                                                                                            aria-hidden="true"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-unique" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu dropdown-menu-right dropdown-unique"
+                         aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item waves-effect waves-light" href="">Livre</a>
                         <a class="dropdown-item waves-effect waves-light" href="">Revue</a>
                         <a class="dropdown-item waves-effect waves-light" href="">Administrateur</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nb/page</a>
+                    <div class="dropdown-menu dropdown-primary">
+                        <a class="dropdown-item" href="#">1</a>
+                        <a class="dropdown-item" href="#">2</a>
+                        <a class="dropdown-item" href="#">5</a>
+                        <a class="dropdown-item" href="#">Tout</a>
                     </div>
                 </li>
             </ul>
@@ -62,7 +65,7 @@
                 <th class="sort col-md-3" data-sort="domaine ">Thème</th>
                 <th>Note</th>
                 <th></th>
-                <th><input class="search" placeholder="Rechercher"/></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
                 <th></th>
             </tr>
             </thead>
@@ -110,7 +113,7 @@
                 <th class="sort" data-sort="description">Description</th>
                 <th>Note</th>
                 <th></th>
-                <th><input class="search" placeholder="Rechercher"/></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
             </tr>
             </thead>
             <tbody class="list">
@@ -152,7 +155,8 @@
                 <th>Photo</th>
                 <th class="sort" data-sort="login">Login</th>
                 <th class="sort" data-sort="email">Email</th>
-                <th><input class="search" placeholder="Rechercher"/></th>
+                <th></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
             </tr>
             </thead>
             <tbody class="list">
@@ -194,12 +198,12 @@
                 <th class="sort" data-sort="date_debut">Date d'emprunt</th>
                 <th class="sort" data-sort="delai">Date de retour</th>
                 <th></th>
-                <th><input class="search" placeholder="Rechercher"/></th>
+                <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search"></th>
             </tr>
             </thead>
             <tbody class="list">
 
-            <?php foreach ( $emprunts as $emprunt): ?>
+            <?php foreach ($emprunts as $emprunt): ?>
                 <tr>
                     <td class="titre align-middle"><?= $emprunt['titre'] ?></td>
                     <td class="nom align-middle"><?= $emprunt['nom'] ?></td>

@@ -145,6 +145,40 @@ $('body').on('click','#addBookButton', function () {
 });
 
 /**
+ * DELETE BOOK
+ */
+
+$('body').on('click', '#deleteAdminButton', function () {
+
+    if (confirm("Voulez vous vraiment supprimer l'administrateur !"))
+    {
+
+        var adminID = $(this).data("id");
+        var lineAdmin = $(this).parents('tr');
+        console.log(adminID);
+        $.ajax({
+            url: "ajout-admin",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'deleteAdmin',
+                    id: adminID
+                },
+            success: function (data) {
+                msg = JSON.parse(data);
+                if (msg.type == 'success') {
+                    lineAdmin.remove();
+                    bootstrapNotify(msg.msg, msg.type);
+                }
+                else {
+
+                }
+            }
+        })
+    }
+});
+
+/**
  * ADD REVUE
  */
 

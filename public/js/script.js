@@ -14,10 +14,10 @@ let itemPerPage;
 if ((localStorage.getItem("itemPerPage")) === null) {
     console.log(localStorage.getItem("itemPerPage"))
     itemPerPage = 10;
-} else if((localStorage.getItem("itemPerPage")) === '0'){
+} else if ((localStorage.getItem("itemPerPage")) === '0') {
     console.log(localStorage.getItem("itemPerPage"))
     itemPerPage = 10;
-}else{
+} else {
     itemPerPage = localStorage.getItem("itemPerPage");
     console.log(localStorage.getItem("itemPerPage"))
 }
@@ -270,30 +270,34 @@ function bootstrapNotify(msg, type) {
 * Enregistrer le retour d'une ressource
 * */
 $('body').on('click', '#modifyEmprunt', function (e) {
-    var id_ressource = $(this).data('id');
-    var lineEmprunt = $(this).parents('tr');
-    console.log(lineEmprunt);
-    $.ajax({
-        url: "emprunt",
-        type: 'POST',
-        data:
-            {
-                myFunction: 'modifyEmprunt',
-                myParams: {
-                    id: id_ressource
+    var titre = $(this).parents('tr').children('td.titre').html();
+    var response = confirm("Confirmer le retour du document suivant : \n\n" + titre);
+    if (response) {
+        var id_ressource = $(this).data('id');
+        var lineEmprunt = $(this).parents('tr');
+        console.log(lineEmprunt);
+        $.ajax({
+            url: "emprunt",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'modifyEmprunt',
+                    myParams: {
+                        id: id_ressource
+                    }
+                },
+            success: function (data) {
+                var msg = JSON.parse(data);
+                console.log(msg);
+                if (msg.type == 'success') {
+                    lineEmprunt.remove();
+                    bootstrapNotify(msg.msg, msg.type);
                 }
-            },
-        success: function (data) {
-            var msg = JSON.parse(data);
-            console.log(msg);
-            if (msg.type == 'success') {
-                lineEmprunt.remove();
-                bootstrapNotify(msg.msg, msg.type);
+                else {
+                }
             }
-            else {
-            }
-        }
-    });
+        });
+    }
 });
 
 /*
@@ -321,7 +325,7 @@ $('body').on('click', '#submitAdminConnexion', function (e) {
                 window.location.href = 'admin';
             }
             else {
-                // bootstrapNotify(msg.msg, msg.type);
+                bootstrapNotify(msg.msg, msg.type);
             }
         }
     });

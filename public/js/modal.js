@@ -8,7 +8,7 @@ $(function() {
         // affiche modale
 
         $.ajax({
-            url: "app/view/formAjoutLivre.php",
+            url: "app/view/formReserver.php",
             data: {
                 id: ticketID
             }

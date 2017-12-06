@@ -84,6 +84,7 @@ $('body').on('click','#addAdminButton', function () {
 $('body').on('click', '#submitAddAdmin', function (e) {
     e.preventDefault();
     let params = {
+
         'login': $('#login')[0].value,
         'email': $('#email')[0].value,
         'password': $('#password')[0].value,
@@ -99,11 +100,10 @@ $('body').on('click', '#submitAddAdmin', function (e) {
                     params: params
                 }
             },
-
         success: function (data) {
-            console.log(data);
+            //console.log(data);
             msg = JSON.parse(data);
-            console.log(msg)
+            //console.log(msg)
             if (msg.type == 'success') {
                 $('.modal.form').modal('hide');
                 bootstrapNotify(msg.msg, msg.type);
@@ -131,7 +131,6 @@ $('body').on('click', '#submitAddAdmin', function (e) {
  */
 $('body').on('click','#addBookButton', function () {
 
-
     $.ajax({
         url: 'app/view/modalAddBook.php'
     })
@@ -141,9 +140,8 @@ $('body').on('click','#addBookButton', function () {
         .fail(function () {
             console.log('error : open dvd');
         });
-
-
     $('.modal.form').modal('show');
+    
 });
 
 /**

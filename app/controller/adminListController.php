@@ -18,42 +18,67 @@ $books = [];
 $revues = [];
 
 
-
-foreach ($ressources as $ressource){
-    if ($ressource['id_type'] == 1){
+foreach ($ressources as $ressource) {
+    if ($ressource['id_type'] == 1) {
         $books[] = $ressource;
-    }else{
+    } else {
         $revues[] = $ressource;
     }
 }
 
-
-render('adminList', [
-    'title'   => 'Liste',
-    'books'   => $books,
-    'revues'  => $revues,
-    'admins'  => $admins,
-    'emprunts'=> $emprunts,
-]);
+if (isset($_SESSION['login'])) {
+    render('adminList', [
+        'title' => 'Liste',
+        'books' => $books,
+        'revues' => $revues,
+        'admins' => $admins,
+        'emprunts' => $emprunts,
+    ]);
+} else {
+    render('formAdminConnexion', [
+        'title' => 'Connexion',
+    ]);
+}
 
 /** GESTION ADMINS */
 
 
+// Suppression d'un admin
+
+function deleteAdmin($params, $deleteAdmin)
+{
+    return $deleteAdmin->delete($params['params']['id_admin']);
+}
+
 // Modification d'un admin
 
-function modifyAdmin($params, $modifyAdmin) {
+function modifyAdmin($params, $modifyAdmin)
+{
     return $modifyAdmin->modify($params['params']);
+}
+
+if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
+    if (deleteAdmin($_POST['myParams'], $adminModelDb)) {
+        echo json_encode(array(
+            'type' => 'success',
+            'msg' => 'Votre suppression a bien été enregistrée !'
+        ));
+    } else {
+        echo json_encode(array(
+            'type' => 'error',
+            'msg' => 'Une erreur est survenue !'
+        ));
+    }
 }
 
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyAdmin') {
-    if(modifyAdmin($_POST['myParams'], $adminModelDb)){
+    if (modifyAdmin($_POST['myParams'], $adminModelDb)) {
         echo json_encode(array(
             'type' => 'success',
             'msg' => 'Votre modification a bien été enregistrée !'
         ));
-    }
-    else{
+    } else {
         echo json_encode(array(
             'type' => 'error',
             'msg' => 'Une erreur est survenue !'
@@ -65,30 +90,32 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyAdmin') {
 
 // ajout d'une ressource
 
-function addRessource($params, $addRessource) {
+function addRessource($params, $addRessource)
+{
     return $addRessource->add($params['params']);
 }
 
 // suppression d'une ressource
 
-function deleteRessource($params, $deleteRessource){
+function deleteRessource($params, $deleteRessource)
+{
     return $deleteRessource->delete($params['params']['id_ressource']);
 }
 
 // modification d'une ressource
 
-function modifyRessource($params, $modifyRessource) {
+function modifyRessource($params, $modifyRessource)
+{
     return $modifyRessource->modify($params['params']);
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
-    if(deleteRessource($_POST['myParams'], $ressourcesModelDb)){
+    if (deleteRessource($_POST['myParams'], $ressourcesModelDb)) {
         echo json_encode(array(
             'type' => 'success',
             'msg' => 'Votre suppression a bien été enregistrée !'
         ));
-    }
-    else{
+    } else {
         echo json_encode(array(
             'type' => 'error',
             'msg' => 'Une erreur est survenue !'
@@ -97,13 +124,12 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRessource') {
-    if(addRessource($_POST['myParams'], $ressourcesModelDb)){
+    if (addRessource($_POST['myParams'], $ressourcesModelDb)) {
         echo json_encode(array(
             'type' => 'success',
             'msg' => 'Votre ajout a bien été enregistrée !'
         ));
-    }
-    else{
+    } else {
         echo json_encode(array(
             'type' => 'error',
             'msg' => 'Une erreur est survenue !'
@@ -112,13 +138,12 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRessource') {
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyRessource') {
-    if(modifyRessource($_POST['myParams'], $ressourcesModelDb)){
+    if (modifyRessource($_POST['myParams'], $ressourcesModelDb)) {
         echo json_encode(array(
             'type' => 'success',
             'msg' => 'Votre modification a bien été enregistrée !'
         ));
-    }
-    else{
+    } else {
         echo json_encode(array(
             'type' => 'error',
             'msg' => 'Une erreur est survenue !'

@@ -1,6 +1,6 @@
 $(function() {
 
-    $('body').on('submit', '#formReserver, #formCommenter, #formAdminConnexion', function (e) {
+    $('body').on('submit', '#formReserver, #formCommenter, #formAdminConnexion, #formAdministrateur', function (e) {
         e.preventDefault();
     });
 

@@ -171,7 +171,7 @@ $('body').on('click', '#deleteAdminButton', function () {
         var lineAdmin = $(this).parents('tr');
         console.log(adminID);
         $.ajax({
-            url: "ajout-admin",
+            url: "manage-admin",
             type: 'POST',
             data:
                 {
@@ -179,7 +179,9 @@ $('body').on('click', '#deleteAdminButton', function () {
                     id: adminID
                 },
             success: function (data) {
+                console.log(data);
                 msg = JSON.parse(data);
+                console.log(msg);
                 if (msg.type == 'success') {
                     lineAdmin.remove();
                     bootstrapNotify(msg.msg, msg.type);

@@ -264,4 +264,32 @@ function bootstrapNotify(msg, type) {
     });
 }
 
-
+/*
+* Enregistrer le retour d'une ressource
+* */
+$('body').on('click', '#modifyEmprunt', function(e){
+    var id_ressource = $(this).data('id');
+    var lineEmprunt = $(this).parents('tr');
+    console.log(lineEmprunt);
+    $.ajax({
+        url: "emprunt",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'modifyEmprunt',
+                myParams: {
+                    id: id_ressource
+                }
+            },
+        success: function (data) {
+            var msg = JSON.parse(data);
+            console.log(msg);
+            if (msg.type == 'success') {
+                lineEmprunt.remove();
+                bootstrapNotify(msg.msg, msg.type);
+            }
+            else {
+            }
+        }
+    });
+});

@@ -62,7 +62,6 @@ class empruntModelDb
      * Modifie un objet
      */
     public function modify($id){
-
         $stmt = $this->db->prepare("UPDATE emprunt SET retour = 1 WHERE id = :id");
         return $stmt->execute([
             'id' => $id
@@ -71,15 +70,15 @@ class empruntModelDb
 
 
     public function getLoan(){
-        $stmt = $this->db->prepare("SELECT * FROM emprunt, ressource, type_ressource WHERE emprunt.retour = 0 AND emprunt.id_ressource = ressource.id AND type_ressource.id = ressource.id_type");
+        $stmt = $this->db->prepare("SELECT emprunt.id,emprunt.nom,emprunt.prenom,emprunt.promo,emprunt.date_debut,ressource.titre,type_ressource.delai FROM emprunt, ressource, type_ressource WHERE emprunt.retour = 0 AND emprunt.id_ressource = ressource.id AND type_ressource.id = ressource.id_type");
         $stmt->execute();
 
         $retour = [];
         foreach ($stmt as $m) {
-            $retour[$m['id_ressource']] = $m;
+
+            $retour[] = $m;
         }
         return $retour;
     }
-
 
 }

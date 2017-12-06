@@ -164,7 +164,6 @@
                 <th>Photo</th>
                 <th class="sort" data-sort="login">Login</th>
                 <th class="sort" data-sort="email">Email</th>
-                <th></th>
                 <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text"
                            placeholder="Rechercher" aria-label="Search"></th>
             </tr>
@@ -177,7 +176,7 @@
                                 src="data:image/jpeg;base64, <?= base64_encode($admin['photo']) ?>" alt=""></td>
                     <td class="login align-middle"><?= $admin['login'] ?></td>
                     <td class="email align-middle"><?= $admin['email'] ?></td>
-                    <td class="align-middle">
+                    <td class="align-middle" style="width: 200px">
                         <div class="button_admin">
                             <button class="btn btn-orange btn-md btn-admin">Modifier</button>
                             <button id="deleteAdminButton" data-id="<?= $admin['id'] ?>" class="btn btn-red btn-md btn-admin">Supprimer</button>

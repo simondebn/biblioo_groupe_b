@@ -208,8 +208,11 @@
                     <td class="nom align-middle"><?= $emprunt['nom'] ?></td>
                     <td class="prenom align-middle"><?= $emprunt['prenom'] ?></td>
                     <td class="promo align-middle"><?= $emprunt['promo'] ?></td>
-                    <td class="date_debut align-middle"><?= $emprunt['date_debut'] ?></td>
-                    <td class="delai align-middle"><?= $emprunt['delai'] ?></td>
+                    <td class="date_debut align-middle"><?= date('Y-m-d', strtotime($emprunt['date_debut'])) ?></td>
+                    <td class="delai align-middle"><?php
+                        $delai = '+' . $emprunt['delai'] . ' week';
+                        echo date('Y-m-d', strtotime($delai, strtotime($emprunt['date_debut'])));
+                        ?></td>
 
                     <td class="align-middle">
                         <div class="button_admin">

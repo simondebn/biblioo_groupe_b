@@ -29,7 +29,7 @@
         </div>
     </nav>
 
-    <div id="userBookList" class="row" sty le="margin:0">
+    <div id="userBookList" class="row" style="margin:0">
             <table class="table">
                 <thead>
                 <tr>

@@ -25,6 +25,9 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
 /**
  * Suppression d'un admin
  */
+function deleteAdmin($id, $adminModelDb){
+    return $adminModelDb->delete($id);
+}
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
     if(deleteAdmin($_POST['id'], $adminModelDb)){
@@ -41,9 +44,8 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
     }
 }
 
-function deleteAdmin($id, $adminModelDb){
-    return $adminModelDb->delete($id);
-}
+
+
 
 /** GESTION RESSOURCES ADMINISTRATEUR */
 
@@ -54,12 +56,12 @@ function addRessource($params, $addRessource)
     return $addRessource->add($params['params']);
 }
 
-// suppression d'une ressource
+/*// suppression d'une ressource
 
 function deleteRessource($params, $deleteRessource)
 {
     return $deleteRessource->delete($params['params']['id_ressource']);
-}
+}*/
 
 // modification d'une ressource
 
@@ -68,8 +70,15 @@ function modifyRessource($params, $modifyRessource)
     return $modifyRessource->modify($params['params']);
 }
 
+/*if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
+    if (deleteRessource($_POST['myParams'], $ressourcesModelDb)) {*/
+
+/**
+ * Suppression d'une ressource
+ */
+
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
-    if (deleteRessource($_POST['myParams'], $ressourcesModelDb)) {
+    if (deleteRessource($_POST['id'], $ressourcesModelDb)) {
         echo json_encode(array(
             'type' => 'success',
             'msg' => 'Votre suppression a bien été enregistrée !'
@@ -81,6 +90,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
         ));
     }
 }
+
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRessource') {
     if (addRessource($_POST['myParams'], $ressourcesModelDb)) {
@@ -108,4 +118,12 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyRessource') {
             'msg' => 'Une erreur est survenue !'
         ));
     }
+}
+
+function deleteRessource($id , $ressourcesModelDb)
+{
+    $ressourcesModelDb->deleteComment($id);
+    $ressourcesModelDb->deleteEmprunt($id);
+    return $ressourcesModelDb->delete($id);
+
 }

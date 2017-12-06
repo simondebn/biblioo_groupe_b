@@ -85,4 +85,3 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyAdmin') {
         ));
     }
 }
-

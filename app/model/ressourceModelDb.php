@@ -137,4 +137,34 @@ class ressourceModelDb
         }
     }
 
+    public function deleteComment($id){
+
+        $stmt = $this->db->prepare("DELETE FROM commentaire where id_ressource = :id");
+        $stmt->execute([
+            'id' => $id
+        ]);
+        $count = $stmt->rowCount();
+
+        if($count > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function deleteEmprunt($id){
+
+        $stmt = $this->db->prepare("DELETE FROM emprunt where id_ressource = :id");
+        $stmt->execute([
+            'id' => $id
+        ]);
+        $count = $stmt->rowCount();
+
+        if($count > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

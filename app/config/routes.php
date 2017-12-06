@@ -15,5 +15,5 @@ $site_pages = [
     'emprunt' => 'emprunt',
     'commentaire' => 'commentaire',
     'connexion' => 'connexion',
-    'ajout-admin' => 'addAdmin'
+    'manage-admin' => 'admin'
 ];

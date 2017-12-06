@@ -90,8 +90,9 @@ $('body').on('click', '#submitAddAdmin', function (e) {
         'password': $('#password')[0].value,
 
     };
+    console.log(params)
     $.ajax({
-        url: "ajout-admin",
+        url: "manage-admin",
         type: 'POST',
         data:
             {
@@ -101,14 +102,27 @@ $('body').on('click', '#submitAddAdmin', function (e) {
                 }
             },
         success: function (data) {
-            //console.log(data);
+            console.log(data);
             msg = JSON.parse(data);
-            //console.log(msg)
+            console.log(msg)
             if (msg.type == 'success') {
                 $('.modal.form').modal('hide');
                 bootstrapNotify(msg.msg, msg.type);
+                $('#adminList .list').append('<tr>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td class="login align-middle">'+ params['login'] + '</td>\n' +
+                    '                    <td class="email align-middle">'+ params['email'] + '</td>\n' +
+                    '                    <td class="align-middle" style="width: 200px">\n' +
+                    '                        <div class="button_admin">\n' +
+                    '                            <button class="btn btn-orange btn-md btn-admin">Modifier</button>\n' +
+                    '                            <button id="deleteAdminButton" data-id="<?= $admin[\'id\'] ?>" class="btn btn-red btn-md btn-admin">Supprimer</button>\n' +
+                    '                        </div>\n' +
+                    '                    </td>\n' +
+                    '                </tr>')
             }
         }
+
+
     })
 });
 
@@ -170,9 +184,7 @@ $('body').on('click', '#deleteAdminButton', function () {
                     lineAdmin.remove();
                     bootstrapNotify(msg.msg, msg.type);
                 }
-                else {
 
-                }
             }
         })
     }

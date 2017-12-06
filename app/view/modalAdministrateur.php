@@ -19,17 +19,17 @@
                 <label>Photo</label>
                 <div class="btn btn-primary btn-sm">
                     <span>Choose file</span>
-                    <input type="file" required>
+                    <input type="file" accept="image/*" required>
                 </div>
             </div>
             <div class="md-form">
                 <input type="text" id="login" class="form-control" required><label for="form1" class="">Login</label>
             </div>
             <div class="md-form">
-                <input type="text" id="password" class="form-control" required><label for="form1" class="">Mot de Passe</label>
+                <input type="password" id="password" class="form-control" required><label for="form1" class="">Mot de Passe</label>
             </div>
             <div class="md-form">
-                <input type="text" id="email" class="form-control" required><label for="form1" class="">E-mail</label>
+                <input type="email" id="email" class="form-control" required><label for="form1" class="">E-mail</label>
             </div>
             <div class="md-form">
                 <input type="date" class="form-control" required>

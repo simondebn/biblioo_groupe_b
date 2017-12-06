@@ -95,32 +95,11 @@ function addRessource($params, $addRessource)
     return $addRessource->add($params['params']);
 }
 
-// suppression d'une ressource
-
-function deleteRessource($params, $deleteRessource)
-{
-    return $deleteRessource->delete($params['params']['id_ressource']);
-}
-
 // modification d'une ressource
 
 function modifyRessource($params, $modifyRessource)
 {
     return $modifyRessource->modify($params['params']);
-}
-
-if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
-    if (deleteRessource($_POST['myParams'], $ressourcesModelDb)) {
-        echo json_encode(array(
-            'type' => 'success',
-            'msg' => 'Votre suppression a bien été enregistrée !'
-        ));
-    } else {
-        echo json_encode(array(
-            'type' => 'error',
-            'msg' => 'Une erreur est survenue !'
-        ));
-    }
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRessource') {

@@ -95,7 +95,7 @@
                     <td class="align-middle">
                         <div class="button_admin">
                             <button class="btn btn-orange btn-md btn-admin">Modifier</button>
-                            <button id="deleteBookButton" data-id="<?= $book['id'] ?>" class="btn btn-red btn-md btn-admin">Supprimer</button>
+                            <button id="deleteBookButton" data-id="<?= $book['id'] ?>"  class="btn btn-red btn-md btn-admin">Supprimer</button>
                         </div>
                     </td>
                 </tr>
@@ -141,7 +141,7 @@
                     <td class="align-middle">
                         <div class="button_admin">
                             <button class="btn btn-orange btn-md btn-admin">Modifier</button>
-                            <button class="btn btn-red btn-md btn-admin">Supprimer</button>
+                            <button id="deleteRevueButton" data-id="<?= $revue['id'] ?>" class="btn btn-red btn-md btn-admin">Supprimer</button>
                         </div>
                     </td>
                 </tr>

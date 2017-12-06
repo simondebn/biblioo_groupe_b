@@ -125,29 +125,6 @@ $('body').on('click', '#submitAddAdmin', function (e) {
  * DELETE ADMIN
  */
 
-
-/**
- * ADD BOOK
- */
-$('body').on('click','#addBookButton', function () {
-
-    $.ajax({
-        url: 'app/view/modalAddBook.php'
-    })
-        .done(function (html) {
-            $('.modal.form .modal-dialog').html(html);
-        })
-        .fail(function () {
-            console.log('error : open dvd');
-        });
-    $('.modal.form').modal('show');
-    
-});
-
-/**
- * DELETE BOOK
- */
-
 $('body').on('click', '#deleteAdminButton', function () {
 
     if (confirm("Voulez vous vraiment supprimer l'administrateur !"))
@@ -155,9 +132,9 @@ $('body').on('click', '#deleteAdminButton', function () {
 
         var adminID = $(this).data("id");
         var lineAdmin = $(this).parents('tr');
-        console.log(adminID);
+
         $.ajax({
-            url: "ajout-admin",
+            url: "manage-admin",
             type: 'POST',
             data:
                 {
@@ -176,6 +153,24 @@ $('body').on('click', '#deleteAdminButton', function () {
             }
         })
     }
+});
+
+/**
+ * ADD BOOK
+ */
+$('body').on('click','#addBookButton', function () {
+
+    $.ajax({
+        url: 'app/view/modalAddBook.php'
+    })
+        .done(function (html) {
+            $('.modal.form .modal-dialog').html(html);
+        })
+        .fail(function () {
+            console.log('error : open dvd');
+        });
+    $('.modal.form').modal('show');
+    
 });
 
 /**
@@ -198,3 +193,45 @@ $('body').on('click','#addRevueButton', function () {
     $('.modal.form').modal('show');
 });
 
+/**
+ *  DELETE RESSOURCE
+ */
+
+$('body').on('click', '#deleteBookButton', function () {
+
+    deleteRessource($(this));
+});
+$('body').on('click', '#deleteRevueButton', function () {
+
+    deleteRessource($(this));
+});
+
+function deleteRessource($this){
+
+    if (confirm("Voulez vous vraiment supprimer la ressource !"))
+    {
+
+        var ressourceID = $this.data("id");
+        var lineRessource = $this.parents('tr');
+
+        $.ajax({
+            url: "manage-admin",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'deleteRessource',
+                    id: ressourceID
+                },
+            success: function (data) {
+                msg = JSON.parse(data);
+                if (msg.type == 'success') {
+                    lineRessource.remove();
+                    bootstrapNotify(msg.msg, msg.type);
+                }
+                else {
+
+                }
+            }
+        })
+    }
+}

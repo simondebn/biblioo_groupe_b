@@ -85,10 +85,6 @@ $(function() {
         $('.modal.form').modal('show');
     });
 
-    if (window.location.pathname === 'connexion') {
-        $('.modal.form').modal('show');
-    }
-
     $('body').on('click', '#submitAdminConnexion', function(e) {
         var params = {};
         $.each($('#formAdminConnexion').serializeArray(), function (index, value) {
@@ -111,7 +107,6 @@ $(function() {
                     window.location.href = 'admin';
                 }
                 else {
-                    // $('.modal.form').modal('hide');
                     // bootstrapNotify(msg.msg, msg.type);
                 }
             }

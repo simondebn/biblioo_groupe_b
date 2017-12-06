@@ -165,3 +165,11 @@ input[type=text]:focus:not([readonly]) + label {
   padding-left:25px !important;
   padding-right:25px !important;
 }
+
+.navbar .dropdown-menu a:hover{
+  color: #FF4500 !important;
+}
+
+.dropdown .dropdown-menu .dropdown-item:hover{
+  background-color:#ffc1071f;
+}

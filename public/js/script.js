@@ -1,5 +1,10 @@
 let userBookList;
 let userRevueList;
+let empruntList;
+let adminList;
+let adminBookList;
+let adminRevueList;
+
 
 let currentList;
 let itemPerPage;
@@ -26,7 +31,7 @@ $('.dropdown-menu').find('a').click(function(e) {
 
 let booksOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'date'],
-    page: itemPerPage,
+    page: 10,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -35,7 +40,7 @@ let booksOptions = {
 
 let revuesOptions = {
     valueNames: ['titre', 'auteur', 'domaine', 'description', 'date'],
-    page: itemPerPage,
+    page: 10,
     pagination: [{
         innerWindow: 1,
         outerWindow: 1,
@@ -98,7 +103,7 @@ if ($('#userRevueList').length > 0) {
 /*** Liste des livres ***/
 if ($('#adminBookList').length > 0) {
 
-    let adminBookList = new List('adminBookList', booksOptions);
+    adminBookList = new List('adminBookList', booksOptions);
 
     if (adminBookList !== null) {
         adminBookList.sort('titre', {
@@ -109,7 +114,7 @@ if ($('#adminBookList').length > 0) {
 
 /*** Liste des revues ***/
 if ($('#adminRevueList').length > 0) {
-    let adminRevueList = new List('adminRevueList', revuesOptions);
+    adminRevueList = new List('adminRevueList', revuesOptions);
 
     if (adminRevueList !== null) {
         adminRevueList.sort('titre', {
@@ -120,7 +125,7 @@ if ($('#adminRevueList').length > 0) {
 
 /*** Liste des admins ***/
 if ($('#adminList').length > 0) {
-    let adminList = new List('adminList', adminsOptions);
+    adminList = new List('adminList', adminsOptions);
     if (adminList !== null) {
         adminList.sort('titre', {
             order: "desc"
@@ -130,7 +135,7 @@ if ($('#adminList').length > 0) {
 
 /*** Liste des Emprunts ***/
 if ($('#empruntList').length > 0) {
-    let empruntList = new List('empruntList', empruntsOptions);
+    empruntList = new List('empruntList', empruntsOptions);
     if (empruntList !== null) {
         empruntList.sort('titre', {
             order: "desc"
@@ -149,6 +154,7 @@ $("#adminList").hide();
 
 $("#userRevueList").hide();
 
+
 /*** Affichage de la liste en fonction du bouton cliqué ***/
 $('.listButtonBar a').on('click', function () {
 
@@ -157,8 +163,7 @@ $('.listButtonBar a').on('click', function () {
 
 
     let list =  $(this).attr('id');
-    console.log($(this).attr('id'))
-
+    console.log(list);
 
     switch (list) {
         case 'loanButton':
@@ -166,20 +171,23 @@ $('.listButtonBar a').on('click', function () {
             $("#adminRevueList").hide();
             $("#adminList").hide();
             $("#empruntList").show();
+            currentList = empruntList;
             break;
 
-        case 'bookButton':
+        case 'adminBookButton':
             $("#adminBookList").show();
             $("#adminRevueList").hide();
             $("#adminList").hide();
             $("#empruntList").hide();
+            currentList = adminBookList;
             break;
 
-        case 'revueButton':
+        case 'adminRevueButton':
             $("#adminBookList").hide();
             $("#adminRevueList").show();
             $("#adminList").hide();
             $("#empruntList").hide();
+            currentList = adminRevueList;
             break;
 
         case 'adminButton':
@@ -187,20 +195,21 @@ $('.listButtonBar a').on('click', function () {
             $("#adminRevueList").hide();
             $("#adminList").show();
             $("#empruntList").hide();
+            currentList = adminList;
             break;
 
         case 'userBookButton':
             $("#userBookList").show();
             $("#userRevueList").hide();
+            currentList = userBookList;
             break;
 
         case 'userRevueButton':
             $("#userBookList").hide();
             $("#userRevueList").show();
+            currentList = userRevueList;
             break;
     }
-
-    currentList = userRevueList;
 
 });
 

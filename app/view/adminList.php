@@ -1,19 +1,61 @@
 <div class="container">
-
+    <!--
     <div class="row listButtonBar btn-group btn-menu">
-        <!-- btn-elegant = actif , btn-blue-gray = non-actif -->
         <button id="bookButton" class="btn btn-blue-grey btn-lg">Livres</button>
         <button id="revueButton" class="btn btn-blue-grey btn-lg">Revues</button>
         <button id="adminButton" class="btn btn-blue-grey btn-lg">Administrateurs</button>
         <button id="loanButton" class="btn btn-elegant btn-lg">Prêts/Retour</button>
     </div>
         <button class="btn btn-primary"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+    -->
+    <!--Navbar-->
 
-    <div id="adminBookList" class="row">
+    <nav style="margin-top:20px;background-color: #ff7500" class="navbar navbar-expand-lg navbar-dark">
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse listButtonBar" id="navbarSupportedContent">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a id="adminBookButton" class="buttonNavBar nav-link" href="#">Livres</a>
+                </li>
+                <li class="nav-item">
+                    <a id="adminRevueButton" class="buttonNavBar nav-link"href="#">Revues</a>
+                </li>
+                <li class="nav-item">
+                    <a id="adminButton" class="buttonNavBar nav-link"href="#">Administrateurs</a>
+                </li>
+                <li class="nav-item active">
+                    <a id="loanButton" class="buttonNavBar nav-link"href="#">Prêts/Retour</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-unique" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item waves-effect waves-light" href="">Livre</a>
+                        <a class="dropdown-item waves-effect waves-light" href="">Revue</a>
+                        <a class="dropdown-item waves-effect waves-light" href="">Administrateur</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Links -->
+        </div>
+        <!-- Collapsible content -->
+
+    </nav>
+    <!--/.Navbar-->
+
+    <div id="adminBookList" class="row" style="margin:0">
         <table class="table">
             <thead>
             <tr>
-                <th><img class="add_res" src="public/img/svg/plus.svg" alt="ajouter"></th>
+                <th></th>
                 <th class="sort col-md-1" data-sort="titre">Titre</th>
                 <th class="sort col-md-3" data-sort="auteur">Auteur</th>
                 <th class="sort col-md-3" data-sort="date" style="min-width: 100px">Parution</th>
@@ -58,7 +100,7 @@
         </div>
     </div>
 
-    <div id="adminRevueList" class="row">
+    <div id="adminRevueList" class="row" style="margin:0">
         <table class="table">
             <thead>
             <tr>
@@ -103,7 +145,7 @@
         </div>
     </div>
 
-    <div id="adminList" class="row">
+    <div id="adminList" class="row" style="margin:0">
         <table class="table">
             <thead>
             <tr>
@@ -140,7 +182,7 @@
         </div>
     </div>
 
-    <div id="empruntList" class="row">
+    <div id="empruntList" class="row" style="margin:0">
         <table class="table">
             <thead>
             <tr>

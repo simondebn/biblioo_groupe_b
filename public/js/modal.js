@@ -1,7 +1,7 @@
-$(function() {
+$(function () {
 
     // ouvrir
-    $('table tbody').on('click', '#reserver', function() {
+    $('table tbody').on('click', '#reserver', function () {
 
         var ticketID = $(this).data("id");
 
@@ -13,11 +13,11 @@ $(function() {
                 id: ticketID
             }
         })
-            .done(function(html) {
+            .done(function (html) {
                 $('.modal.form .modal-dialog').html(html);
                 $('#id_ressource').attr('value', ticketID);
             })
-            .fail(function() {
+            .fail(function () {
                 console.log('error : open dvd');
             });
 
@@ -25,7 +25,7 @@ $(function() {
         $('.modal.form').modal('show');
     });
 
-    $('body').on('click', '#submitReserver', function(){
+    $('body').on('click', '#submitReserver', function () {
         var params = {
             'id_ressource': $('#id_ressource')[0].value,
             'nom': $('#nom')[0].value,
@@ -34,22 +34,22 @@ $(function() {
         };
         $.ajax({
             url: "emprunt",
-            type:'POST',
+            type: 'POST',
             data:
                 {
-                    myFunction:'addEmprunt',
+                    myFunction: 'addEmprunt',
                     myParams: {
-                        params : params
+                        params: params
                     }
                 },
-            success:function(data){
+            success: function (data) {
                 msg = JSON.parse(data);
-                if(msg.type == 'success'){
+                if (msg.type == 'success') {
                     $('.modal.form').modal('hide');
                     bootstrapNotify(msg.msg, msg.type);
                     $('button[data-id=' + params['id_ressource'] + ']').attr('id', 'unavailable').removeClass('btn-green').addClass('btn-red').html('Non Disponible');
                 }
-                else{
+                else {
 
                 }
             }

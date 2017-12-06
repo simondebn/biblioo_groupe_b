@@ -39,7 +39,7 @@ class adminModelDb
     }
 
     public function add($newAdmin) {
-        $request = ("INSERT INTO compte (type, login, email, password)  VALUES (:t, :login, :email, :password)");
+        $request = ("INSERT INTO compte (type, login, email, password)  VALUES (1, :login, :email, :password)");
         $stmt = $this->db->prepare($request);
         $stmt->execute($newAdmin);
     }

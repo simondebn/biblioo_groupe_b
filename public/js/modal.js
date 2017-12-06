@@ -81,14 +81,16 @@ $('body').on('click','#addAdminButton', function () {
     $('.modal.form').modal('show');
 });
 
-/*$('body').on('click', '#submitAddAdmin', function () {
+$('body').on('click', '#submitAddAdmin', function (e) {
+    e.preventDefault();
     let params = {
         'login': $('#login')[0].value,
-        'password': $('#password')[0].value,
         'email': $('#email')[0].value,
+        'password': $('#password')[0].value,
+
     };
     $.ajax({
-        url: "ajoutAdmin",
+        url: "ajout-admin",
         type: 'POST',
         data:
             {
@@ -99,14 +101,16 @@ $('body').on('click','#addAdminButton', function () {
             },
 
         success: function (data) {
+            console.log(data);
             msg = JSON.parse(data);
+            console.log(msg)
             if (msg.type == 'success') {
                 $('.modal.form').modal('hide');
                 bootstrapNotify(msg.msg, msg.type);
             }
         }
     })
-});*/
+});
 
 
 

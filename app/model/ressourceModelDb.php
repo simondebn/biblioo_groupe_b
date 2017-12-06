@@ -70,7 +70,7 @@ class ressourceModelDb
     }
 
     public function addBook($book){
-        $stmt = $this->db->prepare("INSERT INTO `ressource` (`id_type`, `titre`, `auteur`, `date`, `couverture`, `domaine`, `link`) VALUES (1, :titre, :auteur, :date, :couverture, :domaine, :link)");
+        $stmt = $this->db->prepare("INSERT INTO `ressource` (`id_type`, `titre`, `auteur`, `date`, /*`couverture`,*/ `domaine`, `link`) VALUES (1, :titre, :auteur, :date, /*:couverture,*/ :domaine, :link)");
         return $stmt->execute($book);
     }
 

@@ -16,10 +16,10 @@
         <input type="hidden" id="id_ressource" class="form-control" value="">
         <div class="file-field">
             <label for="form1" class="">Image Livre:</label>
-            <div class="btn btn-primary btn-sm">
+            <!--<div class="btn btn-primary btn-sm">
                 <span>Choisir image</span>
                 <input type="file" id="imagelivre" class="file-field" required="">
-            </div>
+            </div>-->
             <div class="md-form">
                 <input type="text" id="titre" class="form-control"><label for="form1" >Titre</label>
             </div>
@@ -30,7 +30,7 @@
                 <input type="date" id="date" class="form-control datepicker">
             </div>
             <div class="md-form">
-                <input type="text" id="theme" class="form-control"><label for="form1" >Thème</label>
+                <input type="text" id="domaine" class="form-control"><label for="form1" >Thème</label>
             </div>
             <div class="md-form">
                 <input type="text" id="lien" class=form-control"><label for="form1">Lien vers l'éditeur</label>
@@ -38,7 +38,7 @@
         </div>
         <div class="modal-footer">
             <div class="col-md-12 text-center">
-                <input type="button" name="envoyer" id="submitAjoutLivre" class="btn btn-success" value="Envoyer">
+                <input type="button" name="envoyer" id="submitAddBook" class="btn btn-success" value="Envoyer">
             </div>
         </div>
     </div>

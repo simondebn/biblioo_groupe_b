@@ -12,14 +12,14 @@ let itemPerPage;
 /*** Message par page ***/
 
 if ((localStorage.getItem("itemPerPage")) === null) {
-    console.log(localStorage.getItem("itemPerPage"))
+    //console.log(localStorage.getItem("itemPerPage"))
     itemPerPage = 10;
 } else if ((localStorage.getItem("itemPerPage")) === '0') {
-    console.log(localStorage.getItem("itemPerPage"))
+    //console.log(localStorage.getItem("itemPerPage"))
     itemPerPage = 10;
 } else {
     itemPerPage = localStorage.getItem("itemPerPage");
-    console.log(localStorage.getItem("itemPerPage"))
+    //console.log(localStorage.getItem("itemPerPage"))
 }
 
 $('.dropdown-primary a').on('click', function (e) {
@@ -82,9 +82,10 @@ if ($('#userBookList').length > 0) {
     currentList = userBookList;
     if (userBookList !== null) {
         userBookList.sort('titre', {
-            order: "desc"
+            order: "asc"
         });
     }
+    userBookList.add()
 }
 
 /*** Liste des revues ***/
@@ -94,7 +95,7 @@ if ($('#userRevueList').length > 0) {
 
     if (userRevueList !== null) {
         userRevueList.sort('titre', {
-            order: "desc"
+            order: "asc"
         });
     }
 }
@@ -111,7 +112,7 @@ if ($('#adminBookList').length > 0) {
 
     if (adminBookList !== null) {
         adminBookList.sort('titre', {
-            order: "desc"
+            order: "asc"
         });
     }
 }
@@ -122,7 +123,7 @@ if ($('#adminRevueList').length > 0) {
 
     if (adminRevueList !== null) {
         adminRevueList.sort('titre', {
-            order: "desc"
+            order: "asc"
         });
     }
 }
@@ -131,8 +132,8 @@ if ($('#adminRevueList').length > 0) {
 if ($('#adminList').length > 0) {
     adminList = new List('adminList', adminsOptions);
     if (adminList !== null) {
-        adminList.sort('titre', {
-            order: "desc"
+        adminList.sort('login', {
+            order: "asc"
         });
     }
 }
@@ -143,7 +144,7 @@ if ($('#empruntList').length > 0) {
     currentList = empruntList;
     if (empruntList !== null) {
         empruntList.sort('titre', {
-            order: "desc"
+            order: "asc"
         });
     }
 }
@@ -358,3 +359,5 @@ $('body').on('click', '#deconnexion', function (e) {
     });
 
 });
+
+

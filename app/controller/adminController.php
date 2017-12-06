@@ -2,9 +2,9 @@
 /**
  * ADD ADMIN
  */
-function addAdmin($params, $addAdmin)
+function addAdmin($params, $adminModelDb)
 {
-    return $addAdmin->add($params['params']);
+    return $adminModelDb->add($params['params']);
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
@@ -51,9 +51,24 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
 
 // ajout d'une ressource
 
-function addRessource($params, $addRessource)
+function addBook($params, $ressourcesModelDb)
 {
-    return $addRessource->add($params['params']);
+    return $ressourcesModelDb->addBook($params['params']);
+}
+
+if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addBook') {
+    if(addBook($_POST['myParams'], $ressourcesModelDb)){
+        echo json_encode(array(
+            'type' => 'success',
+            'msg' => 'Votre ajout a bien été enregistrée !',
+        ));
+    }
+    else{
+        echo json_encode(array(
+            'type' => 'error',
+            'msg' => 'Une erreur est survenue !'
+        ));
+    }
 }
 
 /*// suppression d'une ressource

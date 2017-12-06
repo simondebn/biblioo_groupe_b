@@ -66,7 +66,7 @@ $(function () {
 /***
  * ADD ADMIN
  */
-$('body').on('click','#addAdminButton', function () {
+$('body').on('click', '#addAdminButton', function () {
 
     $.ajax({
         url: 'app/view/modalAdministrateur.php'
@@ -108,26 +108,29 @@ $('body').on('click', '#submitAddAdmin', function (e) {
             if (msg.type == 'success') {
                 $('.modal.form').modal('hide');
                 bootstrapNotify(msg.msg, msg.type);
-                $('#adminList .list').append('<tr>\n' +
+                adminList.add({
+                    login: params['login'],
+                    email: params['email'],
+                });
+                adminList.sort('login', {
+                    order: "asc"
+                });
+                modifyPaginationClasses()
+                /*$('#adminList .list').append('<tr>\n' +
                     '                    <td></td>\n' +
-                    '                    <td class="login align-middle">'+ params['login'] + '</td>\n' +
-                    '                    <td class="email align-middle">'+ params['email'] + '</td>\n' +
+                    '                    <td class="login align-middle">' + params['login'] + '</td>\n' +
+                    '                    <td class="email align-middle">' + params['email'] + '</td>\n' +
                     '                    <td class="align-middle" style="width: 200px">\n' +
                     '                        <div class="button_admin">\n' +
                     '                            <button class="btn btn-orange btn-md btn-admin">Modifier</button>\n' +
                     '                            <button id="deleteAdminButton" data-id="<?= $admin[\'id\'] ?>" class="btn btn-red btn-md btn-admin">Supprimer</button>\n' +
                     '                        </div>\n' +
                     '                    </td>\n' +
-                    '                </tr>')
+                    '                </tr>')*/
             }
         }
-
-
     })
 });
-
-
-
 
 
 /***
@@ -141,8 +144,7 @@ $('body').on('click', '#submitAddAdmin', function (e) {
 
 $('body').on('click', '#deleteAdminButton', function () {
 
-    if (confirm("Voulez vous vraiment supprimer l'administrateur !"))
-    {
+    if (confirm("Voulez vous vraiment supprimer l'administrateur !")) {
 
         var adminID = $(this).data("id");
         var lineAdmin = $(this).parents('tr');
@@ -155,7 +157,7 @@ $('body').on('click', '#deleteAdminButton', function () {
                     myFunction: 'deleteAdmin',
                     id: adminID
                 },
-            success: function (data) {
+            done: function (data) {
                 console.log(data);
                 msg = JSON.parse(data);
                 console.log(msg);
@@ -172,7 +174,7 @@ $('body').on('click', '#deleteAdminButton', function () {
 /**
  * ADD BOOK
  */
-$('body').on('click','#addBookButton', function () {
+$('body').on('click', '#addBookButton', function () {
 
     $.ajax({
         url: 'app/view/modalAddBook.php'
@@ -184,14 +186,78 @@ $('body').on('click','#addBookButton', function () {
             console.log('error : open dvd');
         });
     $('.modal.form').modal('show');
-    
+
+    $('body').on('click', '#submitAddBook', function (e) {
+        e.preventDefault();
+        let params = {
+
+            /*'imagelivre': $('#imagelivre')[0].value,*/
+            'titre': $('#titre ')[0].value,
+            'auteur': $('#auteur')[0].value,
+            'date': $('#date')[0].value,
+            'domaine': $('#domaine')[0].value,
+            'link': $('#lien')[0].value,
+
+        };
+        console.log(params)
+        $.ajax({
+            url: "manage-admin",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'addBook',
+                    myParams: {
+                        params: params
+                    }
+                },
+            success: function (data) {
+                console.log(data);
+                msg = JSON.parse(data);
+                console.log(msg)
+                if (msg.type == 'success') {
+                    $('.modal.form').modal('hide');
+                    bootstrapNotify(msg.msg, msg.type);
+                    adminBookList.add({
+                        titre: params['titre'],
+                        auteur: params['auteur'],
+                        date: params['date'],
+                        domaine: params['domaine']
+                    });
+                    adminBookList.sort('titre', {
+                        order: "asc"
+                    });
+                    modifyPaginationClasses()
+                    /*$('#adminBookList .list').append('<tr>\n' +
+                        '                    <td class="vignette"><img\n' +
+                        '                                src="data:image/jpeg;base64, <?= base64_encode($book[\'couverture\']) ?>" alt=""></td>\n' +
+                        '                    <td class="titre align-middle">' + params['titre'] + '</td>\n' +
+                        '                    <td class="auteur align-middle">' + params['auteur'] + '</td>\n' +
+                        '                    <td class="date align-middle">' + params['date'] + '</td>\n' +
+                        '                    <td class="domaine align-middle">'+ params['domaine'] + '</td>\n' +
+                        '                    <td class="note align-middle">0</td>\n' +
+                        '                    <td class="align-middle"><a target="_blank" href= " '+ params['link']+' "><img class="lien_infos"\n' +
+                        '                                                                                                 src="public/img/svg/infos.svg"></a>\n' +
+                        '                    </td>\n' +
+                        '                    <td class="align-middle">\n' +
+                        '                        <div class="button_admin">\n' +
+                        '                            <button class="btn btn-orange btn-md btn-admin">Modifier</button>\n' +
+                        '                            <button id="deleteBookButton" data-id="<?= $book[\'id\'] ?>"  class="btn btn-red btn-md btn-admin">Supprimer</button>\n' +
+                        '                        </div>\n' +
+                        '                    </td>\n' +
+                        '                </tr>');*/
+                }
+            }
+        })
+    });
+
+
 });
 
 /**
  * ADD REVUE
  */
 
-$('body').on('click','#addRevueButton', function () {
+$('body').on('click', '#addRevueButton', function () {
 
 
     $.ajax({
@@ -220,10 +286,9 @@ $('body').on('click', '#deleteRevueButton', function () {
     deleteRessource($(this));
 });
 
-function deleteRessource($this){
+function deleteRessource($this) {
 
-    if (confirm("Voulez vous vraiment supprimer la ressource !"))
-    {
+    if (confirm("Voulez vous vraiment supprimer la ressource !")) {
 
         var ressourceID = $this.data("id");
         var lineRessource = $this.parents('tr');

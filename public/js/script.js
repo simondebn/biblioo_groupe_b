@@ -19,7 +19,7 @@ if ((localStorage.getItem("itemPerPage")) === null) {
     console.log(localStorage.getItem("itemPerPage"))
 }
 
-$('.dropdown-menu a').on('click', function(e) {
+$('.dropdown-primary a').on('click', function(e) {
     e.preventDefault();
     itemPerPage = $(this).text();
     if (itemPerPage === "Tout") {

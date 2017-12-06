@@ -85,7 +85,6 @@ if ($('#userBookList').length > 0) {
             order: "asc"
         });
     }
-    userBookList.add()
 }
 
 /*** Liste des revues ***/

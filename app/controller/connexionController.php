@@ -13,6 +13,7 @@ function checkConnexion($params, $admin) {
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'checkConnexion') {
     if (checkConnexion($_POST['myParams']['params'], $adminModelDb)) {
+        $_SESSION['login'] = $_POST['myParams']['params']['login'];
         echo json_encode(array(
             'type' => 'success',
             'msg' => 'Connexion OK'
@@ -23,6 +24,8 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'checkConnexion') {
             'msg' => 'Une erreur est survenue !'
         ));
     }
+} elseif (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deconnexion') {
+    unset($_SESSION['login']);
 } else {
     render('formAdminConnexion', [
         'title' => 'Connexion',

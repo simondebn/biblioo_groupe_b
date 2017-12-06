@@ -81,36 +81,4 @@ $(function() {
         });
     });
 
-    $('body').on('click', '#btnConnexion', function (e) {
-        $('.modal.form').modal('show');
-    });
-
-    $('body').on('click', '#submitAdminConnexion', function(e) {
-        var params = {};
-        $.each($('#formAdminConnexion').serializeArray(), function (index, value) {
-            params[value.name] = value.value;
-        });
-        $.ajax({
-            url: "connexion",
-            type: 'POST',
-            data:
-                {
-                    myFunction: 'checkConnexion',
-                    myParams: {
-                        params: params
-                    }
-                },
-            success: function (data) {
-                var msg = JSON.parse(data);
-                console.log(msg);
-                if (msg.type == 'success') {
-                    window.location.href = 'admin';
-                }
-                else {
-                    // bootstrapNotify(msg.msg, msg.type);
-                }
-            }
-        });
-
-    });
 });

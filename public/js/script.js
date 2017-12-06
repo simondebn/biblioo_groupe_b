@@ -293,3 +293,63 @@ $('body').on('click', '#modifyEmprunt', function(e){
         }
     });
 });
+
+/*
+* Connexion de l'admin
+* */
+$('body').on('click', '#submitAdminConnexion', function(e) {
+    var params = {};
+    $.each($('#formAdminConnexion').serializeArray(), function (index, value) {
+        params[value.name] = value.value;
+    });
+    $.ajax({
+        url: "connexion",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'checkConnexion',
+                myParams: {
+                    params: params
+                }
+            },
+        success: function (data) {
+            var msg = JSON.parse(data);
+            console.log(msg);
+            if (msg.type == 'success') {
+                window.location.href = 'admin';
+            }
+            else {
+                // bootstrapNotify(msg.msg, msg.type);
+            }
+        }
+    });
+
+});
+
+/*
+* Deconnexion de l'admin
+* */
+$('body').on('click', '#deconnexion', function(e) {
+    $.ajax({
+        url: "connexion",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'deconnexion'
+            },
+        success: function (data) {
+            window.location.href = 'home';
+/*
+            var msg = JSON.parse(data);
+            console.log(msg);
+            if (msg.type == 'success') {
+                window.location.href = 'admin';
+            }
+            else {
+                // bootstrapNotify(msg.msg, msg.type);
+            }
+*/
+        }
+    });
+
+});

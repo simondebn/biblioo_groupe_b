@@ -1,5 +1,7 @@
 <div class="container">
 
+    <?php if (isset($_SESSION['login'])): ?>
+
     <nav style="margin-top:20px;background-color: #ff7500" class="navbar navbar-expand-lg navbar-dark">
 
         <!-- Collapsible content -->
@@ -44,6 +46,11 @@
                         <a class="dropdown-item">5</a>
                         <a class="dropdown-item">Tout</a>
                     </div>
+                </li>
+                <li class="nav-item" style="align-self: center">
+                    <a class="waves-effect waves-light" title="déconnexion" id="deconnexion">
+                        <img src="public/img/svg/lock_24.svg">
+                    </a>
                 </li>
             </ul>
 
@@ -245,5 +252,6 @@
         </div>
     </div>
 
+    <?php endif; ?>
 
 </div>

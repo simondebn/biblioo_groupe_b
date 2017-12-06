@@ -160,6 +160,13 @@ input[type=text]:focus:not([readonly]) {
 input[type=text]:focus:not([readonly]) + label {
   color: #F77000;
 }
+textarea.md-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #F77000;
+  box-shadow: 0 1px 0 0 #F77000;
+}
+textarea.md-textarea:focus:not([readonly]) + label {
+  color: #F77000;
+}
 
 .buttonNavBar{
   padding-left:25px !important;

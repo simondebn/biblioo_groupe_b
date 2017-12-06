@@ -36,7 +36,7 @@
     </ul>
 </div>
 <div class="page-header">
-    <h1>Biblioo : la bibliothèque du futur</h1>
+    <h1 class="animated fadeInRight">Biblioo : la bibliothèque du futur</h1>
 </div>
 
 

@@ -46,8 +46,8 @@ $(function() {
                 msg = JSON.parse(data);
                 if(msg.type == 'success'){
                     $('.modal.form').modal('hide');
-                    console.log(msg.msg);
                     bootstrapNotify(msg.msg, msg.type);
+                    $('button[data-id=' + params['id_ressource'] + ']').attr('id', 'unavailable').removeClass('btn-green').addClass('btn-red').html('Non Disponible');
                 }
                 else{
 

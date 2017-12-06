@@ -95,7 +95,7 @@
                     <td class="align-middle">
                         <div class="button_admin">
                             <button class="btn btn-orange btn-md btn-admin">Modifier</button>
-                            <button class="btn btn-red btn-md btn-admin">Supprimer</button>
+                            <button id="deleteBookButton" data-id="<?= $book['id'] ?>" class="btn btn-red btn-md btn-admin">Supprimer</button>
                         </div>
                     </td>
                 </tr>
@@ -180,7 +180,7 @@
                     <td class="align-middle">
                         <div class="button_admin">
                             <button class="btn btn-orange btn-md btn-admin">Modifier</button>
-                            <button class="btn btn-red btn-md btn-admin">Supprimer</button>
+                            <button id="deleteAdminButton" data-id="<?= $admin['id'] ?>" class="btn btn-red btn-md btn-admin">Supprimer</button>
                         </div>
                     </td>
                 </tr>
@@ -255,7 +255,7 @@
     <?php endif; ?>
 
     <div   class="modal fade form" role="dialog" aria-labelledby="test" aria-hidden="true">
-        <div  class="modal-dialog modal-mg"></div>
+        <div class="modal-dialog modal-lg"></div>
     </div>
 
 </div>

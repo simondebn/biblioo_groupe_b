@@ -81,14 +81,17 @@ $('body').on('click','#addAdminButton', function () {
     $('.modal.form').modal('show');
 });
 
-/*$('body').on('click', '#submitAddAdmin', function () {
+$('body').on('click', '#submitAddAdmin', function (e) {
+    e.preventDefault();
     let params = {
+
         'login': $('#login')[0].value,
-        'password': $('#password')[0].value,
         'email': $('#email')[0].value,
+        'password': $('#password')[0].value,
+
     };
     $.ajax({
-        url: "ajoutAdmin",
+        url: "ajout-admin",
         type: 'POST',
         data:
             {
@@ -97,16 +100,17 @@ $('body').on('click','#addAdminButton', function () {
                     params: params
                 }
             },
-
         success: function (data) {
+            //console.log(data);
             msg = JSON.parse(data);
+            //console.log(msg)
             if (msg.type == 'success') {
                 $('.modal.form').modal('hide');
                 bootstrapNotify(msg.msg, msg.type);
             }
         }
     })
-});*/
+});
 
 
 
@@ -127,7 +131,6 @@ $('body').on('click','#addAdminButton', function () {
  */
 $('body').on('click','#addBookButton', function () {
 
-
     $.ajax({
         url: 'app/view/modalAddBook.php'
     })
@@ -137,9 +140,38 @@ $('body').on('click','#addBookButton', function () {
         .fail(function () {
             console.log('error : open dvd');
         });
-
-
     $('.modal.form').modal('show');
+    
+});
+
+/**
+ * DELETE BOOK
+ */
+
+$('body').on('click', '#deleteAdminButton', function () {
+
+    var adminID = $(this).data("id");
+    var lineAdmin = $(this).parents('tr');
+    console.log(adminID);
+    $.ajax({
+        url: "ajout-admin",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'deleteAdmin',
+                id: adminID
+            },
+        success: function (data) {
+            msg = JSON.parse(data);
+            if (msg.type == 'success') {
+                lineAdmin.remove();
+                bootstrapNotify(msg.msg, msg.type);
+            }
+            else {
+
+            }
+        }
+    })
 });
 
 /**

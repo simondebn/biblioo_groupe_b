@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cdi
- * Date: 06/12/2017
- * Time: 13:13
- */
 
-// Ajout d'un admin
 
 function addAdmin($params, $addAdmin)
 {
@@ -28,3 +21,25 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
     }
 }
 
+/**
+ * Suppression d'un admin
+ */
+
+if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
+    if(deleteAdmin($_POST['id'], $adminModelDb)){
+        echo json_encode(array(
+            'type' => 'success',
+            'msg' => 'Votre suppression a bien été enregistrée !'
+        ));
+    }
+    else{
+        echo json_encode(array(
+            'type' => 'error',
+            'msg' => 'Une erreur est survenue !'
+        ));
+    }
+}
+
+function deleteAdmin($id, $adminModelDb){
+    return $adminModelDb->delete($id);
+}

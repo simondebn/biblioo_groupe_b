@@ -19,7 +19,7 @@
                 <label>Photo</label>
                 <div class="btn btn-primary btn-sm">
                     <span>Choose file</span>
-                    <input type="file" accept="image/*" required>
+                    <input type="file" accept="image/*">
                 </div>
             </div>
             <div class="md-form">

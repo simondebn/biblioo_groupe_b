@@ -68,7 +68,80 @@ function addAdmin() {
 
 /**** Modifier Administrateur*/
 
-function modifyAdmin(){}
+$('body').on('click', '#modifyAdminButton', function(e) {
+    var lineAdmin = $(this).parents('tr');
+    var params = {
+        id: $(this).data('id'),
+        login: $(lineAdmin.children('.login')).html(),
+        email: $(lineAdmin.children('.email')).html()
+    };
+    modifyAdmin(params,lineAdmin);
+});
+
+function modifyAdmin(params, lineAdmin){
+    $.ajax({
+        url: "app/view/modalAddAdministrateur.php",
+        data: {
+            params: params
+        }
+    })
+        .done(function (html) {
+            $('.modal.form .modal-dialog').html(html);
+        })
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
+
+    $('.modal.form').modal('show');
+
+    $('body').on('click', '#submitModifyAdmin', function(e) {
+/*
+        e.preventDefault();
+        let params = {
+            'id': $('#id_admin')[0].value,
+            'login': $('#login')[0].value,
+            'email': $('#email')[0].value,
+            'password': $('#password')[0].value,
+        };
+
+        $.ajax({
+            url: "manage-admin",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'modifyAdmin',
+                    myParams: {
+                        params: params
+                    }
+                }
+        })
+            .done(function (data) {
+                console.log(data);
+                msg = JSON.parse(data);
+                console.log(msg)
+                if (msg.type == 'success') {
+                    $('.modal.form').modal('hide');
+                    bootstrapNotify(msg.msg, msg.type);
+                    adminList.add({
+                        login: params['login'],
+                        email: params['email'],
+                    });
+                    adminList.sort('login', {
+                        order: "asc"
+                    });
+                    modifyPaginationClasses()
+                } else {
+                    bootstrapNotify(msg.msg, msg.type);
+                }
+            })
+            .fail(function () {
+                bootstrapNotify("Une erreur s'est produite", 'danger')
+            });
+
+*/
+    });
+
+}
 
 
 
@@ -80,11 +153,11 @@ $('body').on('click', '#deleteAdminButton', function () {
 
         var adminID = $(this).data("id");
         var lineAdmin = $(this).parents('tr');
-        deleteAdmin()
+        deleteAdmin(adminID, lineAdmin);
     }
 });
 
-function deleteAdmin() {
+function deleteAdmin(adminID, lineAdmin) {
     $.ajax({
         url: "manage-admin",
         type: 'POST',

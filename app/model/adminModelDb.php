@@ -55,7 +55,7 @@ class adminModelDb
     }
 
     public function modify($modif) {
-        $request = ("UPDATE compte SET type= :t, login= :login, email = :email, password = :password WHERE id = :id ");
+        $request = ("UPDATE compte SET type= 1, login= :login, email = :email, password = :password WHERE id = :id ");
         $stmt = $this->db->prepare($request);
         $stmt->execute($modif);
     }

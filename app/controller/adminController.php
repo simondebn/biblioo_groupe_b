@@ -2,12 +2,12 @@
 
 $error = false;
 
-if(isset($_POST['myParams'])){
+/*if(isset($_POST['myParams'])){
     foreach ($_POST['myParams']['params'] as $str){
         $str = h($str);
         echo $str;
     }
-}
+}*/
 
 /*** GESTION DES ADMINS ***/
 
@@ -74,15 +74,20 @@ function modifyAdmin($params, $modifyAdmin)
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyAdmin') {
-    if (modifyAdmin($_POST['myParams'], $adminModelDb)) {
+
+    try {
+        modifyAdmin($_POST['myParams'], $adminModelDb);
+        }catch (PDOException $e) {
+        echo json_encode(array(
+            'type' => 'danger',
+            'msg' => 'Une erreur est survenue !'
+        ));
+        $error = true;
+    }
+    if ($error === false) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre modification a bien été enregistrée !'
-        ));
-    } else {
-        echo json_encode(array(
-            'type' => 'error',
-            'msg' => 'Une erreur est survenue !'
+            'msg' => 'Votre modification a bien été enregistré !',
         ));
     }
 }

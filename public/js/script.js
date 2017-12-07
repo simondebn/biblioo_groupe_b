@@ -131,6 +131,19 @@ if ($('#adminBookList').length > 0) {
 }
 
 /*** Liste des revues ***/
+function createAdminList() {
+    if ($('#adminRevueList').length > 0) {
+        adminRevueList = new List('adminRevueList', revuesOptions);
+
+        if (adminRevueList !== null) {
+            adminRevueList.sort('titre', {
+                order: "asc"
+            });
+        }
+    }
+}
+createAdminList()
+
 if ($('#adminRevueList').length > 0) {
     adminRevueList = new List('adminRevueList', revuesOptions);
 

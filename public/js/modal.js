@@ -67,8 +67,75 @@ function addAdmin() {
 }
 
 /**** Modifier Administrateur*/
+function modifyAdmin() {
+    let oldlogin = $(this).parents('tr').find('.login').text()
+    $.ajax({
+        url: 'app/view/modalModifyAdmin.php',
+        type: 'POST',
+        data: {
+            id: $(this).data("id"),
+            login: oldlogin,
+            email: $(this).parents('tr').find('.email').text(),
+        }
+    })
+        .done(function (html) {
+            $('.modal.form .modal-dialog').html(html);
+        })
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
 
-function modifyAdmin(){}
+    $('.modal.form').modal('show');
+
+    $('body').on('click', '#submitModifyAdmin', function (e) {
+        e.preventDefault();
+        let params = {
+            'id': $('#id')[0].value,
+            'login': $('#login')[0].value,
+            'email': $('#email')[0].value,
+            'password': $('#password')[0].value,
+
+        };
+        console.log(params);
+
+        $.ajax({
+            url: "manage-admin",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'modifyAdmin',
+                    myParams: {
+                        params: params
+                    }
+                }
+        })
+            .done(function (data) {
+                msg = JSON.parse(data);
+                if (msg.type == 'success') {
+                    $('.modal.form').modal('hide');
+                    bootstrapNotify(msg.msg, msg.type);
+                    adminList.remove('login',oldlogin)
+                    adminList.add({
+                        login: params['login'],
+                        email: params['email'],
+                    });
+                    adminList.sort('login', {
+                        order: "asc"
+                    });
+                    modifyPaginationClasses()
+                } else {
+                    bootstrapNotify(msg.msg, msg.type);
+                }
+            })
+            .fail(function () {
+                bootstrapNotify("Une erreur s'est produite", 'danger')
+            });
+    })
+}
+
+$('body').on('click', '#modifyAdminButton', function () {
+    modifyAdmin();
+})
 
 
 

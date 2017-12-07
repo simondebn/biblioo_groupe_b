@@ -180,7 +180,7 @@
                         <td class="email align-middle"><?= $admin['email'] ?></td>
                         <td class="align-middle" style="width: 200px">
                             <div class="button_admin">
-                                <button class="btn btn-orange btn-md btn-admin">Modifier</button>
+                                <button class="btn btn-orange btn-md btn-admin" data-id="<?= $admin['id'] ?>" id="modifyAdminButton">Modifier</button>
                                 <button id="deleteAdminButton" data-id="<?= $admin['id'] ?>"
                                         class="btn btn-red btn-md btn-admin">Supprimer
                                 </button>

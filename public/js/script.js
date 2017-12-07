@@ -9,11 +9,11 @@ let adminRevueList;
 let currentList;
 let itemPerPage;
 
+
+/*** LOGO ***/
 $('#bouncingLogo').hover(
     function(){$(this).addClass('bounce')}
 );
-
-
 
 setInterval(function () {
     if ($('#bouncingLogo').hasClass('bounce')) {
@@ -280,9 +280,7 @@ function bootstrapNotify(msg, type) {
     });
 }
 
-/*
-* Enregistrer le retour d'une ressource
-* */
+/*** Enregistrer le retour d'une ressource ***/
 $('body').on('click', '#modifyEmprunt', function (e) {
     var titre = $(this).parents('tr').children('td.titre').html();
     var response = confirm("Confirmer le retour du document suivant : \n\n" + titre);
@@ -314,9 +312,7 @@ $('body').on('click', '#modifyEmprunt', function (e) {
     }
 });
 
-/*
-* Connexion de l'admin
-* */
+/*** Connexion de l'admin ***/
 $('body').on('click', '#submitAdminConnexion', function (e) {
     var params = {};
     $.each($('#formAdminConnexion').serializeArray(), function (index, value) {
@@ -346,9 +342,7 @@ $('body').on('click', '#submitAdminConnexion', function (e) {
 
 });
 
-/*
-* Deconnexion de l'admin
-* */
+/*** Deconnexion de l'admin ***/
 $('body').on('click', '#deconnexion', function (e) {
     $.ajax({
         url: "connexion",

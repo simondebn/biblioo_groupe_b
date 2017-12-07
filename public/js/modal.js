@@ -1,71 +1,7 @@
-$(function () {
+/*** ADMIN ***/
 
-    // ouvrir
-    $('table tbody').on('click', '#reserver', function () {
+/**** Ajouter Administrateur ***/
 
-        var ticketID = $(this).data("id");
-
-        // affiche modale
-
-        $.ajax({
-            url: "app/view/formReserver.php",
-            data: {
-                id: ticketID
-            }
-        })
-            .done(function (html) {
-                $('.modal.form .modal-dialog').html(html);
-                $('#id_ressource').attr('value', ticketID);
-            })
-            .fail(function () {
-                bootstrapNotify("Une erreur s'est produite", 'danger')
-            });
-
-
-        $('.modal.form').modal('show');
-    });
-
-    $('body').on('click', '#submitReserver', function () {
-        var params = {
-            'id_ressource': $('#id_ressource')[0].value,
-            'nom': $('#nom')[0].value,
-            'prenom': $('#prenom')[0].value,
-            'promo': $('#promo')[0].value
-        };
-        $.ajax({
-            url: "emprunt",
-            type: 'POST',
-            data:
-                {
-                    myFunction: 'addEmprunt',
-                    myParams: {
-                        params: params
-                    }
-                },
-            success: function (data) {
-                msg = JSON.parse(data);
-                if (msg.type == 'success') {
-                    $('.modal.form').modal('hide');
-                    bootstrapNotify(msg.msg, msg.type);
-                    $('button[data-id=' + params['id_ressource'] + ']').attr('id', 'unavailable').removeClass('btn-green').addClass('btn-red').html('Non Disponible');
-                }
-                else {
-
-                }
-            }
-        })
-    });
-
-    /** Ajouter les modales pour ajout/suppression/modification des ressources et admins en mode administrateur ainsi que le retour des emprunts
-     * Controllers déjà créés (possiblement à revoir)
-     */
-
-});
-
-
-/***
- * ADD ADMIN
- */
 $('body').on('click', '#addAdminButton', function () {
 
     $.ajax({
@@ -138,14 +74,10 @@ $('body').on('click', '#submitAddAdmin', function (e) {
 })
 
 
-/***
- * MODIFY ADMIN
- */
+/**** Modifier Administrateur*/
 
 
-/***
- * DELETE ADMIN
- */
+/*** Supprimer Administrateur ***/
 
 $('body').on('click', '#deleteAdminButton', function () {
 
@@ -153,34 +85,41 @@ $('body').on('click', '#deleteAdminButton', function () {
 
         var adminID = $(this).data("id");
         var lineAdmin = $(this).parents('tr');
-
-        $.ajax({
-            url: "manage-admin",
-            type: 'POST',
-            data:
-                {
-                    myFunction: 'deleteAdmin',
-                    id: adminID
-                },
-            success: function (data) {
-                console.log(data);
-                msg = JSON.parse(data);
-                console.log(msg);
-                if (msg.type == 'success') {
-                    lineAdmin.remove();
-                    bootstrapNotify(msg.msg, msg.type);
-                }
-
-            }
-        })
+        deleteAdmin()
     }
 });
 
-/**
- * ADD BOOK
- */
-$('body').on('click', '#addBookButton', function () {
+function deleteAdmin() {
+    $.ajax({
+        url: "manage-admin",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'deleteAdmin',
+                id: adminID
+            },
+        success: function (data) {
+            console.log(data);
+            msg = JSON.parse(data);
+            console.log(msg);
+            if (msg.type == 'success') {
+                lineAdmin.remove();
+                bootstrapNotify(msg.msg, msg.type);
+            }
 
+        }
+    })
+}
+
+/*** RESSOURCES ***/
+
+/*** Ajouter Livre ***/
+
+$('body').on('click', '#addBookButton', function () {
+  addBook()
+});
+
+function addBook() {
     $.ajax({
         url: 'app/view/modalAddBook.php'
     })
@@ -233,36 +172,20 @@ $('body').on('click', '#addBookButton', function () {
                         order: "asc"
                     });
                     modifyPaginationClasses()
-                    /*$('#adminBookList .list').append('<tr>\n' +
-                        '                    <td class="vignette"><img\n' +
-                        '                                src="data:image/jpeg;base64, <?= base64_encode($book[\'couverture\']) ?>" alt=""></td>\n' +
-                        '                    <td class="titre align-middle">' + params['titre'] + '</td>\n' +
-                        '                    <td class="auteur align-middle">' + params['auteur'] + '</td>\n' +
-                        '                    <td class="date align-middle">' + params['date'] + '</td>\n' +
-                        '                    <td class="domaine align-middle">'+ params['domaine'] + '</td>\n' +
-                        '                    <td class="note align-middle">0</td>\n' +
-                        '                    <td class="align-middle"><a target="_blank" href= " '+ params['link']+' "><img class="lien_infos"\n' +
-                        '                                                                                                 src="public/img/svg/infos.svg"></a>\n' +
-                        '                    </td>\n' +
-                        '                    <td class="align-middle">\n' +
-                        '                        <div class="button_admin">\n' +
-                        '                            <button class="btn btn-orange btn-md btn-admin">Modifier</button>\n' +
-                        '                            <button id="deleteBookButton" data-id="<?= $book[\'id\'] ?>"  class="btn btn-red btn-md btn-admin">Supprimer</button>\n' +
-                        '                        </div>\n' +
-                        '                    </td>\n' +
-                        '                </tr>');*/
                 }
             })
     });
-});
+}
 
-/**
- * ADD REVUE
- */
+/*** Modifier Livre ***/
+
+/*** Ajouter Revue ***/
 
 $('body').on('click', '#addRevueButton', function () {
+    addRevue()
+});
 
-
+function addRevue(){
     $.ajax({
         url: 'app/view/modalAddRevue.php'
     })
@@ -324,13 +247,73 @@ $('body').on('click', '#addRevueButton', function () {
                 bootstrapNotify("Une erreur s'est produite", 'danger')
             })
     });
+}
+
+/*** Modifier Revue ***/
+
+/*** Réserver Ressource ***/
+
+$('table tbody').on('click', '#reserver', function () {
+    reserverAdmin()
 });
 
+function reserverAdmin() {
+
+    var ticketID = $(this).data("id");
+
+    // affiche modale
+
+    $.ajax({
+        url: "app/view/formReserver.php",
+        data: {
+            id: ticketID
+        }
+    })
+        .done(function (html) {
+            $('.modal.form .modal-dialog').html(html);
+            $('#id_ressource').attr('value', ticketID);
+        })
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
 
 
-/**
- *  DELETE RESSOURCE
- */
+    $('.modal.form').modal('show');
+
+
+    $('body').on('click', '#submitReserver', function () {
+        var params = {
+            'id_ressource': $('#id_ressource')[0].value,
+            'nom': $('#nom')[0].value,
+            'prenom': $('#prenom')[0].value,
+            'promo': $('#promo')[0].value
+        };
+        $.ajax({
+            url: "emprunt",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'addEmprunt',
+                    myParams: {
+                        params: params
+                    }
+                },
+            success: function (data) {
+                msg = JSON.parse(data);
+                if (msg.type == 'success') {
+                    $('.modal.form').modal('hide');
+                    bootstrapNotify(msg.msg, msg.type);
+                    $('button[data-id=' + params['id_ressource'] + ']').attr('id', 'unavailable').removeClass('btn-green').addClass('btn-red').html('Non Disponible');
+                }
+                else {
+
+                }
+            }
+        })
+    });
+}
+
+/***  Supprimer Ressources ***/
 
 $('body').on('click', '#deleteBookButton', function () {
 

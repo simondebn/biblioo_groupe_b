@@ -1,4 +1,5 @@
 <?php
+
 $error = false;
 
 /*** GESTION DES ADMINS ***/
@@ -140,6 +141,14 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRevue') {
 
 /*** Suppression d'une ressource ***/
 
+function deleteRessource($id, $ressourcesModelDb)
+{
+    $ressourcesModelDb->deleteComment($id);
+    $ressourcesModelDb->deleteEmprunt($id);
+    return $ressourcesModelDb->delete($id);
+
+}
+
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
 
     try {
@@ -184,10 +193,3 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyRessource') {
 }
 
 
-function deleteRessource($id, $ressourcesModelDb)
-{
-    $ressourcesModelDb->deleteComment($id);
-    $ressourcesModelDb->deleteEmprunt($id);
-    return $ressourcesModelDb->delete($id);
-
-}

@@ -23,13 +23,13 @@
                 </div>
             </div>
             <div class="md-form">
-                <input type="text" id="login" class="form-control" required><label for="form1" class="">Login</label>
+                <input type="text" id="login" class="form-control"><label for="form1" class="">Login</label>
             </div>
             <div class="md-form">
-                <input type="password" id="password" class="form-control" required><label for="form1" class="">Mot de Passe</label>
+                <input type="password" id="password" class="form-control"><label for="form1" class="">Mot de Passe</label>
             </div>
             <div class="md-form">
-                <input type="email" id="email" class="form-control" required><label for="form1" class="">E-mail</label>
+                <input type="email" id="email" class="form-control"><label for="form1" class="">E-mail</label>
             </div>
         </div>
         <div class="modal-footer">

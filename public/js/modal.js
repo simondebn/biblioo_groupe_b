@@ -9,7 +9,7 @@ $('body').on('click', '#addAdminButton', function () {
 function addAdmin() {
 
     $.ajax({
-        url: 'app/view/modalAdministrateur.php'
+        url: 'app/view/modalAddAdministrateur.php'
     })
         .done(function (html) {
             $('.modal.form .modal-dialog').html(html);
@@ -67,6 +67,9 @@ function addAdmin() {
 }
 
 /**** Modifier Administrateur*/
+
+function modifyAdmin(){}
+
 
 
 /*** Supprimer Administrateur ***/

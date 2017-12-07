@@ -14,6 +14,5 @@ $site_pages = [
     'admin' => 'adminList',
     'emprunt' => 'emprunt',
     'commentaire' => 'commentaire',
-    'connexion' => 'connexion',
     'manage-admin' => 'admin'
 ];

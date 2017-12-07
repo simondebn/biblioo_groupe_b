@@ -319,7 +319,7 @@ $('body').on('click', '#submitAdminConnexion', function (e) {
         params[value.name] = value.value;
     });
     $.ajax({
-        url: "connexion",
+        url: "admin",
         type: 'POST',
         data:
             {
@@ -332,7 +332,7 @@ $('body').on('click', '#submitAdminConnexion', function (e) {
             var msg = JSON.parse(data);
             console.log(msg);
             if (msg.type == 'success') {
-                window.location.href = 'admin';
+                location.reload();
             }
             else {
                 bootstrapNotify(msg.msg, msg.type);
@@ -345,7 +345,7 @@ $('body').on('click', '#submitAdminConnexion', function (e) {
 /*** Deconnexion de l'admin ***/
 $('body').on('click', '#deconnexion', function (e) {
     $.ajax({
-        url: "connexion",
+        url: "admin",
         type: 'POST',
         data:
             {
@@ -353,16 +353,6 @@ $('body').on('click', '#deconnexion', function (e) {
             },
         success: function (data) {
             window.location.href = 'home';
-            /*
-                        var msg = JSON.parse(data);
-                        console.log(msg);
-                        if (msg.type == 'success') {
-                            window.location.href = 'admin';
-                        }
-                        else {
-                            // bootstrapNotify(msg.msg, msg.type);
-                        }
-            */
         }
     });
 

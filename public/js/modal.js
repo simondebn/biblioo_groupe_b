@@ -3,6 +3,10 @@
 /**** Ajouter Administrateur ***/
 
 $('body').on('click', '#addAdminButton', function () {
+    addAdmin()
+})
+
+function addAdmin() {
 
     $.ajax({
         url: 'app/view/modalAdministrateur.php'
@@ -15,64 +19,52 @@ $('body').on('click', '#addAdminButton', function () {
         });
 
     $('.modal.form').modal('show');
-});
 
-$('body').on('click', '#submitAddAdmin', function (e) {
-    e.preventDefault();
-    let params = {
+    $('body').on('click', '#submitAddAdmin', function (e) {
+        e.preventDefault();
+        let params = {
 
-        'login': $('#login')[0].value,
-        'email': $('#email')[0].value,
-        'password': $('#password')[0].value,
+            'login': $('#login')[0].value,
+            'email': $('#email')[0].value,
+            'password': $('#password')[0].value,
 
-    };
+        };
 
-    $.ajax({
-        url: "manage-admin",
-        type: 'POST',
-        data:
-            {
-                myFunction: 'addAdmin',
-                myParams: {
-                    params: params
+        $.ajax({
+            url: "manage-admin",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'addAdmin',
+                    myParams: {
+                        params: params
+                    }
                 }
-            }
-    })
-        .done(function (data) {
-            console.log(data);
-            msg = JSON.parse(data);
-            console.log(msg)
-            if (msg.type == 'success') {
-                $('.modal.form').modal('hide');
-                bootstrapNotify(msg.msg, msg.type);
-                adminList.add({
-                    login: params['login'],
-                    email: params['email'],
-                });
-                adminList.sort('login', {
-                    order: "asc"
-                });
-                modifyPaginationClasses()
-                /*$('#adminList .list').append('<tr>\n' +
-                    '                    <td></td>\n' +
-                    '                    <td class="login align-middle">' + params['login'] + '</td>\n' +
-                    '                    <td class="email align-middle">' + params['email'] + '</td>\n' +
-                    '                    <td class="align-middle" style="width: 200px">\n' +
-                    '                        <div class="button_admin">\n' +
-                    '                            <button class="btn btn-orange btn-md btn-admin">Modifier</button>\n' +
-                    '                            <button id="deleteAdminButton" data-id="<?= $admin[\'id\'] ?>" class="btn btn-red btn-md btn-admin">Supprimer</button>\n' +
-                    '                        </div>\n' +
-                    '                    </td>\n' +
-                    '                </tr>')*/
-            }else{
-                bootstrapNotify(msg.msg, msg.type);
-            }
         })
-        .fail(function () {
-            bootstrapNotify("Une erreur s'est produite", 'danger')
-        });
-})
-
+            .done(function (data) {
+                console.log(data);
+                msg = JSON.parse(data);
+                console.log(msg)
+                if (msg.type == 'success') {
+                    $('.modal.form').modal('hide');
+                    bootstrapNotify(msg.msg, msg.type);
+                    adminList.add({
+                        login: params['login'],
+                        email: params['email'],
+                    });
+                    adminList.sort('login', {
+                        order: "asc"
+                    });
+                    modifyPaginationClasses()
+                } else {
+                    bootstrapNotify(msg.msg, msg.type);
+                }
+            })
+            .fail(function () {
+                bootstrapNotify("Une erreur s'est produite", 'danger')
+            });
+    })
+}
 
 /**** Modifier Administrateur*/
 
@@ -116,7 +108,7 @@ function deleteAdmin() {
 /*** Ajouter Livre ***/
 
 $('body').on('click', '#addBookButton', function () {
-  addBook()
+    addBook()
 });
 
 function addBook() {
@@ -155,7 +147,7 @@ function addBook() {
                     }
                 }
         })
-            .done( function (data) {
+            .done(function (data) {
                 console.log(data);
                 msg = JSON.parse(data);
                 console.log(msg)
@@ -185,7 +177,7 @@ $('body').on('click', '#addRevueButton', function () {
     addRevue()
 });
 
-function addRevue(){
+function addRevue() {
     $.ajax({
         url: 'app/view/modalAddRevue.php'
     })
@@ -206,7 +198,7 @@ function addRevue(){
             'titre': $('#titre ')[0].value,
             'date': $('#date')[0].value,
             'domaine': $('#domaine')[0].value,
-            'description' : $('#description')[0].value,
+            'description': $('#description')[0].value,
             'link': $('#lien')[0].value,
 
         };
@@ -222,7 +214,7 @@ function addRevue(){
                     }
                 }
         })
-            .done( function (data) {
+            .done(function (data) {
                 console.log(data);
                 msg = JSON.parse(data);
                 console.log(msg)
@@ -239,7 +231,7 @@ function addRevue(){
                         order: "asc"
                     });
                     modifyPaginationClasses()
-                }else{
+                } else {
                     bootstrapNotify(msg.msg, msg.type);
                 }
             })
@@ -254,10 +246,10 @@ function addRevue(){
 /*** Réserver Ressource ***/
 
 $('table tbody').on('click', '#reserver', function () {
-    reserverAdmin()
+    reserverRessource()
 });
 
-function reserverAdmin() {
+function reserverRessource() {
 
     var ticketID = $(this).data("id");
 

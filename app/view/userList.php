@@ -7,7 +7,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse listButtonBar" id="navbarToggler">
-            <span style="font-size: 1.5em" class="navbar-brand animated" id="bouncingLogo">{ Biblioo }</span>
+            <a href="home"><span style="font-size: 1.5em" class="navbar-brand animated" id="bouncingLogo">{ Biblioo }</span></a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a id="userBookButton" class="buttonNavBar nav-link" adminRevue">Livres</a>
@@ -60,7 +60,7 @@
                         <td class="date align-middle"><?= $book['date'] ?></td>
                         <td class="domaine align-middle"><?= $book['domaine'] ?></td>
                         <?php if ($book['note'] == 0): ?>
-                            <td class="note align-middle" title="noter le livre" data-id="<?= $book['id'] ?>">
+                            <td class="note addComment align-middle" title="noter le livre" data-id="<?= $book['id'] ?>">
                                 <?php
                                 for ($i = 1; $i <= 5; $i++) {
                                     echo '<img src="public/img/svg/stars/border_foncee.svg"/>';
@@ -68,7 +68,7 @@
                                 ?>
                             </td>
                         <?php else: ?>
-                        <td class="note align-middle" title="voir les notes / noter le livre"
+                        <td class="note addComment align-middle" title="voir les notes / noter le livre"
                             data-id="<?= $book['id'] ?>">
                             <?php
                             for ($i = 1; $i <= $book['note']; $i++) {
@@ -131,7 +131,7 @@
                         <td class="date align-middle"><?= $revue['date'] ?></td>
                         <td class="description align-middle"><?= $revue['description'] ?></td>
                         <?php if ($book['note'] == 0): ?>
-                            <td class="note align-middle" title="noter le livre" data-id="<?= $book['id'] ?>">
+                            <td class="note addComment align-middle" title="noter le livre" data-id="<?= $book['id'] ?>">
                                 <?php
                                 for ($i = 1; $i <= 5; $i++) {
                                     echo '<img src="public/img/svg/stars/full_foncee.svg"/>';
@@ -139,7 +139,7 @@
                                 ?>
                             </td>
                         <?php else: ?>
-                        <td class="note align-middle" title="voir les notes / noter le livre"
+                        <td class="note addComment align-middle" title="voir les notes / noter le livre"
                             data-id="<?= $book['id'] ?>">
                             <?php
                             for ($i = 1; $i <= $book['note']; $i++) {

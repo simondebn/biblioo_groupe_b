@@ -4,7 +4,7 @@ $(function() {
         e.preventDefault();
     });
 
-    $('body').on('click', '.note', function (e) {
+    $('body').on('click', '.addComment', function (e) {
         var ressourceID = $(this).data('id');
         $.ajax({
             url: "commentaire",

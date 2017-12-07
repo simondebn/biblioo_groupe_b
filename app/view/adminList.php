@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse listButtonBar" id="navbarToggler">
-            <span style="font-size: 1.5em" class="navbar-brand animated" id="bouncingLogo">{ Biblioo }</span>
+            <a href="home"><span style="font-size: 1.5em" class="navbar-brand animated" id="bouncingLogo">{ Biblioo }</span></a>
             <ul class="navbar-nav mr-auto mt-lg-0">
                 <li class="nav-item">
                     <a id="adminBookButton" class="buttonNavBar nav-link">Livres</a>
@@ -85,7 +85,26 @@
                         <td class="auteur align-middle"><?= $book['auteur'] ?></td>
                         <td class="date align-middle"><?= $book['date'] ?></td>
                         <td class="domaine align-middle"><?= $book['domaine'] ?></td>
-                        <td class="note align-middle"><?= $book['note'] ?></td>
+                        <?php if ($book['note'] == 0): ?>
+                            <td class="note align-middle">
+                                <?php
+                                for ($i = 1; $i <= 5; $i++) {
+                                    echo '<img src="public/img/svg/stars/border_foncee.svg"/>';
+                                }
+                                ?>
+                            </td>
+                        <?php else: ?>
+                        <td class="note align-middle">
+                            <?php
+                            for ($i = 1; $i <= $book['note']; $i++) {
+                                echo '<img src="public/img/svg/stars/full_jaune.svg"/>';
+                            }
+                            for ($j = $book['note'] + 1; $j <= 5; $j++) {
+                                echo '<img src="public/img/svg/stars/full_clair.svg"/>';
+                            }
+                            ?>
+                            <?php endif; ?>
+
                         <td class="align-middle"><a target="_blank" href="<?= $book['link'] ?>"><img class="lien_infos"
                                                                                                      src="public/img/svg/infos.svg"></a>
                         </td>
@@ -134,7 +153,25 @@
                         <td class="titre align-middle"><?= $revue['titre'] ?></td>
                         <td class="date align-middle"><?= $revue['date'] ?></td>
                         <td class="description align-middle"><?= $revue['description'] ?></td>
-                        <td class="note align-middle"><?= $revue['note'] ?></td>
+                        <?php if ($book['note'] == 0): ?>
+                            <td class="note align-middle">
+                                <?php
+                                for ($i = 1; $i <= 5; $i++) {
+                                    echo '<img src="public/img/svg/stars/border_foncee.svg"/>';
+                                }
+                                ?>
+                            </td>
+                        <?php else: ?>
+                        <td class="note align-middle">
+                            <?php
+                            for ($i = 1; $i <= $book['note']; $i++) {
+                                echo '<img src="public/img/svg/stars/full_jaune.svg"/>';
+                            }
+                            for ($j = $book['note'] + 1; $j <= 5; $j++) {
+                                echo '<img src="public/img/svg/stars/full_clair.svg"/>';
+                            }
+                            ?>
+                            <?php endif; ?>
                         <td class="align-middle"><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos"
                                                                                                       src="public/img/svg/infos.svg"></a>
                         </td>

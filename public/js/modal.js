@@ -316,33 +316,32 @@ function addRevue() {
 
 /*** Réserver Ressource ***/
 
-$('table tbody').on('click', '#reserver', function () {
-    reserverRessource()
-});
+$(function () {
 
-function reserverRessource() {
+    // ouvrir
+    $('table tbody').on('click', '#reserver', function () {
 
-    var ticketID = $(this).data("id");
+        var ticketID = $(this).data("id");
 
-    // affiche modale
+        // affiche modale
 
-    $.ajax({
-        url: "app/view/formReserver.php",
-        data: {
-            id: ticketID
-        }
-    })
-        .done(function (html) {
-            $('.modal.form .modal-dialog').html(html);
-            $('#id_ressource').attr('value', ticketID);
+        $.ajax({
+            url: "app/view/formReserver.php",
+            data: {
+                id: ticketID
+            }
         })
-        .fail(function () {
-            bootstrapNotify("Une erreur s'est produite", 'danger')
-        });
+            .done(function (html) {
+                $('.modal.form .modal-dialog').html(html);
+                $('#id_ressource').attr('value', ticketID);
+            })
+            .fail(function () {
+                bootstrapNotify("Une erreur s'est produite", 'danger')
+            });
 
 
-    $('.modal.form').modal('show');
-
+        $('.modal.form').modal('show');
+    });
 
     $('body').on('click', '#submitReserver', function () {
         var params = {
@@ -374,7 +373,8 @@ function reserverRessource() {
             }
         })
     });
-}
+
+});
 
 /***  Supprimer Ressources ***/
 

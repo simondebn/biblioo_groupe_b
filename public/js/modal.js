@@ -67,8 +67,14 @@ function addAdmin() {
 }
 
 /**** Modifier Administrateur*/
-function modifyAdmin() {
+$('body').on('click', '#modifyAdminButton', function () {
+    /*modifyAdmin();*/
+    console.log($(this).parents('tr').find('.login').text())
+    console.log($(this).data("id"))
+    console.log($(this).parents('tr').find('.email').text())
+
     let oldlogin = $(this).parents('tr').find('.login').text()
+
     $.ajax({
         url: 'app/view/modalModifyAdmin.php',
         type: 'POST',
@@ -131,12 +137,7 @@ function modifyAdmin() {
                 bootstrapNotify("Une erreur s'est produite", 'danger')
             });
     })
-}
-
-$('body').on('click', '#modifyAdminButton', function () {
-    modifyAdmin();
 })
-
 
 
 /*** Supprimer Administrateur ***/
@@ -147,11 +148,11 @@ $('body').on('click', '#deleteAdminButton', function () {
 
         var adminID = $(this).data("id");
         var lineAdmin = $(this).parents('tr');
-        deleteAdmin()
+        deleteAdmin(adminID, lineAdmin);
     }
 });
 
-function deleteAdmin() {
+function deleteAdmin(adminID, lineAdmin) {
     $.ajax({
         url: "manage-admin",
         type: 'POST',

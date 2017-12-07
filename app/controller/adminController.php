@@ -34,7 +34,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
     if ($error === false) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre ajout a bien été enregistré !',
+            'msg' => 'Votre ajout a été enregistré !',
         ));
     }
 }
@@ -62,7 +62,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
     if ($error === false) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre suppression a bien été enregistré !',
+            'msg' => 'Votre suppression a été enregistré !',
         ));
     }
 }
@@ -87,7 +87,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyAdmin') {
     if ($error === false) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre modification a bien été enregistré !',
+            'msg' => 'Votre modification a été enregistré !',
         ));
     }
 }
@@ -117,7 +117,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addBook') {
     if ($error === false) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre ajout a bien été enregistré !',
+            'msg' => 'Votre ajout a été enregistré !',
         ));
     }
 }
@@ -145,7 +145,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRevue') {
     if ($error === false) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre ajout a bien été enregistré !',
+            'msg' => 'Votre ajout a été enregistré !',
         ));
     }
 }
@@ -177,7 +177,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
     if ($error === false) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre suppression a bien été enregistré !',
+            'msg' => 'Votre suppression a été enregistré !',
         ));
     }
 }
@@ -194,7 +194,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyRessource') {
     if (modifyRessource($_POST['myParams'], $ressourcesModelDb)) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre modification a bien été enregistrée !'
+            'msg' => 'Votre modification a été enregistrée !'
         ));
     } else {
         echo json_encode(array(

@@ -19,7 +19,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addEmprunt') {
     if(addEmprunt($_POST['myParams'], $empruntModelDb)){
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre réservation a bien été enregistrée !'
+            'msg' => 'Votre réservation a été enregistrée !'
         ));
     }
     else{
@@ -32,7 +32,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addEmprunt') {
     if(modifyEmprunt($_POST['myParams']['id'], $empruntModelDb)){
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'La modification a bien été enregistrée !'
+            'msg' => 'La modification a été enregistrée !'
         ));
     }
     else{

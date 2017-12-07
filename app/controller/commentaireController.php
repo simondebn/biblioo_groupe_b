@@ -19,7 +19,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addCommentaire') {
         $newAverage = $ressourcesModelDb->getNoteAverage($_POST['myParams']['params']['id_ressource']);
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre avis a bien été enregistré !',
+            'msg' => 'Votre avis a été enregistré !',
             'newAverage' => $newAverage
         ));
     }

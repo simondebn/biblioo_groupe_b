@@ -2,6 +2,7 @@
 /**
  * ADD ADMIN
  */
+$error = false;
 function addAdmin($params, $adminModelDb)
 {
     return $adminModelDb->add($params['params']);
@@ -9,18 +10,25 @@ function addAdmin($params, $adminModelDb)
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
     $_POST['myParams']['params']['password'] = sha1($_POST['myParams']['params']['password']);
-    if(addAdmin($_POST['myParams'], $adminModelDb)){
+    try {
+        addAdmin($_POST['myParams'], $adminModelDb);
+
+    } catch (PDOException $e){
+        echo json_encode(array(
+            'type' => 'danger',
+            'msg' => 'Une erreur est survenue !'
+        ));
+        $error = true;
+
+    }
+    if($error === false){
         echo json_encode(array(
             'type' => 'success',
             'msg' => 'Votre ajout a bien été enregistré !',
         ));
+
     }
-    else{
-        echo json_encode(array(
-            'type' => 'error',
-            'msg' => 'Une erreur est survenue !'
-        ));
-    }
+
 }
 
 /**
@@ -39,7 +47,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
     }
     else{
         echo json_encode(array(
-            'type' => 'error',
+            'type' => 'danger',
             'msg' => 'Une erreur est survenue !'
         ));
     }
@@ -66,7 +74,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addBook') {
     }
     else{
         echo json_encode(array(
-            'type' => 'error',
+            'type' => 'danger',
             'msg' => 'Une erreur est survenue !'
         ));
     }
@@ -101,7 +109,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
         ));
     } else {
         echo json_encode(array(
-            'type' => 'error',
+            'type' => 'danger',
             'msg' => 'Une erreur est survenue !'
         ));
     }
@@ -116,7 +124,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRessource') {
         ));
     } else {
         echo json_encode(array(
-            'type' => 'error',
+            'type' => 'danger',
             'msg' => 'Une erreur est survenue !'
         ));
     }
@@ -130,7 +138,7 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyRessource') {
         ));
     } else {
         echo json_encode(array(
-            'type' => 'error',
+            'type' => 'danger',
             'msg' => 'Une erreur est survenue !'
         ));
     }

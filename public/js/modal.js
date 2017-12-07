@@ -128,6 +128,8 @@ $('body').on('click', '#submitAddAdmin', function (e) {
                     '                        </div>\n' +
                     '                    </td>\n' +
                     '                </tr>')*/
+            }else{
+                bootstrapNotify(msg.msg, msg.type);
             }
         })
         .fail(function () {
@@ -251,13 +253,7 @@ $('body').on('click', '#addBookButton', function () {
                         '                </tr>');*/
                 }
             })
-            .fail(function () {
-            bootstrapNotify("Une erreur s'est produite", 'danger')
-        });
-
     });
-
-
 });
 
 /**

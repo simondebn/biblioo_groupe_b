@@ -268,13 +268,14 @@ function bootstrapNotify(msg, type) {
     }, {
         //settings
         type: type,
+        z_index: 2000,
         animate: {
             enter: 'animated fadeInDown',
             exit: 'animated fadeOutUp'
         },
         placement: {
             from: 'top',
-            align: 'right'
+            align: 'center'
         }
     });
 }

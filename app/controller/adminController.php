@@ -1,19 +1,49 @@
 <?php
-/**
- * ADD ADMIN
- */
 $error = false;
+
+/*** GESTION DES ADMINS ***/
+
+/*** Ajout d'un admin ***/
 function addAdmin($params, $adminModelDb)
 {
     return $adminModelDb->add($params['params']);
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
+
     $_POST['myParams']['params']['password'] = sha1($_POST['myParams']['params']['password']);
     try {
         addAdmin($_POST['myParams'], $adminModelDb);
 
-    } catch (PDOException $e){
+    } catch (PDOException $e) {
+        echo json_encode(array(
+            'type' => 'danger',
+            'msg' => 'Une erreur est survenue !'
+        ));
+        $error = true;
+    }
+
+    if ($error === false) {
+        echo json_encode(array(
+            'type' => 'success',
+            'msg' => 'Votre ajout a bien été enregistré !',
+        ));
+    }
+}
+
+/*** Suppression d'un admin ***/
+
+function deleteAdmin($id, $adminModelDb)
+{
+    return $adminModelDb->delete($id);
+}
+
+if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
+
+    try {
+        deleteAdmin($_POST['id'], $adminModelDb);
+
+    } catch (PDOException $e) {
         echo json_encode(array(
             'type' => 'danger',
             'msg' => 'Une erreur est survenue !'
@@ -21,44 +51,37 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
         $error = true;
 
     }
-    if($error === false){
+    if ($error === false) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre ajout a bien été enregistré !',
+            'msg' => 'Votre suppression a bien été enregistré !',
         ));
-
     }
+}
+/*** Modification d'un Admin ***/
 
+function modifyAdmin($params, $modifyAdmin)
+{
+    return $modifyAdmin->modify($params['params']);
 }
 
-/**
- * Suppression d'un admin
- */
-function deleteAdmin($id, $adminModelDb){
-    return $adminModelDb->delete($id);
-}
-
-if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteAdmin') {
-    if(deleteAdmin($_POST['id'], $adminModelDb)){
+if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyAdmin') {
+    if (modifyAdmin($_POST['myParams'], $adminModelDb)) {
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre suppression a bien été enregistrée !'
+            'msg' => 'Votre modification a bien été enregistrée !'
         ));
-    }
-    else{
+    } else {
         echo json_encode(array(
-            'type' => 'danger',
+            'type' => 'error',
             'msg' => 'Une erreur est survenue !'
         ));
     }
 }
 
+/*** GESTION RESSOURCES ADMINISTRATEUR ***/
 
-
-
-/** GESTION RESSOURCES ADMINISTRATEUR */
-
-// ajout d'une ressource
+/*** Ajout d'un Livre ***/
 
 function addBook($params, $ressourcesModelDb)
 {
@@ -66,68 +89,84 @@ function addBook($params, $ressourcesModelDb)
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addBook') {
-    if(addBook($_POST['myParams'], $ressourcesModelDb)){
-        echo json_encode(array(
-            'type' => 'success',
-            'msg' => 'Votre ajout a bien été enregistrée !',
-        ));
-    }
-    else{
+
+    try {
+        addBook($_POST['myParams'], $ressourcesModelDb);
+
+    } catch (PDOException $e) {
         echo json_encode(array(
             'type' => 'danger',
             'msg' => 'Une erreur est survenue !'
         ));
+        $error = true;
+    }
+
+    if ($error === false) {
+        echo json_encode(array(
+            'type' => 'success',
+            'msg' => 'Votre ajout a bien été enregistré !',
+        ));
     }
 }
 
-/*// suppression d'une ressource
+/*** Ajout d'une Revue ***/
 
-function deleteRessource($params, $deleteRessource)
+function addRevue($params, $ressourcesModelDb)
 {
-    return $deleteRessource->delete($params['params']['id_ressource']);
-}*/
+    return $ressourcesModelDb->addRevue($params['params']);
+}
 
-// modification d'une ressource
+if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRevue') {
+
+    try {
+        addRevue($_POST['myParams'], $ressourcesModelDb);
+
+    } catch (PDOException $e) {
+        echo json_encode(array(
+            'type' => 'danger',
+            'msg' => 'Une erreur est survenue !'
+        ));
+        $error = true;
+    }
+
+    if ($error === false) {
+        echo json_encode(array(
+            'type' => 'success',
+            'msg' => 'Votre ajout a bien été enregistré !',
+        ));
+    }
+}
+
+
+/*** Suppression d'une ressource ***/
+
+if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
+
+    try {
+        deleteRessource($_POST['id'], $ressourcesModelDb);
+    } catch (PDOException $e) {
+
+        echo json_encode(array(
+            'type' => 'danger',
+            'msg' => 'Une erreur est survenue !'
+        ));
+        $error = true;
+    }
+
+    if ($error === false) {
+        echo json_encode(array(
+            'type' => 'success',
+            'msg' => 'Votre suppression a bien été enregistré !',
+        ));
+    }
+}
+
+
+/*** Modification d'une ressource ***/
 
 function modifyRessource($params, $modifyRessource)
 {
     return $modifyRessource->modify($params['params']);
-}
-
-/*if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
-    if (deleteRessource($_POST['myParams'], $ressourcesModelDb)) {*/
-
-/**
- * Suppression d'une ressource
- */
-
-if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
-    if (deleteRessource($_POST['id'], $ressourcesModelDb)) {
-        echo json_encode(array(
-            'type' => 'success',
-            'msg' => 'Votre suppression a bien été enregistrée !'
-        ));
-    } else {
-        echo json_encode(array(
-            'type' => 'danger',
-            'msg' => 'Une erreur est survenue !'
-        ));
-    }
-}
-
-
-if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addRessource') {
-    if (addRessource($_POST['myParams'], $ressourcesModelDb)) {
-        echo json_encode(array(
-            'type' => 'success',
-            'msg' => 'Votre ajout a bien été enregistrée !'
-        ));
-    } else {
-        echo json_encode(array(
-            'type' => 'danger',
-            'msg' => 'Une erreur est survenue !'
-        ));
-    }
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyRessource') {
@@ -144,7 +183,8 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyRessource') {
     }
 }
 
-function deleteRessource($id , $ressourcesModelDb)
+
+function deleteRessource($id, $ressourcesModelDb)
 {
     $ressourcesModelDb->deleteComment($id);
     $ressourcesModelDb->deleteEmprunt($id);

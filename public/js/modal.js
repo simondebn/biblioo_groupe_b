@@ -274,7 +274,59 @@ $('body').on('click', '#addRevueButton', function () {
         });
 
     $('.modal.form').modal('show');
+
+    $('body').on('click', '#submitAddRevue', function (e) {
+        e.preventDefault();
+        let params = {
+
+            /*'imageRevue': $('#imageRevue')[0].value,*/
+            'titre': $('#titre ')[0].value,
+            'date': $('#date')[0].value,
+            'domaine': $('#domaine')[0].value,
+            'description' : $('#description')[0].value,
+            'link': $('#lien')[0].value,
+
+        };
+        console.log(params)
+        $.ajax({
+            url: "manage-admin",
+            type: 'POST',
+            data:
+                {
+                    myFunction: 'addRevue',
+                    myParams: {
+                        params: params
+                    }
+                }
+        })
+            .done( function (data) {
+                console.log(data);
+                msg = JSON.parse(data);
+                console.log(msg)
+                if (msg.type == 'success') {
+                    $('.modal.form').modal('hide');
+                    bootstrapNotify(msg.msg, msg.type);
+                    adminBookList.add({
+                        titre: params['titre'],
+                        date: params['date'],
+                        domaine: params['domaine'],
+                        description: params['description'],
+                    });
+                    adminRevueList.sort('titre', {
+                        order: "asc"
+                    });
+                    modifyPaginationClasses()
+                }else{
+                    bootstrapNotify(msg.msg, msg.type);
+                }
+            })
+            .fail(function () {
+                bootstrapNotify("Une erreur s'est produite", 'danger')
+            })
+    });
 });
+
+
 
 /**
  *  DELETE RESSOURCE

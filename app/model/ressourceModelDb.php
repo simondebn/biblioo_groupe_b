@@ -75,7 +75,7 @@ class ressourceModelDb
     }
 
     public function addRevue($revue){
-        $stmt = $this->db->prepare("INSERT INTO `ressource` (`id_type`, `titre`, `date`, `couverture`, `domaine`, `link`, `description`) VALUES (2, :titre, :date, :couverture, :domaine, :link, :description)");
+        $stmt = $this->db->prepare("INSERT INTO `ressource` (`id_type`, `titre`, `date`, /*`couverture`,*/ `domaine`, `link`, `description`) VALUES (2, :titre, :date, /*:couverture,*/ :domaine, :link, :description)");
         return $stmt->execute($revue);
     }
 

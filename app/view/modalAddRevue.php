@@ -30,16 +30,19 @@
                 <input type="date" id="date" class="form-control datepicker">
             </div>
             <div class="md-form">
-                <input type="text" id="theme" class="form-control"><label for="form1" class="">Thème</label>
+                <input type="text" id="domaine" class="form-control"><label for="form1" class="">Thème</label>
             </div>
             <div class="form-group basic-textarea">
                 <label for="exampleFormControlTextarea2">Description</label>
                 <textarea class="form-control" id="description" rows="3"></textarea>
             </div>
+            <div class="md-form">
+                <input type="text" id="lien" class=form-control" required><label for="form1">Lien vers l'éditeur</label>
+            </div>
         </div>
         <div class="modal-footer">
             <div class="col-md-12 text-center">
-                <input type="button" name="envoyer" id="submitAjoutLivre" class="btn btn-success" value="Envoyer">
+                <input type="submit" name="envoyer" id="submitAddRevue" class="btn btn-success" value="Envoyer">
             </div>
         </div>
     </div>

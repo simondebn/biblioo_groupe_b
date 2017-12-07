@@ -18,7 +18,7 @@ $(function () {
                 $('#id_ressource').attr('value', ticketID);
             })
             .fail(function () {
-                console.log('error : open dvd');
+                bootstrapNotify("Une erreur s'est produite", 'danger')
             });
 
 
@@ -75,7 +75,7 @@ $('body').on('click', '#addAdminButton', function () {
             $('.modal.form .modal-dialog').html(html);
         })
         .fail(function () {
-            console.log('error : open dvd');
+            bootstrapNotify("Une erreur s'est produite", 'danger')
         });
 
     $('.modal.form').modal('show');
@@ -90,7 +90,7 @@ $('body').on('click', '#submitAddAdmin', function (e) {
         'password': $('#password')[0].value,
 
     };
-    console.log(params)
+
     $.ajax({
         url: "manage-admin",
         type: 'POST',
@@ -100,8 +100,9 @@ $('body').on('click', '#submitAddAdmin', function (e) {
                 myParams: {
                     params: params
                 }
-            },
-        success: function (data) {
+            }
+    })
+        .done(function (data) {
             console.log(data);
             msg = JSON.parse(data);
             console.log(msg)
@@ -128,9 +129,11 @@ $('body').on('click', '#submitAddAdmin', function (e) {
                     '                    </td>\n' +
                     '                </tr>')*/
             }
-        }
-    })
-});
+        })
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
+})
 
 
 /***
@@ -144,8 +147,7 @@ $('body').on('click', '#submitAddAdmin', function (e) {
 
 $('body').on('click', '#deleteAdminButton', function () {
 
-    if (confirm("Voulez vous vraiment supprimer l'administrateur !"))
-    {
+    if (confirm("Voulez vous vraiment supprimer l'administrateur !")) {
 
         var adminID = $(this).data("id");
         var lineAdmin = $(this).parents('tr');
@@ -184,7 +186,7 @@ $('body').on('click', '#addBookButton', function () {
             $('.modal.form .modal-dialog').html(html);
         })
         .fail(function () {
-            console.log('error : open dvd');
+            bootstrapNotify("Une erreur s'est produite", 'danger')
         });
     $('.modal.form').modal('show');
 
@@ -210,8 +212,9 @@ $('body').on('click', '#addBookButton', function () {
                     myParams: {
                         params: params
                     }
-                },
-            success: function (data) {
+                }
+        })
+            .done( function (data) {
                 console.log(data);
                 msg = JSON.parse(data);
                 console.log(msg)
@@ -247,8 +250,11 @@ $('body').on('click', '#addBookButton', function () {
                         '                    </td>\n' +
                         '                </tr>');*/
                 }
-            }
-        })
+            })
+            .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
+
     });
 
 
@@ -268,7 +274,7 @@ $('body').on('click', '#addRevueButton', function () {
             $('.modal.form .modal-dialog').html(html);
         })
         .fail(function () {
-            console.log('error : open dvd');
+            bootstrapNotify("Une erreur s'est produite", 'danger')
         });
 
     $('.modal.form').modal('show');

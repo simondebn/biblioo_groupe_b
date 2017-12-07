@@ -17,6 +17,10 @@ html
   padding : 0;
 }
 
+.main-container{
+  padding-top: 65px;
+}
+
 .header
 {
   background: url("../img/header_bg.jpg") repeat-x;

@@ -1,3 +1,18 @@
+<div class="header">
+    <img src="public/img/logo_cefim.png" alt="Logo Cefim" class="brand">
+    <ul class="nav">
+        <li><a class="liens_externe" href="/">CAMPUS</a></li>
+        <li><a class="liens_externe" href="/">PROGRAMMES</a></li>
+        <li><a class="liens_externe" href="/">ETUDIANTS</a></li>
+        <li><a class="liens_externe" href="/">PROFESSIONNELS</a></li>
+        <li><a style="color :orange" href="home">BIBLIOO</a></li>
+    </ul>
+</div>
+<div class="page-header">
+    <h1 class="animated fadeInRight">Biblioo : la bibliothèque du futur</h1>
+</div>
+
+
 <div class="container">
     <div class="row" style="justify-content: center; margin: 10px;">
         <div>
@@ -14,8 +29,8 @@
                         <div class="row containerBlockVignette list-group-item">
                             <div class="media mb-1">
                                 <img class="vignetteCouverture"
-                                         src="data:image/jpeg;base64, <?= base64_encode($book['couverture']) ?>" alt=""
-                                         style="display: block; margin: auto">
+                                     src="data:image/jpeg;base64, <?= base64_encode($book['couverture']) ?>" alt=""
+                                     style="display: block; margin: auto">
 
                                 <div class="media-body" style="margin: auto;">
                                     <p>

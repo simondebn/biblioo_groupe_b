@@ -8,10 +8,11 @@ function addAdmin($params, $adminModelDb)
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'addAdmin') {
+    $_POST['myParams']['params']['password'] = sha1($_POST['myParams']['params']['password']);
     if(addAdmin($_POST['myParams'], $adminModelDb)){
         echo json_encode(array(
             'type' => 'success',
-            'msg' => 'Votre ajout a bien été enregistrée !',
+            'msg' => 'Votre ajout a bien été enregistré !',
         ));
     }
     else{

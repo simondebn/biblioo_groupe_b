@@ -1,11 +1,13 @@
-<div class="container">
+<div class="container main-container">
 
-    <nav style="margin-top:20px;background-color: #ff7500" class="navbar navbar-expand-lg navbar-dark">
-
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse listButtonBar" id="navbarSupportedContent">
-
-            <!-- Links -->
+    <nav style="background-color: #ff7500;" class="navbar fixed-top navbar-expand-lg navbar-dark ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                aria-controls="navbarToggler"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse listButtonBar" id="navbarToggler">
+            <span style="font-size: 1.5em" class="navbar-brand animated" id="bouncingLogo">{ Biblioo }</span>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a id="userBookButton" class="buttonNavBar nav-link" adminRevue">Livres</a>
@@ -28,6 +30,9 @@
             </ul>
         </div>
     </nav>
+
+
+
 
     <div id="userBookList" class="row" style="margin:0">
             <table class="table">

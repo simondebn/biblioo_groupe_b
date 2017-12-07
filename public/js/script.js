@@ -9,6 +9,20 @@ let adminRevueList;
 let currentList;
 let itemPerPage;
 
+$('#bouncingLogo').hover(
+    function(){$(this).addClass('bounce')}
+);
+
+
+
+setInterval(function () {
+    if ($('#bouncingLogo').hasClass('bounce')) {
+            $('#bouncingLogo').removeClass('bounce');
+        }
+}, 10000);
+
+
+
 /*** Message par page ***/
 
 if ((localStorage.getItem("itemPerPage")) === null) {

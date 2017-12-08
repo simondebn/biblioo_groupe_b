@@ -115,7 +115,6 @@
                 <th class="sort" data-sort="description">Description</th>
                 <th>Note</th>
                 <th></th>
-                <th></th>
                 <th><input style="margin:0;height:5px;" class="form-control w-100 search" type="text" placeholder="Rechercher" aria-label="Search">
                 </th>
             </tr>

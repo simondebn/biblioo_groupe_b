@@ -12,6 +12,7 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                     class="sr-only">Close</span></button>
     </div>
+    <form id="formAddRevue">
     <div class="modal-body" style="padding:0 20%">
         <input type="hidden" id="id_ressource" class="form-control" value="">
         <div class="file-field">
@@ -20,6 +21,8 @@
                 <span>Choisir image</span>
                 <input type="file" id="imagelivre" class="file-field" required="">
             </div>-->
+                <input type="file" id="imagelivre" class="file-field">
+            </div>
             <div class="md-form">
                 <input type="text" id="titre" class="form-control"><label for="form1" class="">Titre</label>
             </div>
@@ -46,3 +49,5 @@
             </div>
         </div>
     </div>
+    </form>
+</div>

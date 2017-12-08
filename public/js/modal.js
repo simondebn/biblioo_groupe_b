@@ -3,10 +3,6 @@
 /**** Ajouter Administrateur ***/
 
 $('body').on('click', '#addAdminButton', function () {
-    addAdmin()
-})
-
-function addAdmin() {
 
     $.ajax({
         url: 'app/view/modalAddAdministrateur.php'
@@ -19,61 +15,61 @@ function addAdmin() {
         });
 
     $('.modal.form').modal('show');
+});
 
-    $('body').on('click', '#submitAddAdmin', function (e) {
-        e.preventDefault();
-        let params = {
+$('body').on('submit', '#formAddAdmin',function (e) {
+    console.log('rttyyy');
+    e.preventDefault();
+    let params = {
 
-            'login': $('#login')[0].value,
-            'email': $('#email')[0].value,
-            'password': $('#password')[0].value,
+        'login': $('#login')[0].value,
+        'email': $('#email')[0].value,
+        'password': $('#password')[0].value,
 
-        };
+    };
 
-        $.ajax({
-            url: "manage-admin",
-            type: 'POST',
-            data:
-                {
-                    myFunction: 'addAdmin',
-                    myParams: {
-                        params: params
-                    }
+    $.ajax({
+        url: "manage-admin",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'addAdmin',
+                myParams: {
+                    params: params
                 }
-        })
-            .done(function (data) {
-                console.log(data);
-                msg = JSON.parse(data);
-                console.log(msg)
-                if (msg.type == 'success') {
-                    $('.modal.form').modal('hide');
-                    bootstrapNotify(msg.msg, msg.type);
-                    adminList.add({
-                        login: params['login'],
-                        email: params['email'],
-                    });
-                    adminList.sort('login', {
-                        order: "asc"
-                    });
-                    modifyPaginationClasses()
-                } else {
-                    bootstrapNotify(msg.msg, msg.type);
-                }
-            })
-            .fail(function () {
-                bootstrapNotify("Une erreur s'est produite", 'danger')
-            });
+            }
     })
-}
+        .done(function (data) {
+            console.log(data);
+            msg = JSON.parse(data);
+            console.log(msg)
+            if (msg.type == 'success') {
+                $('.modal.form').modal('hide');
+                bootstrapNotify(msg.msg, msg.type);
+                adminList.add({
+                    login: params['login'],
+                    email: params['email'],
+                });
+                adminList.sort('login', {
+                    order: "asc"
+                });
+                modifyPaginationClasses()
+            } else {
+                bootstrapNotify(msg.msg, msg.type);
+            }
+        })
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
+});
+
 
 /**** Modifier Administrateur*/
+let oldlogin
 $('body').on('click', '#modifyAdminButton', function () {
-    /*modifyAdmin();*/
-    console.log($(this).parents('tr').find('.login').text())
-    console.log($(this).data("id"))
-    console.log($(this).parents('tr').find('.email').text())
 
-    let oldlogin = $(this).parents('tr').find('.login').text()
+    oldlogin = $(this).parents('tr').find('.login').text()
+
 
     $.ajax({
         url: 'app/view/modalModifyAdmin.php',
@@ -92,51 +88,50 @@ $('body').on('click', '#modifyAdminButton', function () {
         });
 
     $('.modal.form').modal('show');
+})
 
-    $('body').on('click', '#submitModifyAdmin', function (e) {
-        e.preventDefault();
-        let params = {
-            'id': $('#id')[0].value,
-            'login': $('#login')[0].value,
-            'email': $('#email')[0].value,
-            'password': $('#password')[0].value,
+$('body').on('submit', '#formModifyAdmin', function (e) {
+    e.preventDefault();
+    let params = {
+        'id': $('#id')[0].value,
+        'login': $('#login')[0].value,
+        'email': $('#email')[0].value,
+        'password': $('#password')[0].value,
 
-        };
-        console.log(params);
+    };
 
-        $.ajax({
-            url: "manage-admin",
-            type: 'POST',
-            data:
-                {
-                    myFunction: 'modifyAdmin',
-                    myParams: {
-                        params: params
-                    }
+    $.ajax({
+        url: "manage-admin",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'modifyAdmin',
+                myParams: {
+                    params: params
                 }
-        })
-            .done(function (data) {
-                msg = JSON.parse(data);
-                if (msg.type == 'success') {
-                    $('.modal.form').modal('hide');
-                    bootstrapNotify(msg.msg, msg.type);
-                    adminList.remove('login', oldlogin);
-                    adminList.add({
-                        login: params['login'],
-                        email: params['email'],
-                    });
-                    adminList.sort('login', {
-                        order: "asc"
-                    });
-                    modifyPaginationClasses()
-                } else {
-                    bootstrapNotify(msg.msg, msg.type);
-                }
-            })
-            .fail(function () {
-                bootstrapNotify("Une erreur s'est produite", 'danger')
-            });
+            }
     })
+        .done(function (data) {
+            msg = JSON.parse(data);
+            if (msg.type == 'success') {
+                $('.modal.form').modal('hide');
+                bootstrapNotify(msg.msg, msg.type);
+                adminList.remove('login', oldlogin)
+                adminList.add({
+                    login: params['login'],
+                    email: params['email'],
+                });
+                adminList.sort('login', {
+                    order: "asc"
+                });
+                modifyPaginationClasses()
+            } else {
+                bootstrapNotify(msg.msg, msg.type);
+            }
+        })
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
 })
 
 
@@ -179,10 +174,7 @@ function deleteAdmin(adminID, lineAdmin) {
 /*** Ajouter Livre ***/
 
 $('body').on('click', '#addBookButton', function () {
-    addBook()
-});
 
-function addBook() {
     $.ajax({
         url: 'app/view/modalAddBook.php'
     })
@@ -193,52 +185,53 @@ function addBook() {
             bootstrapNotify("Une erreur s'est produite", 'danger')
         });
     $('.modal.form').modal('show');
+})
 
-    $('body').on('click', '#submitAddBook', function (e) {
-        e.preventDefault();
-        let params = {
+$('body').on('submit', '#formAddBook', function (e) {
+    e.preventDefault();
+    let params = {
 
-            /*'imagelivre': $('#imagelivre')[0].value,*/
-            'titre': $('#titre ')[0].value,
-            'auteur': $('#auteur')[0].value,
-            'date': $('#date')[0].value,
-            'domaine': $('#domaine')[0].value,
-            'link': $('#lien')[0].value,
+        /*'imagelivre': $('#imagelivre')[0].value,*/
+        'titre': $('#titre ')[0].value,
+        'auteur': $('#auteur')[0].value,
+        'date': $('#date')[0].value,
+        'domaine': $('#domaine')[0].value,
+        'link': $('#lien')[0].value,
 
-        };
-        console.log(params)
-        $.ajax({
-            url: "manage-admin",
-            type: 'POST',
-            data:
-                {
-                    myFunction: 'addBook',
-                    myParams: {
-                        params: params
-                    }
+    };
+    console.log(params)
+    $.ajax({
+        url: "manage-admin",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'addBook',
+                myParams: {
+                    params: params
                 }
+            }
+    })
+        .done(function (data) {
+            console.log(data);
+            msg = JSON.parse(data);
+            console.log(msg)
+            if (msg.type == 'success') {
+                $('.modal.form').modal('hide');
+                bootstrapNotify(msg.msg, msg.type);
+                adminBookList.add({
+                    titre: params['titre'],
+                    auteur: params['auteur'],
+                    date: params['date'],
+                    domaine: params['domaine']
+                });
+                adminBookList.sort('titre', {
+                    order: "asc"
+                });
+                modifyPaginationClasses()
+            }
         })
-            .done(function (data) {
-                console.log(data);
-                msg = JSON.parse(data);
-                console.log(msg)
-                if (msg.type == 'success') {
-                    $('.modal.form').modal('hide');
-                    bootstrapNotify(msg.msg, msg.type);
-                    adminBookList.add({
-                        titre: params['titre'],
-                        auteur: params['auteur'],
-                        date: params['date'],
-                        domaine: params['domaine']
-                    });
-                    adminBookList.sort('titre', {
-                        order: "asc"
-                    });
-                    modifyPaginationClasses()
-                }
-            })
-    });
-}
+});
+
 
 /*** Modifier Livre ***/
 
@@ -325,10 +318,7 @@ $('body').on('submit', '#formModifyBook', function (e) {
 /*** Ajouter Revue ***/
 
 $('body').on('click', '#addRevueButton', function () {
-    addRevue()
-});
 
-function addRevue() {
     $.ajax({
         url: 'app/view/modalAddRevue.php'
     })
@@ -340,57 +330,60 @@ function addRevue() {
         });
 
     $('.modal.form').modal('show');
+});
 
-    $('body').on('click', '#submitAddRevue', function (e) {
-        e.preventDefault();
-        let params = {
 
-            /*'imageRevue': $('#imageRevue')[0].value,*/
-            'titre': $('#titre ')[0].value,
-            'date': $('#date')[0].value,
-            'domaine': $('#domaine')[0].value,
-            'description': $('#description')[0].value,
-            'link': $('#lien')[0].value,
 
-        };
-        console.log(params)
-        $.ajax({
-            url: "manage-admin",
-            type: 'POST',
-            data:
-                {
-                    myFunction: 'addRevue',
-                    myParams: {
-                        params: params
-                    }
+$('body').on('submit','#formAddRevue', function (e) {
+    e.preventDefault();
+    let params = {
+
+        /*'imageRevue': $('#imageRevue')[0].value,*/
+        'titre': $('#titre ')[0].value,
+        'date': $('#date')[0].value,
+        'domaine': $('#domaine')[0].value,
+        'description': $('#description')[0].value,
+        'link': $('#lien')[0].value,
+
+    };
+    console.log(params)
+    $.ajax({
+        url: "manage-admin",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'addRevue',
+                myParams: {
+                    params: params
                 }
+            }
+    })
+        .done(function (data) {
+            console.log(data);
+            msg = JSON.parse(data);
+            console.log(msg)
+            if (msg.type == 'success') {
+                $('.modal.form').modal('hide');
+                bootstrapNotify(msg.msg, msg.type);
+                adminRevueList.add({
+                    titre: params['titre'],
+                    date: params['date'],
+                    domaine: params['domaine'],
+                    description: params['description'],
+                });
+                adminRevueList.sort('titre', {
+                    order: "asc"
+                });
+                modifyPaginationClasses()
+            } else {
+                bootstrapNotify(msg.msg, msg.type);
+            }
         })
-            .done(function (data) {
-                console.log(data);
-                msg = JSON.parse(data);
-                console.log(msg)
-                if (msg.type == 'success') {
-                    $('.modal.form').modal('hide');
-                    bootstrapNotify(msg.msg, msg.type);
-                    adminBookList.add({
-                        titre: params['titre'],
-                        date: params['date'],
-                        domaine: params['domaine'],
-                        description: params['description'],
-                    });
-                    adminRevueList.sort('titre', {
-                        order: "asc"
-                    });
-                    modifyPaginationClasses()
-                } else {
-                    bootstrapNotify(msg.msg, msg.type);
-                }
-            })
-            .fail(function () {
-                bootstrapNotify("Une erreur s'est produite", 'danger')
-            })
-    });
-}
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        })
+});
+
 
 /*** Modifier Revue ***/
 

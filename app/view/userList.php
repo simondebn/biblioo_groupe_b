@@ -1,6 +1,6 @@
 <div class="container main-container">
 
-    <nav style="background-color: #ff7500;" class="navbar fixed-top navbar-expand-lg navbar-dark ">
+    <nav style="background-color: #ff7500;" class="navbar fixed-top navbar-expand-md navbar-dark ">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
                 aria-controls="navbarToggler"
                 aria-expanded="false" aria-label="Toggle navigation">

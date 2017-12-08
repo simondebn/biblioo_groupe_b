@@ -172,7 +172,7 @@
                             ?>
                             <?php endif; ?>
 
-                        <td class="align-middle lien"><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos"
+                        <td class="align-middle lien"><a id="link" target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos"
                                                                                                       src="public/img/svg/infos.svg"></a>
                         </td>
                         <td class="align-middle">

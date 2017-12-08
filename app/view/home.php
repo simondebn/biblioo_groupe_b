@@ -7,11 +7,11 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a class="nav-link liens_externe" href="/">CAMPUS</a></li>
-            <li class="nav-item"><a class="nav-link liens_externe" href="/">PROGRAMMES</a></li>
-            <li class="nav-item"><a class="nav-link liens_externe" href="/">ETUDIANTS</a></li>
-            <li class="nav-item"><a class="nav-link liens_externe" href="/">PROFESSIONNELS</a>
-            <li class="nav-item"><a class="nav-link liens_externe" style="color :orange" href="/">BIBLIOO</a>
+            <li class="nav-item"><a class="nav-link liens_externe" href="https://www.cefim.eu/presentation/">CAMPUS</a></li>
+            <li class="nav-item"><a class="nav-link liens_externe" href="https://www.cefim.eu/formation-concepteur-developpeur-informatique/">PROGRAMMES</a></li>
+            <li class="nav-item"><a class="nav-link liens_externe" href="https://www.cefim.eu/vivre-tours/">ETUDIANTS</a></li>
+            <li class="nav-item"><a class="nav-link liens_externe" href="https://www.cefim.eu/offre-stage-emploi-informatique-multimedia/">PROFESSIONNELS</a>
+            <li class="nav-item"><a class="nav-link liens_externe" style="color :orange" href="home">BIBLIOO</a>
             </li>
     </div>
 </nav>

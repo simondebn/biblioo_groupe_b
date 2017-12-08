@@ -14,13 +14,13 @@
     </div>
     <form id="formAddAdmin">
         <div class="modal-body" style="padding:0 20%; padding-top:20px">
-            <div class="file-field">
+            <!--<div class="file-field">
                 <label>Photo</label>
-                <!--<div class="btn btn-primary btn-sm">
+                <div class="btn btn-primary btn-sm">
                     <span>Choose file</span>
                     <input type="file" accept="image/*">
-                </div>-->
-            </div>
+                </div>
+            </div>-->
             <div class="md-form">
                 <input type="text" id="login" class="form-control" ><label for="form1">Login</label>
             </div>

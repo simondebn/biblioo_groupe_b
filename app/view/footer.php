@@ -1,4 +1,4 @@
-<footer class="page-footer elegant-color-dark center-on-small-only">
+<footer class="page-footer elegant-color-dark center-on-small-only fixed-bottom">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">

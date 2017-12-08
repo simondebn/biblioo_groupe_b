@@ -251,7 +251,7 @@ $('body').on('click', '#addRevueButton', function () {
     $('.modal.form').modal('show');
 });
 
-$('#formAddRevue').on('submit', function (e) {
+$('body').on('submit','#formAddRevue', function (e) {
     e.preventDefault();
     let params = {
 

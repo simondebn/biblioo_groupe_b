@@ -2,10 +2,9 @@
 
 $error = false;
 
-/*if(isset($_POST['myParams'])){
+if(isset($_POST['myParams'])){
     foreach ($_POST['myParams']['params'] as $str){
         $str = h($str);
-        echo $str;
     }
 }
 

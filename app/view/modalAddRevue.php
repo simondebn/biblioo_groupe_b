@@ -19,7 +19,7 @@
             <label for="form1" class="">Image Livre:</label>
             <div class="btn btn-primary btn-sm">
                 <span>Choisir image</span>
-                <input type="file" id="imagelivre" class="file-field" required="">
+                <input type="file" id="imagelivre" class="file-field">
             </div>
             <div class="md-form">
                 <input type="text" id="titre" class="form-control"><label for="form1" class="">Titre</label>

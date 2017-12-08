@@ -1,13 +1,20 @@
-<div class="header">
-    <img src="public/img/logo_cefim.png" alt="Logo Cefim" class="brand">
-    <ul class="nav">
-        <li><a class="liens_externe" href="/">CAMPUS</a></li>
-        <li><a class="liens_externe" href="/">PROGRAMMES</a></li>
-        <li><a class="liens_externe" href="/">ETUDIANTS</a></li>
-        <li><a class="liens_externe" href="/">PROFESSIONNELS</a></li>
-        <li><a style="color :orange" href="home">BIBLIOO</a></li>
-    </ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="public/img/logo_cefim.png" alt="Logo Cefim" class="col-xs-1 brand">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link liens_externe" href="/">CAMPUS</a></li>
+            <li class="nav-item"><a class="nav-link liens_externe" href="/">PROGRAMMES</a></li>
+            <li class="nav-item"><a class="nav-link liens_externe" href="/">ETUDIANTS</a></li>
+            <li class="nav-item"><a class="nav-link liens_externe" href="/">PROFESSIONNELS</a>
+            <li class="nav-item"><a class="nav-link liens_externe" style="color :orange" href="/">BIBLIOO</a>
+            </li>
+    </div>
+</nav>
 <div class="page-header">
     <h1 class="animated fadeInRight">Biblioo : la bibliothèque du futur</h1>
 </div>

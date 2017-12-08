@@ -109,6 +109,7 @@
         <table class="table">
             <thead>
             <tr>
+                <th></th>
                 <th class="sort" data-sort="titre">Titre</th>
                 <th class="sort" data-sort="date">Parution</th>
                 <th class="sort" data-sort="description">Description</th>

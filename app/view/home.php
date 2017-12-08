@@ -20,7 +20,7 @@
 </div>
 
 
-<div class="container">
+<div class="container main-container">
     <div class="row" style="justify-content: center; margin: 10px;">
         <div>
             <a href="liste" class="btn btn-elegant btn-lg">Voir tous le catalogue</a>

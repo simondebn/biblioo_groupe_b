@@ -17,7 +17,7 @@ $('body').on('click', '#addAdminButton', function () {
     $('.modal.form').modal('show');
 });
 
-$('body').on('click', '#submitAddAdmin', function (e) {
+$('body').on('submit', '#formAddAdmin',function (e) {
     console.log('rttyyy');
     e.preventDefault();
     let params = {
@@ -65,9 +65,11 @@ $('body').on('click', '#submitAddAdmin', function (e) {
 
 
 /**** Modifier Administrateur*/
+let oldlogin
 $('body').on('click', '#modifyAdminButton', function () {
 
-    let oldlogin = $(this).parents('tr').find('.login').text()
+    oldlogin = $(this).parents('tr').find('.login').text()
+
 
     $.ajax({
         url: 'app/view/modalModifyAdmin.php',
@@ -88,7 +90,7 @@ $('body').on('click', '#modifyAdminButton', function () {
     $('.modal.form').modal('show');
 })
 
-$('body').on('click', '#submitModifyAdmin', function (e) {
+$('body').on('submit', '#formModifyAdmin', function (e) {
     e.preventDefault();
     let params = {
         'id': $('#id')[0].value,
@@ -97,7 +99,6 @@ $('body').on('click', '#submitModifyAdmin', function (e) {
         'password': $('#password')[0].value,
 
     };
-    console.log(params);
 
     $.ajax({
         url: "manage-admin",
@@ -186,7 +187,7 @@ $('body').on('click', '#addBookButton', function () {
     $('.modal.form').modal('show');
 })
 
-$('body').on('click', '#submitAddBook', function (e) {
+$('body').on('submit', '#formAddBook', function (e) {
     e.preventDefault();
     let params = {
 
@@ -251,7 +252,7 @@ $('body').on('click', '#addRevueButton', function () {
     $('.modal.form').modal('show');
 });
 
-$('#formAddRevue').on('submit', function (e) {
+$('body').on('submit', '#formAddRevue',function (e) {
     e.preventDefault();
     let params = {
 

@@ -12,7 +12,7 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                     class="sr-only">Close</span></button>
     </div>
-    <form>
+    <form id="formAddBook">
         <div class="modal-body" style="padding:0 20%">
             <input type="hidden" id="id_ressource" class="form-control" value="">
             <div class="file-field">

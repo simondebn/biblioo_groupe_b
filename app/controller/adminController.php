@@ -184,22 +184,31 @@ if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'deleteRessource') {
 
 
 /*** Modification d'une ressource ***/
-
 function modifyRessource($params, $modifyRessource)
 {
     return $modifyRessource->modify($params['params']);
 }
 
 if (isset($_POST['myFunction']) && $_POST['myFunction'] === 'modifyRessource') {
-    if (modifyRessource($_POST['myParams'], $ressourcesModelDb)) {
-        echo json_encode(array(
-            'type' => 'success',
-            'msg' => 'Votre modification a été enregistrée !'
-        ));
-    } else {
+    try {
+        modifyAdmin($_POST['myParams'], $ressourcesModelDb);
+    }catch (PDOException $e) {
         echo json_encode(array(
             'type' => 'danger',
-            'msg' => 'Une erreur est survenue !'
+            'msg' => 'Une erreur est survenue !',
+            'debug' => array(
+                'line' => $e->getLine(),
+                'message' => $e->getMessage(),
+                'trace' => $e->getTrace()
+
+            )
+        ));
+        $error = true;
+    }
+    if ($error === false) {
+        echo json_encode(array(
+            'type' => 'success',
+            'msg' => 'Votre modification a été enregistré !',
         ));
     }
 }

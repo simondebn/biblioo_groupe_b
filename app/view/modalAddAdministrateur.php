@@ -14,27 +14,26 @@
     </div>
     <form id="formAdministrateur">
         <div class="modal-body" style="padding:0 20%; padding-top:20px">
-            <input type="hidden" id="id_admin" class="form-control" value="<?php if (isset($_GET['params']['id'])) echo $_GET['params']['id']; ?>">
             <div class="file-field">
                 <label>Photo</label>
-                <div class="btn btn-primary btn-sm">
+                <!--<div class="btn btn-primary btn-sm">
                     <span>Choose file</span>
                     <input type="file" accept="image/*">
-                </div>
+                </div>-->
             </div>
             <div class="md-form">
-                <input type="text" id="login" class="form-control"  value="<?php if (isset($_GET['params']['login'])) echo $_GET['params']['login']; ?>"><label for="form1" class="<?php if (isset($_GET['params']['login'])) echo 'active'; ?>">Login</label>
+                <input type="text" id="login" class="form-control" ><label for="form1">Login</label>
             </div>
             <div class="md-form">
                 <input type="password" id="password" class="form-control"><label for="form1" class="">Mot de Passe</label>
             </div>
             <div class="md-form">
-                <input type="email" id="email" class="form-control" value="<?php if (isset($_GET['params']['email'])) echo $_GET['params']['email']; ?>"><label for="form1" class="<?php if (isset($_GET['params']['email'])) echo 'active'; ?>">E-mail</label>
+                <input type="email" id="email" class="form-control"><label for="form1">E-mail</label>
             </div>
         </div>
         <div class="modal-footer">
             <div class="col-md-12 text-center">
-                <input type="submit" name="envoyer" id="<?php if (isset($_GET['params']['id'])) echo 'submitModifyAdmin';  else echo 'submitAddAdmin'; ?>" class="btn btn-success" value="Envoyer">
+                <input type="submit" name="envoyer" id="submitAddAdmin" class="btn btn-success" value="Envoyer">
             </div>
         </div>
     </form>

@@ -104,13 +104,12 @@
                             }
                             ?>
                             <?php endif; ?>
-
-                        <td class="align-middle"><a target="_blank" href="<?= $book['link'] ?>"><img class="lien_infos"
+                        <td class="align-middle lien"><a id="link" target="_blank" href="<?= $book['link'] ?>"><img class="lien_infos"
                                                                                                      src="public/img/svg/infos.svg"></a>
                         </td>
                         <td class="align-middle">
                             <div class="button_admin">
-                                <button class="btn btn-orange btn-md btn-admin">Modifier</button>
+                                <button id="modifyBookButton" data-id="<?= $book['id'] ?>" class="btn btn-orange btn-md btn-admin">Modifier</button>
                                 <button id="deleteBookButton" data-id="<?= $book['id'] ?>"
                                         class="btn btn-red btn-md btn-admin">Supprimer
                                 </button>
@@ -172,12 +171,13 @@
                             }
                             ?>
                             <?php endif; ?>
-                        <td class="align-middle"><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos"
+
+                        <td class="align-middle lien"><a target="_blank" href="<?= $revue['link'] ?>"><img class="lien_infos"
                                                                                                       src="public/img/svg/infos.svg"></a>
                         </td>
                         <td class="align-middle">
                             <div class="button_admin">
-                                <button class="btn btn-orange btn-md btn-admin">Modifier</button>
+                                <button id="modifyRevueButton" data-id="<?= $revue['id'] ?>" class="btn btn-orange btn-md btn-admin">Modifier</button>
                                 <button id="deleteRevueButton" data-id="<?= $revue['id'] ?>"
                                         class="btn btn-red btn-md btn-admin">Supprimer
                                 </button>

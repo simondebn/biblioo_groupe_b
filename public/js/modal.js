@@ -120,7 +120,7 @@ $('body').on('click', '#modifyAdminButton', function () {
                 if (msg.type == 'success') {
                     $('.modal.form').modal('hide');
                     bootstrapNotify(msg.msg, msg.type);
-                    adminList.remove('login',oldlogin)
+                    adminList.remove('login', oldlogin);
                     adminList.add({
                         login: params['login'],
                         email: params['email'],
@@ -241,6 +241,86 @@ function addBook() {
 }
 
 /*** Modifier Livre ***/
+
+$('body').on('click', '#modifyBookButton', function () {
+
+    $.ajax({
+        url: 'app/view/modalAddBook.php',
+        type: 'POST',
+        data: {
+            id: $(this).data("id"),
+            titre: $(this).parents('tr').find('.titre').text(),
+            auteur: $(this).parents('tr').find('.auteur').text(),
+            date: $(this).parents('tr').find('.date').text(),
+            domaine: $(this).parents('tr').find('.domaine').text(),
+            lien: $(this).parents('tr').find('#link')[0]['href'],
+        }
+    })
+        .done(function (html) {
+            $('.modal.form .modal-dialog').html(html);
+        })
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
+
+    $('.modal.form').modal('show');
+
+});
+
+$('body').on('submit', '#formModifyBook', function (e) {
+    e.preventDefault();
+    let params = {
+        'id': $('#id_book')[0].value,
+        'titre': $('#titre')[0].value,
+        'auteur': $('#auteur')[0].value,
+        'date': $('#date')[0].value,
+        'domaine': $('#domaine')[0].value,
+        'link': $('#lien')[0].value,
+        'id_type': 1,
+        'couverture': 'NULL',
+        'description': 'NULL'
+
+    };
+    console.log(params);
+
+    $.ajax({
+        url: "manage-admin",
+        type: 'POST',
+        data:
+            {
+                myFunction: 'modifyRessource',
+                myParams: {
+                    params: params
+                }
+            }
+    })
+        .done(function (data) {
+            msg = JSON.parse(data);
+            console.log(msg);
+            if (msg.type == 'success') {
+                $('.modal.form').modal('hide');
+                bootstrapNotify(msg.msg, msg.type);
+                adminBookList.remove('titre', params['titre'])
+                adminBookList.add({
+                    titre: params['titre'],
+                    auteur: params['auteur'],
+                    date: params['date'],
+                    domaine: params['domaine'],
+                });
+                adminBookList.sort('titre', {
+                    order: "asc"
+                });
+                // attention petit bug lors de la mise à jour de la liste : pour les champs couverture, note et lien (non gérés pas list.js)
+                modifyPaginationClasses()
+            } else {
+                bootstrapNotify(msg.msg, msg.type);
+            }
+        })
+        .fail(function () {
+            bootstrapNotify("Une erreur s'est produite", 'danger')
+        });
+});
+
 
 /*** Ajouter Revue ***/
 

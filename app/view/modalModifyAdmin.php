@@ -10,11 +10,11 @@
             <input type="hidden" id="id" class="form-control" value="<?= $_POST['id'] ?>">
             <div class="file-field">
                 <label>Photo</label>
-                <div class="btn btn-primary btn-sm">
+<!--                <div class="btn btn-primary btn-sm">
                     <span>Choose file</span>
                     <input type="file" accept="image/*">
                 </div>
-            </div>
+-->            </div>
             <div class="md-form">
                 <input type="text" id="login" class="form-control" value="<?= $_POST['login'] ?>"><label for="form1" class="active">Login</label>
             </div>

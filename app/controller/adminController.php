@@ -7,7 +7,7 @@ $error = false;
         $str = h($str);
         echo $str;
     }
-}*/
+}
 
 /*** GESTION DES ADMINS ***/
 

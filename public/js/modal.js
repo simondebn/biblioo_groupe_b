@@ -252,7 +252,9 @@ $('body').on('click', '#addRevueButton', function () {
     $('.modal.form').modal('show');
 });
 
-$('body').on('submit', '#formAddRevue',function (e) {
+
+
+$('body').on('submit','#formAddRevue', function (e) {
     e.preventDefault();
     let params = {
 
